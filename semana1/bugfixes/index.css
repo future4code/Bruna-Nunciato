@@ -134,6 +134,10 @@ table {
     height: 100px;
 }
 
+#campo-busca{
+    border: none;
+    border-bottom: 2px solid black;
+}
 
 #back-button {
     background-color: white;
