@@ -31,8 +31,10 @@ img {
 
 div>p:first-child {
     display: block;
-    padding-top: 30px;
+    /* padding-top: 80px; */
 }
+
+text-align: left;
 
 div img {
     /* background: black; */
@@ -55,14 +57,17 @@ div img {
 }
 
 .container {
-    height: 500px;
+    height: 50%;
     text-align: center;
-  
+   
+
+ 
 
 }
 
 .icone {
     height: 15px;
+    width: 15px;
 }
 
 
@@ -75,6 +80,8 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 #container-de-descricao>ol {
@@ -83,12 +90,12 @@ div img {
 
 #container-para-comprar {
     background-color: #e7eb90;
-   
+   padding-bottom: 100px;
 }
 
 #container-para-comprar>p {
     color: #c44f00;
-    padding: 100px 0;
+    padding: 90px 0;
     font-size: 60px;
 }
 
@@ -107,6 +114,7 @@ div:last-child {
 table {
     width: 60%;
     margin:auto;
+   
 }
 
 td button {
