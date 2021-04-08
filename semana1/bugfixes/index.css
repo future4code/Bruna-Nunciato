@@ -164,6 +164,14 @@ table {
     padding-top: 120px;
 }
 
+ol{
+    padding: 20px ;
+    margin: auto;
+    list-style-position: inside;
+    text-align: center;
+}
+
+
 /* .tabelinha{
     margin-top: 100px;
     margin-bottom: 200px;
