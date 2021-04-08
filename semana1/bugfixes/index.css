@@ -117,12 +117,16 @@ table {
    
 }
 
-td button {
+.botao-comprar {
     background-color: #fadf63;
     width: 150px;
     height: 30px;
     border-radius: 5px;
     color: black;
+}
+
+.botao-comprar:hover {
+    background-color: #c44f00;
 }
 
 .container-do-search {
@@ -139,8 +143,14 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+
 }
 
 #back-button:hover {
     background-color: #635a3d
 }
+
+/* .tabelinha{
+    margin-top: 100px;
+    margin-bottom: 200px;
+} */
