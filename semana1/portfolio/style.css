@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'RocknRoll One', sans-serif;
+    text-align: center;
+    
+}
+body{
+    background-color: black;
+
+    box-sizing: border-box;
+  
+}
+img{
+    margin-top: 50px;
+    height: 300px;
+    border-radius: 20px 20px;
+    border: 3px solid rebeccapurple;
+    background-color: rgb(230, 230, 98);
+    }
+    
+.name{
+    margin-top: 30px; 
+    font-size: 40px;
+    display: inline;
+}
+.titulo{
+    font-size: 25px;
+    display: inline;
+}
+
+ 
+
+h3{
+    
+    font-size: 20px;
+    color: rgb(197, 28, 212);
+}
+.navbar{
+    height: 30px;
+    background-color: black;
+}
+.links{
+    padding: 5px;
+    background-color: rgb(230, 230, 98);
+    color: black;
+    border-radius: 15px 0;
+     margin: 10px 30px;
+}
+footer{
+    height: 60px;
+    background-color: black;
+    width: 100vw;
+    position: fixed;
+    bottom: 10px;
+}
+
+
+img:hover{
+  
+    
+}
+section{
+border: 0 30px;
+margin: 30px;
+width: 95%;
+background-color: rgb(123, 196, 238);
+vertical-align: middle;
+height: 90vh;
+ 
+}
+p:first-of-type{
+    font-style: italic;
+    font-size: 15px;
+}
+
+.Estudos{
+    margin: none ;
+}
+h3{
+    margin: 0;
+    padding: 0;
+}
+.Profissional{
+    margin: 10px 0;
+}
