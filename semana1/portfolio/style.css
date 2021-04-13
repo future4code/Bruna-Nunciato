@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'RocknRoll One', sans-serif;
+    text-align: center;
+    
+}
+body{
+    background-color: rgb(77, 71, 71);
+    box-sizing: border-box;
+  
+}
+.fotoprincipal{
+    margin-top: 40px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 98);
+    border: 3px solid rgba(102, 99, 99, 0.493) ;
+}
+    
+.name{
+    margin-top: 15px; 
+    font-size: 40px;
+    display: inline;
+}
+.titulo{
+    font-size: 20px;
+    display: inline;
+}
+
+
+h3{
+    
+    font-size: 20px;
+    color: rgb(4, 7, 51);
+}
+.navbar{
+    height: 30px;
+    background-color: rgb(77, 71, 71);
+    margin-top: 20px;
+}
+.links{
+    padding: 5px;
+    background-color: rgb(230, 230, 98);
+    color: black;
+    border-radius: 15px 0;
+    margin: 10px 30px;
+}
+.links:hover{
+    background-color: rgb(4, 7, 51);
+    color:white;
+}
+footer{
+    width: 100vw;
+    bottom: 20px;
+    position: fixed;
+    vertical-align: top;
+}
+
+.github, .facebook, .instagram, .linkedin{
+    height: 40px;
+    width: auto;
+    margin: 0 9px;
+}
+.github:hover, .facebook:hover, .instagram:hover, .linkedin:hover{
+    border: 2px solid rgb(4, 7, 51);
+}
+
+section{
+    color: white;
+    border: 0 30px;
+    margin: 30px;
+    width: 95%;
+    background-color: rgb(123, 196, 238);
+    vertical-align: middle;
+    height: 75vh;
+    border-radius: 20px;
+}
+
+p:first-of-type{
+    font-style: italic;
+    font-size: 18px;
+}
+
+.Estudos{
+    color: black;
+    margin: none ;
+}
+
+h3{
+    margin: 0;
+    padding: 0;
+}
+
+/* pag de contato */
+
+.contato{
+    display: inline-block;
+    padding: 50px 0;
+    margin: 50px 0;
+}
+
+.deixeUmaMensagem{
+    padding: 50px 0 20px 0;
+}
+
+#mensagem{
+    width: 400px;
+    height: 150px;
+}
+
+#botao{
+    background-color: rgb(230, 230, 98);
+    color: black;
+    height: 40px;
+    width: 80px;
+    margin-top: 30px;
+}
+/* pagina projetos */
+
+article{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    background-color: rgb(123, 196, 238);
+    width: 95%;
+    margin: 30px;
+    border-radius: 20px;
+    }
+
+
+.projetobug{
+    margin-right: 35% ;
+}
+
+.projetolabenu{
+    margin-left: 35%;
+}
+
+.projetoTudoDePano{
+    margin-right: 35%;
+}
+
+/* imagens dos projetos */
+#tudoDePano{
+    width: 600px;
+    height: auto;
+    border: 2px solid black;
+    margin: 15px;
+}
+#labenu{
+    width: 600px;
+    height: auto;
+    border: 2px solid black;
+    margin: 15px;
+}
+#bug{
+    width: 600px;
+    height: auto;
+    border: 2px solid black;
+    margin: 15px;
+}
+
+/* linha do tempo */
+.tempo{
+    padding-top: 30px;
+    width: 40%;
+    }
+
+.habilidades{
+    color: black;
+}
+    
+.tempo2{
+    width: 45%;
+    margin-left: 40%;
+    padding: 100px;
+}
+    
+.experiencias{
+    margin: 20px 15px
+}
+    
+main{
+    color: white;
+    border: 0 30px;
+    margin: 30px;
+    width: 95%;
+    background-color: rgb(123, 196, 238);
+    vertical-align: middle;
+    height: 75vh;
+    border-radius: 20px;
+}
