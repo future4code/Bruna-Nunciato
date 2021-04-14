@@ -1,0 +1,104 @@
+body{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 90px 1fr 70px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: orange;
+    padding-left: 80px;
+ 
+}
+
+.titulo{
+    color: red;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+
+}
+.pesquisa{
+    color: white;
+    margin: 20px 20px;
+    display: flex;
+    align-items: center;
+}
+.buscador{
+    width: 300px;
+}
+button{
+    font-size: 15px;
+}
+.logo{
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+}
+.seta{
+    width: 30px;
+}
+.video{
+    width: 250px;
+    height: auto;
+    border: 2px solid black;
+   
+}
+
+.galeria{
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgb(46, 45, 45);
+    margin: 5px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px 2px;
+    font-size: 20px;
+    color: black;
+    background-color: rgba(218, 216, 109, 0.527);
+}
+section{
+    display:grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4,1fr);
+    margin: 10px;
+}
+
+footer{
+    background-color: orange;
+    bottom: 0;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:red
+
+}
+.player{
+    font-size: 40px;
+    text-align: center;
+    background-color: black;
+    display: grid;
+    align-self: stretch;
+    justify-content: center;
+
+}
+#nomedovideo{
+    color: white;
+    font-family: cursive;
+    font-size: 30px;
+}
+#beleza, #naturalmente{
+    text-align: center;
+    vertical-align: middle;
+
+}
