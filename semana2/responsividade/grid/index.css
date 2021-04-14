@@ -91,17 +91,17 @@ div div div {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, 1fr)
-      
-      
+          
     }
     .doisjuntinhos{
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, 1fr)
+        grid-template-rows: repeat(2, 1fr)
      
     }
     
 }
+
 @media screen and (min-device-width:420px) and (max-width:800px){
     #main-container{
         grid-template-rows: 8;
@@ -123,6 +123,7 @@ div div div {
         grid-column: 1/span1;
     }
     .white-block1 {
-        grid-column: 1/span;
+        display: grid;
+        grid-column: 1/span1;
     }
 }

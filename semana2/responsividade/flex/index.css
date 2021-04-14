@@ -1,0 +1,164 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+div div div {
+    border: 1px solid black;
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.tresjuntinhos{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+}
+
+.doisjuntinhos{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+}
+
+#first-block {
+    background-color: red;
+    height: 10vh;
+    
+}
+
+.blue-block {
+    background-color: blue;
+    margin: 2vh;
+    height: 30vh;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.yellow-block {
+    background-color: yellow;
+    margin: 2vh;
+    height: 30vh;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.green-block {
+    background-color: green;
+    margin: 2vh;
+    height: 30vh;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.black-block {
+    background-color: black;
+    color: white;
+    margin: 2vh;
+    height: 60vh;
+    width: 46.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.white-block {
+    background-color: white;
+    margin: 2vh;
+    height: 30vh;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.white-block1{
+    background-color: white;
+    margin: 2vh;
+    height: 30vh;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-device-width:20px) and (max-width:420px){
+
+    .blue-block {
+       width: 100%;
+      }
+    
+    .yellow-block {
+        width: 100%;
+        }
+    
+    .green-block {
+        width: 100%;
+     }
+    
+    .black-block {
+        width: 100%;
+      
+    }
+    
+    .white-block {
+        width: 100%;
+    }
+    
+    .white-block1{
+        width: 100%;
+    }
+}
+
+@media screen and (min-device-width:420px) and (max-width:800px){
+    
+    .tresjuntinhos{
+    
+        flex-wrap: wrap;
+       
+    }
+    
+    .doisjuntinhos{
+      
+        flex-wrap: wrap;
+     
+    }
+
+    .blue-block {
+        width: 45%;
+       }
+     
+     .yellow-block {
+         width: 45%;
+         }
+     
+     .green-block {
+         width: 93%;
+      }
+     
+     .black-block {
+         width: 45%;
+       
+     }
+
+     .white-block {
+        width: 45%;
+    }
+
+     .white-block1 {
+         width: 93%;
+     }
+
+}
