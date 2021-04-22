@@ -87,49 +87,69 @@ etapa = etapa.toUpperCase()
 let categoria = Number(prompt("Qual a categoria 1, 2, 3 ou 4?"))
 let quantidade = Number(prompt("quantos ingressos?"))
 let precoingresso
-if (etapa === SF && categoria === 1){
+if (etapa === "SF" && categoria === 1){
 precoingresso = 1320.00
-}    else if (etapa === SF && categoria === 2){
+}    else if (etapa === "SF" && categoria === 2){
     precoingresso = 880.00
-    }    else if (etapa === SF && categoria === 3){
-        precoingresso = 550.00
-   }   else if (etapa === SF && categoria === 4){
-            precoingresso = 220.00
-     }     else if (etapa === DT && categoria === 1){
-                precoingresso = 660.00
-         }    else if (etapa === DT && categoria === 2){
-                    precoingresso = 440.00
-          }  else if (etapa === DT && categoria === 3){
-                        precoingresso = 330.00
-         } else if (etapa === DT && categoria === 4){
-                            precoingresso = 170.00
-         } else if (etapa === FI && categoria === 1){
-                                precoingresso = 1980.00
-         } else if (etapa === FI && categoria === 2){
-                                    precoingresso = 1320.00
-         } else if (etapa === FI && categoria === 3){
-                                        precoingresso = 880.00
-         } else if (etapa === FI && categoria === 4){
-                                            precoingresso = 330.00
-                                        }
-
-
-let localidade
-if tipojogo === IN{ 
-     localidade = Internacional
-    } 
-     if else tipodejogo === DO{
-     localidade = Nacional
+    }    else if (etapa === "SF" && categoria === 3){
+         precoingresso = 550.00
+   }   else if (etapa === "SF" && categoria === 4){
+        precoingresso = 220.00
+     }     else if (etapa === "DT" && categoria === 1){
+            precoingresso = 660.00
+         }    else if (etapa === "DT" && categoria === 2){
+              precoingresso = 440.00
+          }  else if (etapa === "DT" && categoria === 3){
+              precoingresso = 330.00
+         } else if (etapa === "DT" && categoria === 4){
+             precoingresso = 170.00
+         } else if (etapa === "FI" && categoria === 1){
+            precoingresso = 1980.00
+         } else if (etapa === "FI" && categoria === 2){
+             precoingresso = 1320.00
+         } else if (etapa === "FI" && categoria === 3){
+            precoingresso = 880.00
+         } else if (etapa === "FI" && categoria === 4){
+            precoingresso = 330.00
 }
+                                        
+                                        
 let valortotal = quantidade * precoingresso
 
-let ticket 
-if quantidade > 1{
-    ticket = ingresssos
-}    else{
-        ticket = ingresso
+var dolar = 4.10
+if (tipojogo === "IN"){
+    valortotal = valortotal * dolar
+}
+
+let localidade
+if (tipojogo === "IN"){ 
+     localidade = "US$"
     }
+    else if (tipojogo === "DO"){
+     localidade = "R$ "
+}
 
 
-console.log (`------Sua compra foi de ${quantidade} ${ticket} em nome de ${nomeuser} para o jogo ${tipojogo} da Categoria ${categoria}`)
-console.log (`--------------------------------------------- Total a Pagar ${valortotal}------------------------------`)
+let ticket 
+if (quantidade > 1){
+    ticket = "ingresssos"
+}    else{
+        ticket = "ingresso"
+    }
+let jogo 
+if (etapa === "FI"){
+    jogo = "Final"
+}   else if (etapa === "DT"){
+    jogo = "Decisão 3º Lugar"
+}   else if (etapa === "SF"){
+    jogo = "Semifinais"
+}
+console.log( `-------- Dados da compra ---------` )
+console.log(`Nome do cliente: ${nomeuser}`)
+console.log (`Etapa do jogo: ${jogo}`)
+console.log (`Categoria: ${categoria}`)
+console.log (`Quantidade: ${quantidade} ${ticket} `)
+console.log (`----------Valores---------`)
+console.log (`Valor do ingresso: R$ ${precoingresso}`)
+console.log (`Valor total: ${localidade} ${valortotal}`)
+
