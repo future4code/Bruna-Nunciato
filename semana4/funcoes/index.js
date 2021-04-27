@@ -19,24 +19,30 @@
 //  ---------------------------Exercício de Escrita de código --------------------
 //  ------------------------------Exercício 4 --------------------------------------
 // a)
+// const nome = "Bruna";
+// const idade = 34;
+// const cidade = "Vinhedo";
+// const souOuNao = "sou";
 
-// function informacaoes(){
-//     const frase = (`Eu sou Bruna, tenho 34 anos, moro em Vinhedo e sou estudante.`)
-//     console.log(frase)
+
+// function imprimeFrase(){
+//     console.log(`Eu sou ${nome}, tenho ${idade} anos, moro em ${cidade} e ${souOuNao} estudante.`)
+
 // }
-// informacaoes()
+// imprimeFrase();
 //==============================================================================================
 // 
 // b)
 // function informacoes(nome, idade, endereco,souOuNao){
-//     if (souOuNao = true){
+//     if (souOuNao){
 //     souOuNao = "sou"
-// }    else{ souOuNao = "não sou"
+// }    else{ 
+//        souOuNao = "não sou"
 // }
-//     const frase = (`Eu sou ${nome}, tenho ${idade} anos, moro em ${endereco} e ${souOuNao} estudante.`)
-//     console.log(frase)
+//    return `Eu sou ${nome}, tenho ${idade} anos, moro em ${endereco} e ${souOuNao} estudante.`
+   
 // }
-// informacoes("Bruna",34,"Vinhedo",true)
+// console.log(informacoes("Bruna",34,"Vinhedo",true))
 
 // ------------------------------Exercício 5 --------------------------------------
 // a)
@@ -57,6 +63,11 @@
 //     return comparador
 // }   
 // console.log(maiorOuIgual(8,3))
+//====================================================================================
+//---------------------------- ou simplesmente ----------------------------
+// function comparaNumeros(num1,num2){
+//     return num1>num2
+// }
 //==============================================================================================
 // c)
 // function imprimirDezVezes (texto){
@@ -87,6 +98,11 @@
 // }
 // const check = verificarPar(89)
 // console.log(check)
+// -----------simplificado----------------
+// function verificaNumPar(numero){
+//     return numero % 2 === 0
+// }
+
 //==============================================================================================
 // c)
 // function quantidadeNumerosPares (array){
@@ -115,13 +131,23 @@
 // let conjunto = [34, 45, 67, 88, 56, 80, 22, 54, 70]
 // const resultado = booleanNumeroPar(conjunto)
 // console.log(resultado)
+// ------------------simplificado---------------------
+// function verificaNumerosPares (array){
+//         let numerosPares =[]
+//         for (let i=0; i < array.length; i++){
+//             if verificaNumPar(numero){
+//                 numerosPares.push(true)
+//                 }
+//         }
+//         return numerosPares.length
+//     }   
 //==============================================================================================
 //------------------------------------Desafios -------------------------------------------------
 // ------------------------------Exercício 1 --------------------------------------------------
 // a)
 // const imprimir = (parametro) =>{
-//     console.log(parametro)
-//     return parametro
+//     console.log(`Parametro é: ${parametro}`)
+//     return parametro 
 // }
 // b)
 // const DoisValores = (num1,num2) =>{
@@ -136,11 +162,11 @@
 const numeros = [0, 8, 23, 16, 10, 15, 41, 12, 13]
 // a)
 
-// function multiplosDeDois (array){
+// function multiplosDeDois (arrayDeNumeros){
 //      let conjuntoPar = []
 //      for (let i = 0; i<array.length; i++)
 //      if (i % 2 === 0){
-//         conjuntoPar.push(i)
+//         conjuntoPar.push(i*2)
 //     }
 //     return conjuntoPar
 // }
@@ -160,19 +186,27 @@ const numeros = [0, 8, 23, 16, 10, 15, 41, 12, 13]
 // =================================================================================================
 // c)
 // function retorneindiceMaior (array){
-//     let indicemaior = 0
-//       for (let i = 0; i< arraylength; i++){
-//         if (array[i])>maiorNumero){
-//             indicemaior.splice(array.length[i])
+//     let indicemaior 
+//     let maiorNumero = array[0]
+//       for (let i = 0; i< array.length; i++){
+//         if (array[i]>maiorNumero){
+//             maiorNumero = array[i]
+//              indice = i
 //         }
 //     }
+// return{
+//     maiorNumero,
+//     indice
+// }
 // }
 // console.log(retorneindiceMaior(numeros))
 // =================================================================================================
 // d) 
-// function inverterArray (array){
-//     let arrayinvertida = array.reverse()
-//     return arrayinvertida
-// }
+function inverterArray (array){
+    let arrayinvertida = []
+    for( let i = array.length -1; i>= 0; i--){
+     arrayinvertida.push(array[i])
+}   return arrayinvertida
+}
 
-// console.log(inverterArray(numeros))
+console.log(inverterArray(numeros))
