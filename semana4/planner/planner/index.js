@@ -8,7 +8,7 @@ const tarefaSexta = document.getElementById("sexta")
 const tarefaSabado = document.getElementById("sabado")
 
 const seletor = document.getElementById("dias-semana")
-
+const 
 function adicionaTarefa (){
     if (tarefaAdicionada.value === ""){
         alert("Adicione um valor em tarefa!!")
