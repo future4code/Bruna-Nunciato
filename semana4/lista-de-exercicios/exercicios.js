@@ -1,30 +1,50 @@
 //Exercício 1
 
 function inverteArray(array) {
-  let arrayinvertida=[]
-   for (let  i= array.length-1 ; i >= 0 ; i--){
-      arrayinvertida.push(array[i])
-   }
-  return arrayinvertida
+  let arrayinvertida = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    arrayinvertida.push(array[i]);
+  }
+  return arrayinvertida;
 }
 
 //Exercício 2
 
-function retornaNumerosParesElevadosADois (array) {
+function retornaNumerosParesElevadosADois(array) {
+  let numerosParesAoQuadrado = [];
 
-  
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      numerosParesAoQuadrado.push(array[i] ** 2);
+    }
+  }
+  return numerosParesAoQuadrado;
 }
+  
+
 
 //Exercício 3
 
-function retornaNumerosPares (array) {
-   // implemente sua lógica aqui
+function retornaNumerosPares(array) {
+  let numerosPares = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      numerosPares.push(array[i]);
+    }
+  }
+  return numerosPares;
 }
 
 //Exercício 4
 
 function retornaMaiorNumero(array) {
-   // implemente sua lógica aqui
+   let numeroMaior = 0
+   for (let i of array){
+      if (i> numeroMaior){
+         numeroMaior= i
+      }
+   }
+   return numeorMaior
 }
 
 //Exercício 5
