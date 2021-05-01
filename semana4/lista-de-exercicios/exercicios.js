@@ -89,37 +89,79 @@ function retornaNNumerosPares(n) {
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-  // implemente sua lógica aqui
+  if (a === b && b === c) {
+    return "Equilátero";
+  }   else if ((a === b && b != c) || (a === c && c != b) || (c === b && b != a)) {
+    return "Isósceles";
+  } 
+  else {
+     return "Escaleno";
+   
+  }
 }
 
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica aqui
+  
+   
+   
 }
+
 
 // Exercício 10
 
 function segundoMaiorEMenor(array) {
-   // implemente sua lógica aqui
+//    let segundoNumeroMaior = 0
+//    let segundoNumeroMenor = Infinity
+//       for (let i= 0; i< array.lenght; i++){
+//          if (array[i]>array[i+1]){
+//            segundoNumeroMaior = array[i]
+//            }
+//       }
+//       for (let i= 0; i< array.lenght; i++){
+//          if (array[i]<array[i-1]){
+//             segundoNumeroMenor = array[i]
+//          }
+//       }
+// return segundoNumeroMenor, segundoNumeroMaior
+    
 }
 
 //Exercício 11
 
 function ordenaArray(array) {
-   // implemente sua lógica aqui
-}
+   // let bubble 
+   // for (let i = 0; i <array.length; i++){
+   //    for (let i= 0; i<array.length; i++){
+   //       if(array[i]> array[i+1])
+   //          bubble = array[i];
+   //          array[i] = array[i+1]
+   //          array[i+1] = bubble
+   //       }
+   //    }
+   }
+  
+  
+
 
 // Exercício 12
 
 function filmeFavorito() {
-   // implemente sua lógica aqui
-}
+//  const filmeFav = {
+//     nome:"O Diabo Veste Prada",
+//     ano: 2006,
+//     diretor: "David Frankel",
+//     atores: ["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"]
+// }
+//    console.log(filmeFav)
+//    return filmeFavorito
+// }
 
-// Exercício 13
+// // Exercício 13
 
-function imprimeChamada() {
-   // implemente sua lógica aqui
+// function imprimeChamada() {
+//    // implemente sua lógica aqui
 }
 
 // Exercício 14
@@ -183,6 +225,9 @@ const pessoas = [
   { nome: "Artur", idade: 10, altura: 1.2},
   { nome: "Soter", idade: 70, altura: 1.9}
 ]
+// // const pessoas.map(pessoa, id, arr)=>{
+// //    return.pessoa.idade>18
+// }
 
 //Exercício 18, letra A
 
@@ -209,7 +254,8 @@ const consultasNome = [
  //Exercício 19, letra A
  
  function ordenaPorNome() {
-  
+ //ordenaArray
+
  }
  
  // Exercício 19, letra B
