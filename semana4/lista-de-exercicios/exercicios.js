@@ -134,20 +134,25 @@ function comparaDoisNumeros(num1, num2) {
 // Exercício 10
 
 function segundoMaiorEMenor(array) {
-//    let segundoNumeroMaior = 0
-//    let segundoNumeroMenor = Infinity
-//       for (let i= 0; i< array.lenght; i++){
-//          if (array[i]>array[i+1]){
-//            segundoNumeroMaior = array[i]
-//            }
+//   let segundoNumeroMaior = 0;
+//   let segundoNumeroMenor = Infinity;
+
+//   for (let i = 0; i < array.lenght; i++) {
+//     for (let i = 0; i < array.lenght; i++) {
+//       if (array[i] > array[i + 1]) {
+//         segundoNumeroMaior = array[i];
 //       }
-//       for (let i= 0; i< array.lenght; i++){
-//          if (array[i]<array[i-1]){
-//             segundoNumeroMenor = array[i]
-//          }
+//     }
+//   }
+//   for (let i = array.lenght; i >= 0; i--) {
+//     for (let i = array.lenght; i >= 0; i--) {
+//       if (array[i] < array[i - 1]) {
+//         segundoNumeroMenor = array[i];
 //       }
-// return segundoNumeroMenor, segundoNumeroMaior
-    
+//     }
+//   }
+//   const arrayDoisValores = (segundoNumeroMaior, segundoNumeroMenor);
+//   return arrayDoisValores;
 }
 
 //Exercício 11
@@ -170,20 +175,20 @@ function ordenaArray(array) {
 // Exercício 12
 
 function filmeFavorito() {
-//  const filmeFav = {
-//     nome:"O Diabo Veste Prada",
-//     ano: 2006,
-//     diretor: "David Frankel",
-//     atores: ["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"]
-// }
-//    console.log(filmeFav)
-//    return filmeFavorito
-// }
+ const filmeFav = {
+    nome:"O Diabo Veste Prada",
+    ano: 2006,
+    diretor: "David Frankel",
+    atores: ["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"]
+}
+  
+   return filmeFav
+}
 
-// // Exercício 13
+// Exercício 13
 
-// function imprimeChamada() {
-//    // implemente sua lógica aqui
+function imprimeChamada() {
+   // implemente sua lógica aqui
 }
 
 // Exercício 14
