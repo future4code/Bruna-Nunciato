@@ -313,7 +313,13 @@ const pessoas = [
 //Exercício 18, letra A
 
 function retornaPessoasAutorizadas() {
-   // implemente sua lógica aqui
+ const podeEntrar = pessoas.filter((pessoa,index,array)=>{
+    if ((pessoa.idade> 14) && (pessoa.idade<60) && (pessoa.altura>= 1.5)){
+       return true
+    }
+   
+ })
+ return podeEntrar
 }
 
 
