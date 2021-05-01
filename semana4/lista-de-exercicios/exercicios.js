@@ -241,35 +241,34 @@ const arrayDePessoas = [
 // Exercício 16, letra A
 
 function maioresDe18(arrayDePessoas) {
-   const adultos = arrayDePessoas.filter((adulto, idade)=>{
-   if (adulto.idade >= 20){
-      return true
-   }
-   return false
-})
-return adultos
+  const adultos = arrayDePessoas.filter((adulto, idade) => {
+    if (adulto.idade >= 20) {
+      return true;
+    }
+    return false;
+  });
+  return adultos;
 }
 
 // Exercício 16, letra B
 
 
 function menoresDe18(arrayDePessoas) {
-  const crianca = arrayDePessoas.filter((crianca,idade)=>{
-   if (crianca.idade<20){
-      return true
-   }
-   
-})
-return crianca
+  const crianca = arrayDePessoas.filter((crianca, idade) => {
+    if (crianca.idade < 20) {
+      return true;
+    }
+  });
+  return crianca;
 }
 
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
-  let numerosMultiplicados = array.map((numero)=>{
-     return numero *2
-  })
-   return numerosMultiplicados
+  let numerosMultiplicados = array.map((numero) => {
+    return numero * 2;
+  });
+  return numerosMultiplicados;
 }
  
 
@@ -277,13 +276,18 @@ function multiplicaArrayPor2(array) {
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-  // implemente sua lógica aqui
+  let comString = "";
+  const numerosComString = array.map((num) => {
+    return `${num * 2}`;
+  });
+
+  return numerosComString;
 }
 
 // Exercício 17, letra C
 
 function verificaParidade(array) {
-   // implemente sua lógica aqui
+
 }
 
 // Exercício 18
