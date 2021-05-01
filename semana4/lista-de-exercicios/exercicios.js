@@ -221,11 +221,11 @@ function criaRetangulo(lado1, lado2) {
 // Exercício 15
 
 function anonimizaPessoa(pessoa) {
-    const pessoaAnonima = pessoa.map((pessoa,index)=>{
-      pessoa.nome = "ANÔNIMO"
-     
-    })
-    return pessoaAnonima
+   let pessoaAnonimo ={...pessoa}   
+
+   pessoaAnonimo.nome = "ANÔNIMO"
+ 
+return pessoaAnonimo
 }
 
 // Exercício 16
