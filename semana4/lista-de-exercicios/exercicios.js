@@ -252,8 +252,15 @@ return adultos
 
 // Exercício 16, letra B
 
+
 function menoresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
+  const crianca = arrayDePessoas.filter((crianca,idade)=>{
+   if (crianca.idade<20){
+      return true
+   }
+   
+})
+return crianca
 }
 
 // Exercício 17, letra A
