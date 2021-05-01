@@ -276,7 +276,6 @@ function multiplicaArrayPor2(array) {
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-  let comString = "";
   const numerosComString = array.map((num) => {
     return `${num * 2}`;
   });
@@ -287,7 +286,14 @@ function multiplicaArrayPor2S(array) {
 // Exercício 17, letra C
 
 function verificaParidade(array) {
-
+  const paridade = array.map((num) => {
+    if (num % 2 === 0) {
+      return `${num} é par`;
+    } else {
+      return `${num} é ímpar`;
+    }
+  });
+  return paridade;
 }
 
 // Exercício 18
