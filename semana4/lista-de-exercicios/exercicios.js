@@ -209,13 +209,23 @@ function imprimeChamada() {
 // Exercício 14
 
 function criaRetangulo(lado1, lado2) {
-   // implemente sua lógica aqui
+   const retangulo = {
+      largura: lado1,
+      altura: lado2,
+      perimetro: 2*(lado1+lado2),
+      area: lado1*lado2
+   }
+   return retangulo
 }
 
 // Exercício 15
 
 function anonimizaPessoa(pessoa) {
-   // implemente sua lógica aqui
+    const pessoaAnonima = pessoa.map((pessoa,index)=>{
+      pessoa.nome = "ANÔNIMO"
+     
+    })
+    return pessoaAnonima
 }
 
 // Exercício 16
