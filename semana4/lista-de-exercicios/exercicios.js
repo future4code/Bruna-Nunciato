@@ -266,8 +266,13 @@ return crianca
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
-   // implemente sua lógica aqui
+  let numerosMultiplicados = array.map((numero)=>{
+     return numero *2
+  })
+   return numerosMultiplicados
 }
+ 
+
 
 // Exercício 17, letra B
 
