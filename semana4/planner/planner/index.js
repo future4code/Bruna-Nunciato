@@ -1,43 +1,20 @@
-const tarefaAdicionada = document.getElementById("tarefa")
-const tarefaDomingo = document.getElementById("domingo")
-const tarefaSegunda = document.getElementById("segunda")
-const tarefaTerca = document.getElementById("terca")
-const tarefaQuarta = document.getElementById("quarta")
-const tarefaQuinta = document.getElementById("quinta")
-const tarefaSexta = document.getElementById("sexta")
-const tarefaSabado = document.getElementById("sabado")
 
-const seletor = document.getElementById("dias-semana")
-const 
-function adicionaTarefa (){
-    if (tarefaAdicionada.value === ""){
-        alert("Adicione um valor em tarefa!!")
-    return 
-    }  
+const semana = document.getElementsByClassName("semana")
+let tarefaAdicionada = document.getElementById("tarefa")
 
-    if (seletor.value === "domingo"){
-        tarefaDomingo.innerHTML+= `<p>${tarefaAdicionada.value}</p>`
-        tarefaAdicionada.value = ""
-    }   else if (seletor.value === "segunda"){
-        tarefaSegunda.innerHTML+= `<p>${tarefaAdicionada.value}</p>`
-        tarefaAdicionada.value = ""
-    }   else if (seletor.value === "terca"){
-        tarefaTerca.innerHTML+= `<p>${tarefaAdicionada.value}</p>`
-        tarefaAdicionada.value = ""
-    }   else if (seletor.value === "quarta"){
-        tarefaQuarta.innerHTML+= `<p>${tarefaAdicionada.value}</p>`
-        tarefaAdicionada.value = ""
-    }   else if (seletor.value === "quinta"){
-        tarefaQuinta.innerHTML+= `<p>${tarefaAdicionada.value}</p>`
-        tarefaAdicionada.value = ""
-    }   else if (seletor.value === "sexta"){
-        tarefaSexta.innerHTML+= `<p>${tarefaAdicionada.value}</p>`
-        tarefaAdicionada.value = ""
-    }   else if (seletor.value === "sabado"){
-        tarefaSabado.innerHTML+= `<p>${tarefaAdicionada.value}</p>`
-        tarefaAdicionada.value = ""
-    }   
-    
+
+
+function adicionaTarefa() {
+  let seletor = document.getElementById("dias-semana");
+  if (tarefaAdicionada.value != "") {
+    let divSemana = document.getElementById(`${seletor.value}`);
+    divSemana.innerHTML += `<p>${tarefaAdicionada.value}</p>`;
+    tarefaAdicionada.value = "";
+  }
+   else {
+    alert("Adicione um valor em tarefa!!");
+  }
+  
 }
 
 function limpar(){
@@ -46,9 +23,3 @@ function limpar(){
         i.innerHTML = ""
     }
 }
-
-function riscar (){
-        let arrayTarefasDomingo = [tarefaDomingo.innerHTML]
-   return
-}
-console.log(riscar)

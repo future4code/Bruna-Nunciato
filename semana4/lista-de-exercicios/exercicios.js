@@ -158,16 +158,19 @@ function segundoMaiorEMenor(array) {
 //Exercício 11
 
 function ordenaArray(array) {
-   // let bubble 
-   // for (let i = 0; i <array.length; i++){
-   //    for (let i= 0; i<array.length; i++){
-   //       if(array[i]> array[i+1])
-   //          bubble = array[i];
-   //          array[i] = array[i+1]
-   //          array[i+1] = bubble
-   //       }
-   //    }
-   }
+  // let len = array.length;
+  
+  // for (let i = 0; i < len; i++) {
+  //   for (let j = 0; i < len; i++) {
+  //     if (array[j] > array[j + 1]) {
+  //       let bubble = array[j];
+  //       array[j] = array[j + 1];
+  //       array[j + 1] = bubble;
+  //     }
+  //   }
+  // }
+  // return array
+}
   
   
 
@@ -361,6 +364,9 @@ const consultasNome = [
  
  function ordenaPorData() {
  
+  
+
+
  }
 
 //Exercício 20
@@ -375,5 +381,13 @@ const contas = [
 ]
 
 function atualizaSaldo() {
-  // implemente sua lógica aqui
+  contas.forEach((conta, index, array) => {
+    let totalCompras = 0;
+    conta.compras.forEach((compra) => {
+      totalCompras += compra;
+    })
+    conta.saldoTotal -= totalCompras;
+    
+  })
+  return contas;
 }
