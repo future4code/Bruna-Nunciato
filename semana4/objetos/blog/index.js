@@ -1,3 +1,5 @@
+const blog =[]
+
 function criarDados (){
 
     const tituloInput = document.getElementById("titulo-post")
@@ -9,7 +11,8 @@ function criarDados (){
     const autor = document.getElementById("autor-post").value
     const conteudo = document.getElementById("conteudo-post").value
     const informacoesinseridas = {titulo, autor, imagem, conteudo}
-    console.log(informacoesinseridas)
+    blog.push(informacoesinseridas)
+    console.log(blog)
     tituloInput.value =""
     autorInput.value =""
     conteudoInput.value =""

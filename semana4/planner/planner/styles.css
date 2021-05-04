@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color:rgb(53, 53, 53);
+   
 }
 
 header {
@@ -15,6 +17,9 @@ section {
     display: flex;
     justify-content: space-evenly;
     height: 90vh;
+    background-color: rgba(207, 169, 138, 0.815);
+    
+
 }
 
 .semana {
