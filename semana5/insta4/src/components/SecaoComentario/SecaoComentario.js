@@ -20,7 +20,7 @@ export class SecaoComentario extends Component {
     valorInputComentario: "",
   };
 
-  adicionaComentario = () => {
+  aoEnviar = () => {
     const novoComentario = {
       comentarionovo: this.state.valorInputComentario,
     };
@@ -49,7 +49,7 @@ export class SecaoComentario extends Component {
           value={this.state.valorInputcomentario}
           onChange={this.onChangeComentario}
         />
-        <button onClick={this.props.adicionaComentario}>Enviar</button>
+        <button onClick={this.props.aoEnviar}>Enviar</button>
       
 	  </CommentContainer>
     );
