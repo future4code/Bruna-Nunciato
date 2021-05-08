@@ -8,11 +8,16 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `
-const novosDados = styled.div`
+const NovosDados = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  border: 1px solid gray;
+  width:300px;
+  padding: 20px 0;
+  margin-top:5px;
+  background-color: rgba(190, 214, 205, 0.356);
 `
 
 
@@ -46,10 +51,13 @@ class App extends React.Component {
       fotoUsuario: this.state.valorInputFotoUsuario,
       fotoPost: this.state.valorInputFotoPostagem
     };
-    const novoPost = [...this.state.pessoa, novaPessoa];
+    const novoPost = [novaPessoa,...this.state.pessoa];
 
 
-    this.setState({ pessoa: novoPost });
+    this.setState({ pessoa: novoPost,
+      valorInputNomeUsuario:"",
+      valorInputFotoUsuario:"",
+      valorInputFotoPostagem:"" });
   };
 
   onChangeInputPessoa = (event) => {
@@ -81,7 +89,7 @@ class App extends React.Component {
     
     return (
       <MainContainer>
-        <div>
+        <NovosDados>
         <input     
         value={this.state.valorInputNomeUsuario}
         onChange={this.onChangeInputPessoa}
@@ -91,17 +99,17 @@ class App extends React.Component {
         <input
          value={this.state.valorInputFotoUsuario}
          onChange={this.onChangeInputFotoPerfil}
-         placeholder={"Foto Perfil"}
+         placeholder={"Link Foto Perfil"}
        />
        <br></br>
        <input
          value={this.state.valorInputFotoPostagem}
          onChange={this.onChangeInputFotoPostagem}
-         placeholder={"Foto Postagem"}
+         placeholder={"Link Foto"}
          />
          <br></br>
          <button onClick={this.adicionaPost}>Postar</button>
-          </div>
+          </NovosDados>
         <br></br>
         {listaDePostagem}
         
