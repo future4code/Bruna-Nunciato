@@ -2,12 +2,18 @@ import styled from "styled-components"
 import React from "react"
 
 
-export class FormularioFinal extends React.Components {
+class FormularioFinal extends React.Component {
     render() {
       return (
-           <div className="App">
-            <h2>Parabéns</h2>
+           <div>
+               <h3>O FORMULÁRIO ACABOU</h3>
+            <h4>Muito obrigado por participar! Entraremos em contato!</h4>
             </div>
       );
     }
   }       
+  export default FormularioFinal;
+
+
+
+  

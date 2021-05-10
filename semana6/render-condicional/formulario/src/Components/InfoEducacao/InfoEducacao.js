@@ -3,14 +3,17 @@ import React from "react"
 
 
 
-export class InfoEducacao extends React.Components {
+class InfoEducacao extends React.Component {
   render() {
     return (
-       <div className="App">
-        <p>1. Qual o curso?</p>
+       <div>
+       <h3>ETAPA 2 - INFORMAÇÕES DO ENSINO SUPERIOR</h3>
+        <p>5. Qual o curso?</p>
         <input type="text"></input>
-        <p>2. Qual a unidade de ensino?</p>
+        <p>6. Qual a unidade de ensino?</p>
+        <input type="text"></input>
         </div>
     );
   }
-}       
+}         
+export default InfoEducacao;
