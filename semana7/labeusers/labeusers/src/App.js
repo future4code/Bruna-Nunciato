@@ -30,14 +30,13 @@ class App extends React.Component {
     inputName: "",
     inputEmail: "",
     changePage: true,
-    // idUser = ""
-  };
+    };
   //aparecer lista de usuarios 
 componentDidMount (){
   this.getAllUsers()
-
-  
 }
+
+
 //inputs atualizando estado
   handleName = (event)=> {
     this.setState({inputName: event.target.value});
@@ -45,29 +44,26 @@ componentDidMount (){
   handleEmail = (event)=>{
     this.setState({inputEmail: event.target.value})
   };
-//deletar usuario
-delUser =()=>{
-  const idUser = this.state.idUser
-  axios
-  .delete(BASE,headers,)
-}
-//onclick id
-// onclickIdUser = (idUser)=>{
-//   const novoUsuario  = this.state.userList.map((usuario)=>{
-//     if(usuario.id===idUser){
-//       const novaListaUser = this.state.userList.filter((usuario)=>{
-// return true
-//       })
-      
-//       return this.setState({userList: novaListaUser})
-//     }
-//   })
-// this.setState({idUser: id})
-// })
+
+  //deletar user
+  deletarUser =(id)=>{
+  axios 
+  .delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, headers)
+  .then((ser)=>{
+    alert("usuário deletado!");
+    
+  })
+  .catch((erro)=>{
+    alert("erro")
+    console.log(erro)
+  })
+  this.getAllUsers()
+  }
 
 
-//aparecer lista de usuarios
-getAllUsers = () => {
+
+  //aparecer lista de usuarios
+  getAllUsers = () => {
   axios
     .get(BASE, headers)
     .then((res) => {
@@ -76,15 +72,15 @@ getAllUsers = () => {
     .catch((err) => {
       console.log(err.data);
     });
-};
-//novoUsuario
-postNewUser = () => {
+  };
+  //novoUsuario
+  postNewUser = () => {
   const body = {
     name: this.state.inputName,
     email: this.state.inputEmail,
   };
   axios
-    .post(BASE, body,headers)
+    .post(BASE,body,headers)
     .then(() => {
       alert("O usuário foi criado com sucesso!");
       this.setState({inputName:""});
@@ -95,19 +91,19 @@ postNewUser = () => {
     .catch((erro) => {
       console.log(erro);
     });
-};
-//trocarPagina para false/true
-onClickChangePage = ()=>{
+  };
+  //trocarPagina para false/true
+  onClickChangePage = ()=>{
   this.setState({changePage:!this.state.changePage})
   }
 
 
   render (){
-    console.log(this.state.changePage)
+// console.log(this.deletarUser)
     const lista = this.state.userList.map((us)=>{
   return <div>
     <p key={us.id}>{us.name}</p>
-  <button>Deletar</button>
+  <button onClick={()=>this.deletarUser(us.id)}>Deletar</button>
   </div> 
     })
 
