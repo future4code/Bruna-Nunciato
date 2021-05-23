@@ -1,7 +1,6 @@
 import React from 'react';
-// import './App.css';
 import axios from 'axios';
-// import { render } from '@testing-library/react';
+
 
 
 export default class AddMusic extends React.Component {
@@ -11,6 +10,13 @@ export default class AddMusic extends React.Component {
         artist:"",
     }
 
+
+
+handleClickEnter = (event) => {
+  if (event.keyCode === 13) {
+    this.createMusicList();
+  }
+}
 
 handleMusic = (event) => {
   this.setState({ music: event.target.value });
@@ -22,6 +28,7 @@ handleArtist = (event) => {
 
 handleUrl = (event) => {
   this.setState({ url: event.target.value });
+  
 };
 
 createMusicList =() =>{
@@ -43,6 +50,7 @@ createMusicList =() =>{
     this.setState({ url: ""});
     this.setState({ music: ""});
     this.setState({ artist: ""});
+  
      
   })
   .catch((erro)=>{
@@ -50,16 +58,29 @@ createMusicList =() =>{
   })
 }
     render(){
+         //nome da PlayList
+
+        const playListNameStyle = this.props.playlists.map((playlist) => {
+            if(playlist.id === this.props.id){
+              return <div className="NomeEstilizado"> <p>{playlist.name}</p>
+                </div>
+              };
+          })
+
+        console.log(this.props.playlists)
         return(
             <div className="AdicionaMusicas">
-            
+            <div className="divNomePlay">
+              {playListNameStyle}
+              </div>
+           
             <input
             placeholder={"Nome da Música"}
           value={this.state.music}
           onChange={this.handleMusic}
         />
         <input
-          placeholder={"Artísta"}
+          placeholder={"Artista"}
           value={this.state.artist}
           onChange={this.handleArtist}
         />
@@ -68,8 +89,9 @@ createMusicList =() =>{
           onKeyDown={this.handleUrlEnter}
           value={this.state.url}
           onChange={this.handleUrl}
+          onKeyDown={this.handleClickEnter}
         />
-        <button onClick={this.createMusicList}> Enviar</button>
+        <button onClick={this.createMusicList}>Adicionar à esta PlayList</button>
         </div>
         )
     }
