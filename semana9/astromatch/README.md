@@ -4,7 +4,7 @@
   # LoveMatch
   <p Align="center">link do surge:   <a href="http://exultant-cushion.surge.sh/">  LoveMatch</a></p>
   <p Align="center">Projeto com funcionalidades  básicas similares do Tinder utilizando a API  da</p>
-###( [Labenu 🥰]Labenu(http://www.labenu.com.br/)
+###( [Labenu 🥰](http://www.labenu.com.br/)
 
 </div>
 <div Align='center'>
