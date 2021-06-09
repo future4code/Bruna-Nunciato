@@ -36,6 +36,7 @@ width:auto;
     grid-column:2/3;
     grid-row:1/2;
     margin:0;
+    cursor: pointer;
 
 }
 

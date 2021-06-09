@@ -4,15 +4,22 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import { useHistory } from 'react-router-dom'
 
 export default function TripsPage() {
+  const history = useHistory()
+
+  const goToForms = () =>{
+    history.push('/formulario')
+  }
+
   return (
     <TripsContainer>
       <Header />
       <div className="BodyTripsContainer">
         <div className="TopContainer"> 
         <h1>Próximas Viagens</h1>
-        <button> Inscreva-se</button>
+        <button onClick={goToForms}> Inscreva-se</button>
         </div>
         <div className="Showcase">
         <div className="CardTrips">
