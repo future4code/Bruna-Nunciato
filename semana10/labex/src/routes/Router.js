@@ -33,7 +33,7 @@ const Router = () => {
         <Route exact path="/candidatos">
           <ToApprovePage />
         </Route>
-        <Route exact path="/adm/detalhesviagem">
+        <Route exact path="/detalhesviagem">
           <TripDetailPage />
         </Route>
         <Route exact path="/novaviagem">

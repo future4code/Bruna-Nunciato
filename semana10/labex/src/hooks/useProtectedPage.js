@@ -7,7 +7,7 @@ const useProtectedPage = ()=>{
     useLayoutEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) {
-          history.push("/home");
+          history.push("/login");
         }
       }, [history]);
     };

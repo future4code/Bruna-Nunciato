@@ -167,6 +167,10 @@ width: 100vw;
     align-content: center;
     vertical-align: middle;
 }
+.Card{
+    border:1px solid blue;
+    background-color: lightgray;
+}
 `
 
 export const HomeAdmContainer = styled.div`
@@ -183,6 +187,17 @@ width: 100vw;
     align-content: center;
     vertical-align: middle;
 }
+.CardTrips{ 
+    background-color:lightgray;
+    width: 16rem;
+    height: auto;
+    margin:1rem;
+    padding: 2rem;
+    border-radius: 9px;
+    color:purple;
+    text-align: left;
+
+    }
 `
 
 

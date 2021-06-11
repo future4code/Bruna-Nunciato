@@ -74,18 +74,18 @@ const ApplicationFormPage = () => {
           noValidate
           autoComplete="off"
         >
+
           <FormControl required
           variant="outlined" className="select">
             <InputLabel id="demo-simple-select-outlined-label">
               Viagem
             </InputLabel>
             <Select
-              required
               name={"idTrip"}
               labelId="outlined"
               id="demo-simple-select-outlined"
               value={form.idTrip}
-              onChange={handleTrip}
+              onChange={onChange}
               label="Viagem"
             >
               <MenuItem value="">

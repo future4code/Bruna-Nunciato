@@ -15,11 +15,15 @@ import useInput from "../hooks/useInput";
 import axios from "axios";
 import { BASE_URL, UrlTrips } from "../constants/url";
 import useRequestApi from "../hooks/useRequestApi";
+import useProtectedPage from '../hooks/useProtectedPage'
+import { useHistory } from 'react-router-dom'
 
 const CreateTripPage = () => {
   const [trip, handleTrip] = useInput("");
   const tripsList = useRequestApi(UrlTrips, []);
 
+  const history = useHistory()
+  
   const { form, onChange, cleanFields } = useForm({
     name: "",
     planet: "",
@@ -27,17 +31,18 @@ const CreateTripPage = () => {
     description: "",
     durationInDays: "",
   });
+  useProtectedPage()
 
   const onClickCreate = (event) => {
     event.preventDefault();
     
-
-    axios
+     axios
       .post(`${BASE_URL}/trips/`, form)
       .then((res) => {
         console.log(res.data);
         localStorage.setItem("token", res.data.token);
-        // history.push("/trip-detail");
+        history.push("/adm");
+        alert("Viagem adicionada!")
       })
       .catch((err) => alert(err.response.data.message));
 
@@ -105,6 +110,7 @@ const CreateTripPage = () => {
           <br />
           <TextField
             required
+            min="30/06/2021"
             name={"date"}
             type={"date"}
             className="formCreate"

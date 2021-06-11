@@ -11,13 +11,13 @@ import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
 import useForm from '../hooks/useForm'
 
-
-
 const LoginAdmPage = () => {
   const { form, onChange, cleanFields } = useForm({ email: "", password: "" });
 
   const history = useHistory();
   
+
+ 
  
   const onClickLogin = (event) => {
     event.preventDefault();
@@ -39,10 +39,6 @@ const LoginAdmPage = () => {
     
     };
 
-    const onTeste = (event)=>{
-      event.preventDefault();
-      alert("deu certo")
-    }
 
   return (
     <LoginContainer>

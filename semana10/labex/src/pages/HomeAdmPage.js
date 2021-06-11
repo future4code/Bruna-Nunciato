@@ -7,51 +7,62 @@ import TextField from "@material-ui/core/TextField";
 import { useHistory } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import { HomeAdmContainer } from "./styledPages";
+import { UrlTrips } from "../constants/url";
+import useRequestApi from "../hooks/useRequestApi";
+import DeleteIcon from "@material-ui/icons/Delete";
+import IconButton from "@material-ui/core/IconButton";
+import PageviewIcon from '@material-ui/icons/Pageview';
+import useProtectedPage from '../hooks/useProtectedPage'
 
 export default function HomeAdmPage() {
-  const history = useHistory()
+  const history = useHistory();
+  const tripsList = useRequestApi(UrlTrips, []);
 
-  const goToManager = () =>{
-    history.push('/detalhesviagem')
-  }
-  const goToCreateTrip = () =>{
-    history.push('/novaviagem')
-  }
+  const goToManager = () => {
+    history.push("/detalhesviagem");
+  };
+  const goToCreateTrip = () => {
+    history.push("/novaviagem");
+  };
 
+  useProtectedPage()
+   
   return (
     <HomeAdmContainer>
       <Header />
       <div className="HomeAdmBodyContainer">
-        <div className="TopContainer"> 
-        <h1>Gerenciar Viagens</h1>
-       <button onClick={goToManager}> Entrar na Viagem</button>
-       <button onClick={goToCreateTrip}> Criar Viagem </button>
+        <div className="TopContainer">
+          <h1>Gerenciar Viagens</h1>
+          <Button  variant="contained"
+          color="primary" onClick={goToCreateTrip}> Criar Viagem </Button>
+        </div>
+
         <div className="Showcase">
-        <div className="CardTrips">
-          <h4>Galaxy Slow</h4>
-          <p>Marte</p>
-          <p>80 graus</p>
-          <p>2022</p>
+          {tripsList.trips &&
+            tripsList.trips.map((trip) => {
+              return (
+                <div key={trip.id} className="CardTrips">
+                  <IconButton aria-label="delete">
+          <DeleteIcon />
+        </IconButton>
+        <h3>{trip.name}</h3>
+                  <p>Planeta: {trip.planet}</p>
+                  <p>Duração: {trip.durationInDays} dias</p>
+                  <p>Data:{trip.date}</p>
+                  <p>Descrição:{trip.description}</p>
+                  <Button
+          variant="contained"
+          color="primary"
+          className={""}
+          startIcon={<PageviewIcon />}
+        >Detalhes da Viagem</Button>
+         
+                  
+                </div>
+              );
+            })}
         </div>
-        <div className="CardTrips">
-          <h4>Galaxy Slow</h4>
-          <p>Marte</p>
-          <p>80 graus</p>
-          <p>2022</p>
-        </div>
-        <div className="CardTrips">
-          <h4>Galaxy Slow</h4>
-          <p>Marte</p>
-          <p>80 graus</p>
-          <p>2022</p>
-        </div>
-        <div className="CardTrips">
-          <h4>Galaxy Slow</h4>
-          <p>Marte</p>
-          <p>80 graus</p>
-          <p>2022</p>
-        </div></div>
-      </div></div>
+      </div>
       <Footer />
     </HomeAdmContainer>
   );
