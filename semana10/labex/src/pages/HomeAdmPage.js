@@ -18,11 +18,11 @@ export default function HomeAdmPage() {
   const history = useHistory();
   const tripsList = useRequestApi(UrlTrips, []);
 
-  const goToManager = () => {
-    history.push("/detalhesviagem");
+  const goToManager = (id) => {
+    history.push("/detalhesviagem/:id");
   };
   const goToCreateTrip = () => {
-    history.push("/novaviagem");
+    history.push("/adm/viagens/novaviagem");
   };
 
   useProtectedPage()
@@ -51,6 +51,7 @@ export default function HomeAdmPage() {
                   <p>Data:{trip.date}</p>
                   <p>Descrição:{trip.description}</p>
                   <Button
+                  onClick={()=>goToManager(trip.id)}
           variant="contained"
           color="primary"
           className={""}

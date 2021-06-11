@@ -21,26 +21,26 @@ const Router = () => {
         <Route exact path="/login">
           <LoginAdmPage />
         </Route>
-        <Route exact path="/adm">
+        <Route exact path="/adm/viagens">
           <HomeAdmPage />
-        </Route>
-        <Route exact path="/formulario">
-          <ApplicationFormPage />
-        </Route>
-        <Route exact path="/aprovados">
-          <ApprovedPage />
-        </Route>
-        <Route exact path="/candidatos">
-          <ToApprovePage />
-        </Route>
-        <Route exact path="/detalhesviagem">
+        </Route>      
+        <Route exact path="/adm/viagens/detalhes">
           <TripDetailPage />
         </Route>
-        <Route exact path="/novaviagem">
+        <Route exact path="/adm/viagens/detalhes/aprovados">
+          <ApprovedPage />
+        </Route>
+        <Route exact path="/adm/viagens/detalhes/candidatos">
+          <ToApprovePage />
+        </Route>
+        <Route exact path="/adm/viagens/novaviagem">
           <CreateTripPage />
         </Route>
         <Route exact path="/viagens">
           <TripsPage />
+        </Route>
+        <Route exact path="/viagens/formulario">
+          <ApplicationFormPage />
         </Route>
         <Route>
             <Error />

@@ -23,6 +23,7 @@ const TripDetailPage = () => {
 
   useEffect(() => {
     document.title = "LabeX - Viagens";
+    // getTripDetail()
   });
 
   const getTripDetail = (id) => {
@@ -38,9 +39,7 @@ const TripDetailPage = () => {
       .catch((err) => alert(err.response.data));
   };
 
-  useEffect(() => {
-    getTripDetail("assistir aula");
-  }, []);
+  
 
   return (
     <TripDetailContainer>

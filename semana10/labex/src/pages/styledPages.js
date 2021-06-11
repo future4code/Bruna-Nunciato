@@ -150,8 +150,24 @@ button{
 
 export const ApplicationContainer = styled.div`
   .select {
-    width: 30%;
+    width: 40%;
+    min-width:200px;
   }
+.BodyApplicationContainer{
+    
+}
+
+@media screen  and (max-device-width : 667px){
+
+display:flex;
+flex-direction: column;
+padding:0em;
+height:auto;
+h1{
+font-size:1.5rem;
+}
+}
+
 `;
 export const TripDetailContainer = styled.div`
 display: flex;

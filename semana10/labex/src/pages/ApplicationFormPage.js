@@ -46,15 +46,15 @@ const ApplicationFormPage = () => {
     axios
       .post(`${BASE_URL}/trips/${id}/apply`, body)
       .then((res) => {
-        console.log(res.data);
-        localStorage.setItem("token", res.data.token);
-        // history.push("/trip-detail");
+         localStorage.setItem("token", res.data.token);
+      
+       alert("Cadastro efetuado!");
       })
       .catch((err) => alert(err.response.data.message));
 
     cleanFields();
 
-    alert("Cadastro efetuado!");
+  
   };
   // const listOfTrips =
   //   tripsList.trips &&
@@ -178,7 +178,7 @@ const ApplicationFormPage = () => {
           <br />
           <br />
 
-          <Button
+          <Button type="submit"
             className="EnterButton"
             variant="contained"
             color="primary"

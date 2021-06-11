@@ -30,9 +30,8 @@ const LoginAdmPage = () => {
       .post(`${BASE_URL}/login`, body)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        history.push("/adm");
-        alert("Login com sucesso")
-      })
+        history.push("/adm/viagens");
+  })
       .catch((err) => alert(err.response.data.message));
 
     cleanFields()

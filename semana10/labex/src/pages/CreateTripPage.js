@@ -15,15 +15,15 @@ import useInput from "../hooks/useInput";
 import axios from "axios";
 import { BASE_URL, UrlTrips } from "../constants/url";
 import useRequestApi from "../hooks/useRequestApi";
-import useProtectedPage from '../hooks/useProtectedPage'
-import { useHistory } from 'react-router-dom'
+import useProtectedPage from "../hooks/useProtectedPage";
+import { useHistory } from "react-router-dom";
 
 const CreateTripPage = () => {
   const [trip, handleTrip] = useInput("");
   const tripsList = useRequestApi(UrlTrips, []);
 
-  const history = useHistory()
-  
+  const history = useHistory();
+
   const { form, onChange, cleanFields } = useForm({
     name: "",
     planet: "",
@@ -31,30 +31,43 @@ const CreateTripPage = () => {
     description: "",
     durationInDays: "",
   });
-  useProtectedPage()
+  useProtectedPage();
 
   const onClickCreate = (event) => {
     event.preventDefault();
-    
-     axios
-      .post(`${BASE_URL}/trips/`, form)
+
+    const day = form.date.slice(8, 10);
+    const month = form.date.slice(5, 7);
+    const year = form.date.slice(0, 4);
+    const okDate = `${day}/${month}/${year}`;
+
+    const body = {
+      name: form.name,
+      planet: form.planet,
+      date: okDate,
+      description: form.description,
+      durationInDays: Number(form.durationInDays),
+    };
+console.log(`body form`,body)
+    axios
+      .post(`${BASE_URL}/trips/`, body ,{
+        headers: {
+        auth: localStorage.getItem("token"),
+      }
+    })
       .then((res) => {
-        console.log(res.data);
-        localStorage.setItem("token", res.data.token);
-        history.push("/adm");
-        alert("Viagem adicionada!")
+        console.log(res);
+    
+        alert("Viagem adicionada!");
       })
       .catch((err) => alert(err.response.data.message));
 
-    cleanFields();
-
-    alert("Cadastro efetuado!");
+    // cleanFields();
   };
 
   return (
     <CreateTripContainer>
       <Header />
-      {/* {console.log(`formulario enviado` , form)} */}
       <div className="BodyCreateContainer">
         <h1>Criar Viagem</h1>
         <form
@@ -63,7 +76,6 @@ const CreateTripPage = () => {
           noValidate
           autoComplete="off"
         >
-          
           <br />
           <br />
 
@@ -82,7 +94,9 @@ const CreateTripPage = () => {
           <br />
           <br />
           <FormControl required variant="outlined" className="formCreate">
-            <InputLabel id="demo-simple-select-outlined-label">Planeta</InputLabel>
+            <InputLabel id="demo-simple-select-outlined-label">
+              Planeta
+            </InputLabel>
             <Select
               name={"planet"}
               labelId="outlined"
@@ -90,7 +104,6 @@ const CreateTripPage = () => {
               value={form.planet}
               onChange={onChange}
               label="Planeta"
-          
             >
               <MenuItem value="">
                 <em>Planeta</em>
@@ -103,9 +116,9 @@ const CreateTripPage = () => {
               <MenuItem value={"Urano"}>Urano</MenuItem>
               <MenuItem value={"Netuno"}>Netuno</MenuItem>
               <MenuItem value={"Plutão"}>Plutão</MenuItem>
-             </Select>
+            </Select>
           </FormControl>
-          
+
           <br />
           <br />
           <TextField
@@ -122,7 +135,7 @@ const CreateTripPage = () => {
           />
           <br />
           <br />
-                 
+
           <TextField
             required
             name={"durationInDays"}
@@ -135,8 +148,8 @@ const CreateTripPage = () => {
             label="Duração em dias"
             variant="outlined"
           />
-<br/>
-          <br/>
+          <br />
+          <br />
           <TextField
             required
             name={"description"}
@@ -153,7 +166,7 @@ const CreateTripPage = () => {
           <br />
 
           <Button
-          type="submit"
+            type="submit"
             className="EnterButton"
             variant="contained"
             color="primary"

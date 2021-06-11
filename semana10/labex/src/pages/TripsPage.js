@@ -13,7 +13,7 @@ export default function TripsPage() {
   const tripsList = useRequestApi(UrlTrips, []);
 
   const goToForms = () => {
-    history.push("/formulario");
+    history.push("/viagens/formulario");
   };
   const tripShow = tripsList.trips && tripsList.trips.map((trip) => {
         return <div key={trip.id} className="CardTrips">
@@ -25,7 +25,7 @@ export default function TripsPage() {
           </div>
         })
         
-
+        
   return (
     
     <TripsContainer>
@@ -38,7 +38,7 @@ export default function TripsPage() {
             Inscreva-se
           </Button>
         </div><div className="Showcase">
-        {tripsList ? (tripShow) : (<p>Carregando...</p>)}
+        {tripsList.trips ? (tripShow) : (<p>Carregando...</p>)}
  </div>
       </div>
       <Footer />
