@@ -5,7 +5,7 @@ border:1px solid black;
 display:grid;
 grid-template-columns:3%, 94%, 3%;
 grid-template-rows: repeat(3,1fr);
-height:20%;
+height:10%;
 width:auto;
 
 @media screen  and (max-device-width : 667px){
@@ -34,18 +34,19 @@ width:auto;
 .NameLogo{
     color:blue;
     grid-column:2/3;
-    grid-row:1/2;
+    grid-row:1/4;
     margin:0;
     cursor: pointer;
 
 }
 
 .ButtonBack{
-    background-color: white;
-    border-radius: 10px;
+    /* background-color: white; */
+    /* border-radius: 10px; */
     grid-column: 1/2;
     grid-row:3/4;
-    margin:0;
+    width:8rem;
+    /* margin:0; */
     /* width:150px; */
 }
 
@@ -88,12 +89,8 @@ export const FooterContainer = styled.div`
 border: 1px solid black;
 bottom:0;
 width:auto;
-height: 20%;
+height: 10%;
 `
-
-
-
-
 
 export const Anima = styled.div `
 

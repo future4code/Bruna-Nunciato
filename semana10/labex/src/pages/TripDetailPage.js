@@ -6,7 +6,12 @@ import { useHistory } from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
+import DescriptionIcon from '@material-ui/icons/Description';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 // import { makeStyles } from '@material-ui/core/styles';
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Header/Header'
+import { TripDetailContainer } from './styledPages'
 
 const TripDetailPage = () => {
   //     const [trip, setTrip] = useState ({})
@@ -35,22 +40,43 @@ const TripDetailPage = () => {
   //     },[])
 
   return (
-    <div>
-      <p> Gerenciar Trips </p>
+    <TripDetailContainer>
+    <Header />
+    <div className="TripDetailBodyContainer">
+          <h2> Gerenciar Trips </h2>
       {/* {trip.name ? trip.name: <p>Carregando...</p>} */}
       <IconButton aria-label="delete">
         <DeleteIcon />
       </IconButton>
-
+        
       <Button
         variant="contained"
         color="secondary"
         className={""}
         startIcon={<DeleteIcon />}
       >
-        Delete
+        Apagar
       </Button>
-    </div>
+      <br/><br/>
+      <Button
+        variant="contained"
+        color="primary"
+        className={""}
+        startIcon={<DescriptionIcon />}
+      >
+        Candidatos 
+      </Button>
+      <Button
+        variant="contained"
+        color="primary"
+        className={""}
+        startIcon={<AccountBoxIcon />}
+      >
+        Aprovados
+      </Button>
+      </div>
+    <Footer/>
+    </TripDetailContainer>
   );
 };
 export default TripDetailPage;
