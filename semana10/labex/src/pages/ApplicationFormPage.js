@@ -39,34 +39,23 @@ const ApplicationFormPage = () => {
       profession: form.profession,
       country: form.country,
     };
-    const id = {
-      id: form.idtrip,
-    };
 
     axios
-      .post(`${BASE_URL}/trips/${id}/apply`, body)
+      .post(`${BASE_URL}/trips/${form.idTrip}/apply`, body)
       .then((res) => {
-         localStorage.setItem("token", res.data.token);
-      
-       alert("Cadastro efetuado!");
+        localStorage.setItem("token", res.data.token);
+
+        alert("Cadastro efetuado!");
       })
       .catch((err) => alert(err.response.data.message));
 
     cleanFields();
-
-  
   };
-  // const listOfTrips =
-  //   tripsList.trips &&
-  //   tripsList.trips.map((trip) => {
-  //     return <MenuItem value={trip.id}>{trip.name}</MenuItem>;
-  //   });
-
+ 
   return (
     <ApplicationContainer>
       <Header />
-      {/* {console.log(`formulario enviado` , form)} */}
-      <div className="BodyApplicationContainer">
+        <div className="BodyApplicationContainer">
         <h1>Formulário de Inscrição</h1>
         <form
           onSubmit={onClickApplication}
@@ -74,9 +63,7 @@ const ApplicationFormPage = () => {
           noValidate
           autoComplete="off"
         >
-
-          <FormControl required
-          variant="outlined" className="select">
+          <FormControl required variant="outlined" className="select">
             <InputLabel id="demo-simple-select-outlined-label">
               Viagem
             </InputLabel>
@@ -151,34 +138,34 @@ const ApplicationFormPage = () => {
               value={form.country}
               onChange={onChange}
               label="País"
-          
             >
               <MenuItem value="">
                 <em>País</em>
               </MenuItem>
-              {countries.map((country)=>{
-                return <MenuItem value={country}>{country}</MenuItem>
+              {countries.map((country) => {
+                return <MenuItem value={country}>{country}</MenuItem>;
               })}
-             
             </Select>
           </FormControl>
           <br />
           <br />
           <TextField
             required
+            variant="outlined"
             name={"applicationText"}
             className="select"
             value={form.applicationText}
             onChange={onChange}
             id="outlined-basic"
             label="Motivação"
-            variant="outlined"
+            herperText="Explique o que te motiva a viajar para fora do planeta"
           />
 
           <br />
           <br />
 
-          <Button type="submit"
+          <Button
+            type="submit"
             className="EnterButton"
             variant="contained"
             color="primary"

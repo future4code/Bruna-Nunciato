@@ -25,9 +25,10 @@ const Header = () => {
             <Button variant="contained" color="primadary"
             onClick={goBack} className="ButtonBack">Voltar
                 </Button>
-            <Button variant="contained" color="secondary"
+             <Button variant="contained" color="secondary"
              className="LoginAdm"
             onClick={goLogin}>Administrativo</Button>
+           
            
         </ContainerHeader>
     )

@@ -48,21 +48,21 @@ const CreateTripPage = () => {
       description: form.description,
       durationInDays: Number(form.durationInDays),
     };
-console.log(`body form`,body)
+    console.log(`body form`, body);
     axios
-      .post(`${BASE_URL}/trips/`, body ,{
+      .post(`${BASE_URL}/trips/`, body, {
         headers: {
-        auth: localStorage.getItem("token"),
-      }
-    })
+          auth: localStorage.getItem("token"),
+        },
+      })
       .then((res) => {
         console.log(res);
-    
+
         alert("Viagem adicionada!");
       })
       .catch((err) => alert(err.response.data.message));
 
-    // cleanFields();
+    cleanFields();
   };
 
   return (

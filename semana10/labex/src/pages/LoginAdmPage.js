@@ -7,91 +7,47 @@ import TextField from "@material-ui/core/TextField";
 import { BASE_URL } from "../constants/url";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Icon from '@material-ui/core/Icon';
-import Button from '@material-ui/core/Button';
-import useForm from '../hooks/useForm'
+import Icon from "@material-ui/core/Icon";
+import Button from "@material-ui/core/Button";
+import useForm from "../hooks/useForm";
 
 const LoginAdmPage = () => {
   const { form, onChange, cleanFields } = useForm({ email: "", password: "" });
 
   const history = useHistory();
-  
 
- 
- 
   const onClickLogin = (event) => {
     event.preventDefault();
-    const body = { 
+    const body = {
       email: form.email,
-      password: form.password
-     };
+      password: form.password,
+    };
 
     axios
       .post(`${BASE_URL}/login`, body)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         history.push("/adm/viagens");
-  })
+      })
       .catch((err) => alert(err.response.data.message));
 
-    cleanFields()
-    
-    };
-
+    cleanFields();
+  };
 
   return (
     <LoginContainer>
-      {console.log(`form` , form)}
+      {console.log(`form`, form)}
       <Header />
-      <div className="BodyLoginContainer">  
-      
-        <form 
-        className="LoginContainer"  autoComplete="off"
-        onSubmit={onClickLogin}>     
-        <h1>Login Administrativo</h1>
+      <div className="BodyLoginContainer">
+        <form
+          className="LoginContainer"
+          autoComplete="off"
+          onSubmit={onClickLogin}
+        >
+          <h1>Login Administrativo</h1>
 
-{/* 
-
-        <form onSubmit={onClickLogin}>
-         <TextField name={"email"}
-          onChange={onChange}
-          placeholder="E-mail"
-         value={form.email}
-         label="Email"
-         variant="outlined"
-          required
-          type={"email"}
-         >
-
-
-         </TextField>
-
-
-         <TextField name={"password"}
-         value={form.password}
-         onChange={onChange}
-         placeholder="senha"
-         label="password"
-         variant="outlined"
-          required
-          type={"password"}
-          pattern={"^.{6,}"}
-          title={"sua senha precisa ser de no mínimo 6 caracteres"}
-         ></TextField>
-         <Button
-        //   className="EnterButton" 
-        // variant="contained"
-        // color="primary"
-        //  endIcon={<Icon>send</Icon>}
-      >        Enviar
-      </Button>
-            </form>  */}
-            
-            
-            
-            
-        <TextField
-          name={"email"}
+          <TextField
+            name={"email"}
             type="email"
             required
             value={form.email}
@@ -103,11 +59,11 @@ const LoginAdmPage = () => {
           <br />
           <br />
           <TextField
-          name={"password"}
-          pattern={"^.{6,}"}
-          title={"sua senha precisa ser de no mínimo 6 caracteres"}
-          required
-          type="password"
+            name={"password"}
+            pattern={"^.{6,}"}
+            title={"sua senha precisa ser de no mínimo 6 caracteres"}
+            required
+            type="password"
             value={form.password}
             onChange={onChange}
             id="outlined-basic"
@@ -116,14 +72,16 @@ const LoginAdmPage = () => {
           />
           <br />
           <Button
-          type="submit"
-          className="EnterButton" 
-        variant="contained"
-        color="primary"
-        className={""}
-        endIcon={<Icon>send</Icon>}
-      >        Enviar
-      </Button>
+            type="submit"
+            className="EnterButton"
+            variant="contained"
+            color="primary"
+            className={""}
+            endIcon={<Icon>send</Icon>}
+          >
+            {" "}
+            Enviar
+          </Button>
         </form>
       </div>
       <Footer />

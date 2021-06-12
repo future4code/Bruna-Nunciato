@@ -15,19 +15,32 @@ export default function TripsPage() {
   const goToForms = () => {
     history.push("/viagens/formulario");
   };
-  const tripShow = tripsList.trips && tripsList.trips.map((trip) => {
-        return <div key={trip.id} className="CardTrips">
-            <h3>{trip.name}</h3>
-            <p>Planeta: {trip.planet}</p>
-            <p>Duração: {trip.durationInDays} dias</p>
-            <p>Data:{trip.date}</p>
-            <p>Descrição:{trip.description}</p>
-          </div>
-        })
-        
-        
+  const tripShow =
+    tripsList.trips &&
+    tripsList.trips.map((trip) => {
+      return (
+        <div key={trip.id} className="CardTrips">
+          <h3>{trip.name}</h3>
+          <p>
+            <b>Planeta:</b> {trip.planet}
+          </p>
+          <p>
+            <b>Duração: </b>
+            {trip.durationInDays} dias
+          </p>
+          <p>
+            <b>Data:</b>
+            {trip.date}
+          </p>
+          <p>
+            <b>Descrição:</b>
+            {trip.description}
+          </p>
+        </div>
+      );
+    });
+
   return (
-    
     <TripsContainer>
       <Header />
       <div className="BodyTripsContainer">
@@ -37,9 +50,10 @@ export default function TripsPage() {
             {" "}
             Inscreva-se
           </Button>
-        </div><div className="Showcase">
-        {tripsList.trips ? (tripShow) : (<p>Carregando...</p>)}
- </div>
+        </div>
+        <div className="Showcase">
+          {tripsList.trips ? tripShow : <p>Carregando...</p>}
+        </div>
       </div>
       <Footer />
     </TripsContainer>

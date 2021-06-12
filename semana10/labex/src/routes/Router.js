@@ -4,9 +4,9 @@ import LoginAdmPage from "../pages/LoginAdmPage";
 import HomePage from "../pages/HomePage";
 import HomeAdmPage from '../pages/HomeAdmPage'
 import ApplicationFormPage from '../pages/ApplicationFormPage'
-import ApprovedPage from '../pages/AprovedPage'
-import ToApprovePage from "../pages/ToApprovePage";
-import TripDetailPage from "../pages/TripDetailPage";
+import ApprovedPage from '../pages/TripDetailPage/ApprovedPage'
+import ToApprovePage from "../pages/TripDetailPage/ToApprovePage";
+import TripDetailPage from "../pages/TripDetailPage/TripDetailPage";
 import TripsPage from "../pages/TripsPage";
 import CreateTripPage from '../pages/CreateTripPage'
 import Error from '../pages/Error'
@@ -24,7 +24,7 @@ const Router = () => {
         <Route exact path="/adm/viagens">
           <HomeAdmPage />
         </Route>      
-        <Route exact path="/adm/viagens/detalhes">
+        <Route exact path="/adm/viagens/detalhes/:id">
           <TripDetailPage />
         </Route>
         <Route exact path="/adm/viagens/detalhes/aprovados">
