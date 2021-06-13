@@ -1,7 +1,7 @@
 import React from 'react'
 import { ContainerHeader } from '../../styled/StyledComponents'
-import sistema from '../../img/system.png'
-import foguete from '../../img/foguete33.png'
+// import sistema from '../../img/system.png'
+// import foguete from '../../img/foguete33.png'
 import { useHistory } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 
@@ -21,13 +21,22 @@ const Header = () => {
 
     return(
         <ContainerHeader>
+            {console.log(history.location.pathname)}
+          
             <h1 onClick={goHome} className="NameLogo" >Labe X</h1>
-            <Button variant="contained" color="primadary"
+
+            { history.location.pathname === "/" ? <p></p>:<Button variant="contained" color="primadary"
             onClick={goBack} className="ButtonBack">Voltar
-                </Button>
-             <Button variant="contained" color="secondary"
+                </Button> }
+            
+              {history.location.pathname === "/" &&
+ <Button variant="contained" color="secondary"
              className="LoginAdm"
             onClick={goLogin}>Administrativo</Button>
+            }
+
+           
+            
            
            
         </ContainerHeader>

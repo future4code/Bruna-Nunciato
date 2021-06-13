@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { UrlTrips } from "../constants/url";
 import useRequestApi from "../hooks/useRequestApi";
+import foguete from '../img/foguete33.png'
 
 export default function TripsPage() {
   const history = useHistory();
@@ -29,11 +30,11 @@ export default function TripsPage() {
             {trip.durationInDays} dias
           </p>
           <p>
-            <b>Data:</b>
+            <b>Data: </b>
             {trip.date}
           </p>
           <p>
-            <b>Descrição:</b>
+            <b>Descrição: </b>
             {trip.description}
           </p>
         </div>
@@ -45,11 +46,17 @@ export default function TripsPage() {
       <Header />
       <div className="BodyTripsContainer">
         <div className="TopContainer">
+          <div className="foguete1">
+        <img className="foguete1" src={foguete} alt="foguete" />
+        </div>
           <h1>Próximas Viagens</h1>
           <Button variant="contained" onClick={goToForms}>
             {" "}
             Inscreva-se
           </Button>
+          <div className="foguete2">
+          <img className="foguete2" src={foguete} alt="foguete" />
+          </div>
         </div>
         <div className="Showcase">
           {tripsList.trips ? tripShow : <p>Carregando...</p>}

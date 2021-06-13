@@ -19,6 +19,7 @@ export default function HomeAdmPage() {
   const history = useHistory();
   const tripsList = useRequestApi(UrlTrips, []);
 
+
   const goToManager = (id) => {
     history.push(`/adm/viagens/detalhes/${id}`);
     localStorage.setItem("tripId", id);
@@ -66,16 +67,17 @@ export default function HomeAdmPage() {
             tripsList.trips.map((trip) => {
               return (
                 <div key={trip.id} className="CardTrips">
-                  <IconButton onClick={deleteTrip} aria-label="delete">
+                  <div className="Title">
+                    <h3>{trip.name}</h3>
+                    <IconButton onClick={deleteTrip} aria-label="delete">
                     <DeleteIcon />
                   </IconButton>
-                  <h3>{trip.name}</h3>
-                  <p>Planeta: {trip.planet}</p>
-                  <p>Duração: {trip.durationInDays} dias</p>
-                  <p>Data:{trip.date}</p>
-                  <p>Descrição:{trip.description}</p>
-                  <p> ID:{trip.id}</p>
-                  <Button
+                  </div>
+                  <p><b>Planeta: </b>{trip.planet}</p>
+                  <p><b>Duração:</b> {trip.durationInDays} dias</p>
+                  <p><b>Data: </b>{trip.date}</p>
+                  <p><b>Descrição: </b>{trip.description}</p>
+                    <Button
                     onClick={() => goToManager(trip.id)}
                     variant="contained"
                     color="primary"
