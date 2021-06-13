@@ -9,7 +9,7 @@
 <div Align='center'>
 <br/>
 <br/>
-<img src='' heigth='120' />
+<img src='./public/apresentacao.gif' heigth='120' />
 </div>
 <br/>
 <br/>
@@ -20,7 +20,7 @@
 - [x] Inscrever-se para Viagem
 - [x] Login Administrador
 - [x] Excluir Viagem
-- [x] Aprovar ou Desaprovar Candidato
+- [x] Aprovar ou Reprovar Candidato
 - [x] Formulário criar Viagem
 - [x] Ver candidatos Aprovados
 
