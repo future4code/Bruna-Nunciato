@@ -5,16 +5,16 @@ const ApprovedPage = (props) => {
   return(
   <div>
     <Card>
-      <CardContent>
-      {props.candidateApproved.name &&
+      <CardContent width="70%">
+      {props.candidateApproved &&
         props.candidateApproved.map((candidate) => {
           return (
             <div>
-               <h4>    <b>Nome:</b>{candidate.name}{" "}    </h4>
+               <h4>    <b>Nome: </b>{candidate.name.toUpperCase()} {" "}    </h4>
             </div>
           );
         })}
-      {!props.candidateApproved.name && (
+      {!props.candidateApproved && (
         <p>Não existem candidatos aprovados para esta viagem</p>
       )}
 </CardContent>

@@ -1,13 +1,8 @@
-import React, { useState } from "react";
-import {
-  ListItem,
-  ListItemText,
-  ListItemSecondaryAction,
-  IconButton,
-} from "@material-ui/core";
+import React  from "react";
+import { IconButton } from "@material-ui/core";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
-import { ToApproveContainer } from "../styledPages";
+import { ToApproveContainer } from "../../styledPages/styledPages";
 import axios from "axios";
 import { BASE_URL } from "../../constants/url";
 
@@ -15,6 +10,7 @@ const ToApprovePage = (props) => {
 
   const approveCandidate = (candidateId) => {
     decideCandidate(true, candidateId);
+    alert("Candidato aprovado!");
   };
 
   const rejectCandidate = (candidateId) => {
@@ -33,16 +29,15 @@ const ToApprovePage = (props) => {
     };
     axios
       .put(
-        `${BASE_URL}/trips/${props.id}/candidates/${candidateId}/decide`,
+        `${BASE_URL}/trips/${props.id}/candidates/${candidateId}/decide`, body,
         headers
       )
       .then((res) => {
-        console.log(res);
-        alert("Candidato Aprovado!");
+        alert("Decisão efetuada!");
         window.location.reload();
       })
       .catch((erro) => {
-        console.log(erro.response.data.message);
+        alert(erro.response.data.message);
       });
   };
 
@@ -52,23 +47,23 @@ const ToApprovePage = (props) => {
       return (
         <div className="cardCandidate">
           <h4>
-            <b>Nome:</b>
+            <b>Nome: </b>
             {candidate.name}{" "}
           </h4>
           <p>
-            <b>Profissão:</b>
+            <b>Profissão: </b>
             {candidate.profession}
           </p>
           <p>
-            <b>Idade:</b>
+            <b>Idade: </b>
             {candidate.age}
           </p>
           <p>
-            <b>País:</b>
+            <b>País: </b>
             {candidate.country}
           </p>
           <p>
-            <b>Motivação:</b>
+            <b>Motivação: </b>
             {candidate.applicationText}
           </p>
           <IconButton onClick={() => approveCandidate(candidate.id)}>

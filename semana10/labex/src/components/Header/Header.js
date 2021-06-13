@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContainerHeader } from '../../styled/StyledComponents'
+import { ContainerHeader } from '../../styledComponents/StyledComponents'
 // import sistema from '../../img/system.png'
 // import foguete from '../../img/foguete33.png'
 import { useHistory } from 'react-router-dom'
@@ -21,16 +21,15 @@ const Header = () => {
 
     return(
         <ContainerHeader>
-            {console.log(history.location.pathname)}
-          
+                   
             <h1 onClick={goHome} className="NameLogo" >Labe X</h1>
 
-            { history.location.pathname === "/" ? <p></p>:<Button variant="contained" color="primadary"
+            { history.location.pathname === "/" ? <p></p>:<Button variant="contained" color="primary"
             onClick={goBack} className="ButtonBack">Voltar
                 </Button> }
             
               {history.location.pathname === "/" &&
- <Button variant="contained" color="secondary"
+ <Button variant="contained" color="primary"
              className="LoginAdm"
             onClick={goLogin}>Administrativo</Button>
             }
