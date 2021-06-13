@@ -37,11 +37,10 @@ export default function HomeAdmPage() {
       axios
         .delete(`${BASE_URL}/trips/${id}`, headers)
         .then((res) => {
-          console.log(res);
           alert("Viagem deletada !");
           })
         .catch((erro) => {
-          console.log(erro.response.data.message);
+          alert(erro.response.data.message);
         });
     }
   };
