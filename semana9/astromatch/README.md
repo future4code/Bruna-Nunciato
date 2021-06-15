@@ -1,4 +1,3 @@
-
 <div Align='center'>
 
   # LoveMatch
@@ -43,4 +42,3 @@
 
 [![Mail](https://img.shields.io/badge/-Bruna_Nunciato-gray?style=flat-square&logo=gmail&logoColor=red&link=)](mailto:bruna_nunciato@hotmail.com)
 [![Linkedin](https://img.shields.io/badge/-Bruna_Nunciato-blue?style=flat-square&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/bruna-nunciato-8b693531/)](https://www.linkedin.com/in/bruna-nunciato-8b693531/) <br />
-
