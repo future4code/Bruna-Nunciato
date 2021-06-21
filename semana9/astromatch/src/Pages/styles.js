@@ -6,7 +6,7 @@ export const Home = styled.div`
   flex-direction: column;
   height: 100vh;
   position: relative;
-  margin: 0;
+  margin: -10px;
   bottom: 0;
   box-sizing: border-box;
   align-items: center;
@@ -22,10 +22,10 @@ export const LandingPageContainer = styled.div`
   height: 100em;
   width: 24em;
   background-color: white;
-  border-top-left-radius: 2em;
-  border-top-right-radius: 2em;
-  border-bottom-left-radius: 2em;
-  border-bottom-right-radius: 2em;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +60,6 @@ export const MatchContainer = styled.div`
   width: 100%;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  
 
   p {
     color: black;

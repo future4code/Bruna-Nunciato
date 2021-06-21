@@ -7,9 +7,7 @@ export const Card = styled.div`
 
 export const Photo = styled.div`
   width: 100%;
-  /* border-radius: 5px; */
   height: 100%;
-  /* border-radius: 5px; */
    background: url(${(prop) => prop.src});
   background-position: top;
   border: 2;
@@ -29,7 +27,7 @@ height:100%;
     
 
 export const Text = styled.div`
-  width: 22rem;
+  width: 370px;
   grid-row: 3/4;
   text-align: center;
   font-size: 1.2rem;
@@ -46,7 +44,7 @@ export const Name = styled.p`
 `;
 export const Age = styled.p`
   text-align: left;
-  width: 27rem;
+  width: 270px;
   display: flex;
   grid-row: 2/3;
   padding: 0.01rem 1.8rem ;
