@@ -29,14 +29,13 @@
 <br/>
 <br/>
 
-## 🛠 Tecnologias
-
-<code><img height="50" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg"></code>](https://reactjs.org/docs/getting-started.html)
+[<code><img height="50" src="https://www.vhv.rs/dpng/d/486-4866189_html-css-logo-png-transparent-png.png"></code>]
+[<code><img height="50" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg"></code>]
 [<code><img height="50" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-horizontal.svg"></code>](https://nodejs.org/en/docs/)
-[<code><img height="50" src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg"></code>](https://expressjs.com/en/4x/api.html)
-- [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-- [API REST](https://documenter.getpostman.com/view/7549981/SW12yx56?version=latest)
+[<code><img height="50" src="https://www.vectorlogo.zone/logos/javascript/javascript-horizontal.svg"></code>](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+[<code><img height="50" src="https://www.kinamu.com/wp-content/uploads/2017/12/API_REST.png"></code>](https://documenter.getpostman.com/view/7549981/SW12yx56?version=latest)
+
+
 
 </br>
 </br>
