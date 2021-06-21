@@ -9,8 +9,10 @@ import { useHistory } from "react-router-dom";
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
 import useForm from "../../hooks/useForm";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
 const LoginAdmPage = () => {
+  useUnprotectedPage()
   const { form, onChange, cleanFields } = useForm({ email: "", password: "" });
 
   const history = useHistory();

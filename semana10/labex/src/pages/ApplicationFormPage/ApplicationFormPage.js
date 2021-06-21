@@ -15,7 +15,9 @@ import { BASE_URL, UrlTrips } from "../../constants/url";
 import useRequestApi from "../../hooks/useRequestApi";
 import { countries } from "../../constants/countries";
 
+
 const ApplicationFormPage = () => {
+
   const tripsList = useRequestApi(UrlTrips, []);
 
   const { form, onChange, cleanFields } = useForm({

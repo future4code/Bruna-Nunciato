@@ -19,23 +19,38 @@ const Header = () => {
         history.push("/login")
     }
 
+    const logout = () => {
+        localStorage.removeItem("token")
+    }
+
     return(
         <ContainerHeader>
                    
             <h1 onClick={goHome} className="NameLogo" >Labe X</h1>
 
-            { history.location.pathname === "/" ? <p></p>:<Button variant="contained" color="primary"
+            { history.location.pathname === "/" ?  <p></p>:<Button variant="contained" color="primary"
             onClick={goBack} className="ButtonBack">Voltar
                 </Button> }
             
-              {history.location.pathname === "/" &&
+              {history.location.pathname === "/"    &&
  <Button variant="contained" color="primary"
              className="LoginAdm"
             onClick={goLogin}>Administrativo</Button>
             }
 
-           
+{history.location.pathname === "/adm/viagens"  && 
+<Button variant="contained" color="primary"
+             className="LoginAdm"
+            onClick={logout}>Logout</Button>
+            }
             
+{history.location.pathname === "/adm/viagens/novaviagem" 
+ && 
+<Button variant="contained" color="primary"
+             className="LoginAdm"
+            onClick={logout}>Logout</Button>
+            }
+
            
            
         </ContainerHeader>

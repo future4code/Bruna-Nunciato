@@ -7,8 +7,10 @@ import Button from "@material-ui/core/Button";
 import { UrlTrips } from "../../constants/url";
 import useRequestApi from "../../hooks/useRequestApi";
 import foguete from '../../img/foguete33.png'
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
 export default function TripsPage() {
+
   const history = useHistory();
   const tripsList = useRequestApi(UrlTrips, []);
 
