@@ -1,6 +1,6 @@
 <div Align='center'>
 
-  # LoveMatch
+  # LABE X
   <p Align="center">link do surge:   <a href="labex-bruna-nunciato.surge.sh">  Labe X</a></p>
   <p Align="center">Projeto inspirado na empresa Space X, para inscrição e administração de viagens espaciais  utilizando a API  da</p>
   ###( [Labenu 🥰]Labenu(http://www.labenu.com.br/)
@@ -30,9 +30,9 @@
 
 ## 🛠 Tecnologias
 
-<code><img height="50" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg"></code>](https://reactjs.org/docs/getting-started.html)
+<code><img height="50" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg"></code>]
 [<code><img height="50" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-horizontal.svg"></code>](https://nodejs.org/en/docs/)
-[<code><img height="50" src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg"></code>](https://expressjs.com/en/4x/api.html)
+
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [API REST](https://documenter.getpostman.com/view/7549981/SW12yx56?version=latest)
