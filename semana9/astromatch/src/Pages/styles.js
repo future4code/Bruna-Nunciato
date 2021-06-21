@@ -6,33 +6,39 @@ export const Home = styled.div`
   flex-direction: column;
   height: 100vh;
   position: relative;
-  margin: -10px;
+  margin: 0;
   bottom: 0;
   box-sizing: border-box;
   align-items: center;
   background-color: #2c304b;
   padding: 0;
+  border-top-left-radius: 25px;
+border-top-right-radius: 25px;
 `;
 
 export const LandingPageContainer = styled.div`
   border: 2px solid rgb(75, 72, 68);
   grid-column: 2/3;
-  height: 450em;
-  width: 280px;
+  height: 100em;
+  width: 24em;
   background-color: white;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 8px;
 `;
 export const Header = styled.div`
-  height: 40px;
+  height: 4em;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  border-bottom: 1px solid black;
-  padding-bottom: 3px;
-  padding-top: 3px;
+  border-bottom: 1px solid  rgb(75, 72, 68);
+  padding: 0.5rem;
+  
+ 
 `;
 export const Logo = styled.div`
   display: flex;
@@ -46,34 +52,51 @@ export const MatchContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-image: linear-gradient(to bottom, lightblue, rgb(175, 41, 129));
+  background-image: linear-gradient(to bottom, rgb(175, 41, 129) , lightblue);
   flex-direction: column;
   align-items: center;
   border: 1px solid black;
   height: 100%;
   width: 100%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  
 
   p {
     color: black;
   }
 `;
-export const TitleMatch = styled.div``;
+export const CardList = styled.div`
+ width:100%;
+  height: 100%;
+  display:flex;
+  flex-direction:column;
+
+  
+  `;
+  export const SeusMatches = styled.div`
+  height: 100%;
+  `
+
+export const TitleMatch = styled.div`
+font-size: 28px;
+`
 
 export const SmallPhoto = styled.img`
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 4rem;
+  height: 4rem;
   object-position: center;
   grid-column: 1/2;
   border: 1px solid black;
 `;
 export const Name = styled.div`
-  font-size: 1rem;
+  padding-top:0.5rem;
+  font-size: 1.5rem;
   grid-column:2/3;
 `;
 export const MatchListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+ 
 `;
 
 export const ListContainer = styled.div`

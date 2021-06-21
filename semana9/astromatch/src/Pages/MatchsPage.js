@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
-  MatchListContainer,
   SmallPhoto,
   Name,
   ListContainer,
-  TitleMatch,
+  TitleMatch,CardList, SeusMatches
 } from "./styles";
 import { URL } from "../assets/Api/Api";
 import { ResetButton } from "../components/ResetButton/ResetButton";
+
 
 export default function MatchsPage() {
   const [matchList, setMatchList] = useState([]);
@@ -24,7 +24,7 @@ export default function MatchsPage() {
   }, [matchList]);
 
   return (
-    <MatchListContainer>
+    <CardList><SeusMatches>
       <TitleMatch>Seus Matches</TitleMatch>
       {matchList ? (
         <>
@@ -40,8 +40,8 @@ export default function MatchsPage() {
       ) : (
         <p>Carregando ...</p>
       )}
-
+</SeusMatches>
       <ResetButton />
-    </MatchListContainer>
+    </CardList>
   );
 }
