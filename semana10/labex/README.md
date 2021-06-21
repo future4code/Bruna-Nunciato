@@ -32,7 +32,6 @@
 
 <code><img height="50" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg"></code>](https://reactjs.org/docs/getting-started.html)
 [<code><img height="50" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-horizontal.svg"></code>](https://nodejs.org/en/docs/)
-[<code><img height="50" src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg"></code>](https://expressjs.com/en/4x/api.html)
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [API REST](https://documenter.getpostman.com/view/7549981/SW12yx56?version=latest)
