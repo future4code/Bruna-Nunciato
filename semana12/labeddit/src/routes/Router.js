@@ -5,30 +5,28 @@ import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import LoginPage from "../pages/LoginPage/LoginPage"
 import PostsPage from '../pages/PostsPage/PostsPage'
 import PostDetailPage from '../pages/PostsDetailPage/PostsDetailPage'
-import { BrowserRouter } from 'react-router-dom'
 
-const Routes = () => {
+
+
+const Router = ({setRightButtonText}) => {
     return (
-        <BrowserRouter>
         <Switch>
-            <Route exact path="/login">
-                <LoginPage />
-            </Route>
-            <Route exact path="/cadastro">
-                <SignUpPage />
-            </Route>
             <Route exact path="/">
                 <PostsPage />
             </Route>
+            <Route exact path="/login">
+                <LoginPage setRightButtonText={setRightButtonText}/>
+            </Route>
+            <Route exact path="/cadastro">
+                <SignUpPage setRightButtonText={setRightButtonText} />
+           </Route>
             <Route exact path="detalhes-post/:id">
                 <PostDetailPage />
-            </Route>
+            </Route> 
             <Route>
                 <ErrorPage />
             </Route>
-             </Switch>
-       </BrowserRouter>
+        </Switch>
     )
 }
-
-export default Routes
+export default Router

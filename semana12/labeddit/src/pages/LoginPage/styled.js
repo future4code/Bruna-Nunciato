@@ -5,7 +5,7 @@ export const ScreenContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  margin-top: 10vh;
+  margin-top: 6vh;
 `
 
 export const InputsContainer = styled.div`
@@ -32,6 +32,6 @@ export const SignUpButtonContainer = styled.div`
 `
 
 export const LogoImage = styled.img`
-  width: 70vw;
+  width: 10vw;
   max-width: 350px;
 `

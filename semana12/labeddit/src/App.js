@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import Routes from './routes/Routes'
+import Router from './routes/Router'
 import theme from './constants/theme'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { BrowserRouter } from 'react-router-dom'
@@ -11,17 +11,11 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-     {/* <BrowserRouter> */}
-    
-        <Header
-        //  rightButtonText={rightButtonText} setRightButtonText={setRightButtonText}
-         /> 
-             <Routes />
-        {/* //  setRightButtonText={setRightButtonText} */}
-         
-        {/* </BrowserRouter>  */}
+     <BrowserRouter>
+          <Header rightButtonText={rightButtonText} setRightButtonText={setRightButtonText}  /> 
+          <Router setRightButtonText={setRightButtonText} />
+      </BrowserRouter> 
     </ThemeProvider>
   )
 }
-
 export default App
