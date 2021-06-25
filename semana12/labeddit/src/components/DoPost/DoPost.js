@@ -53,7 +53,7 @@ const DoPost = () => {
           type={'submit'}
           fullWidth
         >
-          {isLoading ? <CircularProgress color={"inherit"} size={24}/> : <>Comentar</>}
+          {isLoading ? <CircularProgress color={"inherit"} size={24}/> : <>Publicar</>}
         </Button>
         </ContainerButton>
       </CreatePostContainer>
