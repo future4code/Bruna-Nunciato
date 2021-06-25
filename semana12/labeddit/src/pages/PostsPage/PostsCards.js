@@ -14,7 +14,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import logo from '../../assets/logo.png'
 import CommentIcon from '@material-ui/icons/Comment';
-import {ContainerComments, HeartContainer } from './styled'
+import {ContainerComments, HeartContainer, CardPostContainer } from './styled'
 // import  IconHeartCount from '../../components/IconHeartCount'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Comments from '../../components/Comments/Comments';
@@ -90,7 +90,8 @@ const PostsCards =(props) => {
 
 
   return (
-    <Card className={classes.root}>
+    <CardPostContainer>
+    <Card className="CardPost">
     <CardHeader
       avatar={
         <Avatar>
@@ -102,8 +103,9 @@ const PostsCards =(props) => {
           <MoreVertIcon />
         </IconButton>
       }
-      title={props.title}
-      subheader={props.createdAt}
+      
+      subheader={props.title}
+      title={props.createdAt}
     />
      <CardContent>
       <Typography variant="body2" color="textSecondary" component="p">
@@ -144,6 +146,7 @@ const PostsCards =(props) => {
        </CardContent>
     </Collapse>
   </Card>
+  </CardPostContainer>
   );
 }
 export default PostsCards

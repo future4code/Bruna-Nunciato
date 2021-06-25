@@ -8,8 +8,6 @@ import DoPost from '../../components/DoPost/DoPost';
 
   
 export const PostPage = ()=>{
-
-
     const posts = useRequestData([],`${BASE_URL}/posts`)
     // const day = posts[0].createdAt.slice(9, 10);
     // const month = posts[0].createdAt.slice(6, 7);

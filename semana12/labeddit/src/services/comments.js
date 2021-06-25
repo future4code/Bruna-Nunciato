@@ -1,16 +1,59 @@
 import axios from 'axios'
 import {BASE_URL} from '../constants/urls'
 
-// export const postVote = (body,id)=>{
+export const postVote = (url, vote)=>{
+console.log(`url e vote${url} e ${vote}`)
+    axios.post(url, {
+      body: Number(vote)
+      }, {
+      headers: {
+        Authorization: localStorage.getItem("token")
+      }
+    })
+    .then((res)=>{
+        console.log(`resgistrou`,res.data)
+        alert(`voto registrado`)
+    })
+    .catch((erro)=>{
+        alert(erro.response.data.message)
+    })
+}
 
-//     axios.post(`${BASE_URL}/${id}/votes`, body)
-//     .then((res)=>{
-//         console.log(`resgistrou`,res.data)
-//     })
-//     .catch((erro)=>{
-//         console.log(erro.response.data.message)
-//     })
-// }
+
+export const changeVote = (url, vote)=>{
+  console.log(`url e vote${url} e ${vote}`)
+  axios.put(url, {
+    body: Number(vote)
+    }, {
+    headers: {
+      Authorization: localStorage.getItem("token")
+    }
+  })
+  .then((res)=>{
+      console.log(`resgistrou`,res.data)
+      alert(`voto registrado`)
+  })
+  .catch((erro)=>{
+     alert(erro.response.data.message)
+  })
+}
+
+
+export const deleteVote = (url)=>{
+  console.log(`url e vote${url}`)
+  axios.delete(url, {
+    headers: {
+      Authorization: localStorage.getItem("token")
+    }
+  })
+  .then((res)=>{
+      console.log(`resgistrou`,res.data)
+      alert(`voto registrado`)
+  })
+  .catch((erro)=>{
+      alert(erro.response.data.message)
+  })
+}
 
 
 export const comment = (form, id, clear, setIsLoading) => {

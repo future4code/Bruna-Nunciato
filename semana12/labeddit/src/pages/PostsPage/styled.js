@@ -21,3 +21,10 @@ export const HeartContainer = styled.div`
 cursor: pointer;
 
 `
+export const CardPostContainer = styled.div`
+
+.CardPost{
+  width:50rem;
+  /* max-width:80%; */
+}
+`
