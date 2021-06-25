@@ -14,39 +14,81 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import logo from '../../assets/logo.png'
 import CommentIcon from '@material-ui/icons/Comment';
-import {ContainerComments} from './styled'
-import  IconHeartCount from '../../components/IconHeartCount'
+import {ContainerComments, HeartContainer } from './styled'
+// import  IconHeartCount from '../../components/IconHeartCount'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Comments from '../../components/Comments/Comments';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import { LensOutlined } from '@material-ui/icons';
+import CreateCommentsPosts from '../../components/Comments/CreateCommentsPost';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-      width:500,
+      width:700,
     // maxWidth: 345,
   },
-
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
 }));
 
 
+
 const PostsCards =(props) => {
+
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [curtido, setCurtido] = useState(false)
+  let [curtido, setCurtido] = useState(false)
+  let [iconLike, setIconLike] = useState (curtido ? <FavoriteIcon/> : <FavoriteBorderIcon/>)
   const [numeroCurtidas, setNumeroCurtidas] = useState(0)
-  let iconeCurtida
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   const onClickCurtida = () => {
-      setCurtido(!curtido) 
-    if (numeroCurtidas === 0) {
-   setCurtido(true)
-      setNumeroCurtidas(+1)
-    } else {
-     setCurtido(false)
-   setNumeroCurtidas(-1)
-      }
+    console.log(`curtiu`, curtido)
+      setCurtido(!curtido)
+     setIconLike(curtido ? <FavoriteIcon/> : <FavoriteBorderIcon/>) 
+  //   if (numeroCurtidas === 0) {
+  //  setCurtido(true)
+  //     setNumeroCurtidas(+1)
+  //   } else {
+  //    setCurtido(false)
+  //  setNumeroCurtidas(-1)
+  //     }
+ 
   }
+
+
+
+  const openComments= (id)=>{
+    console.log(`abrir comentarios`, id)
+    CommentsList(id)
+    localStorage.setItem("idComment", id);
+  }
+
+  const CommentsList = ()=>{
+    
+  return<Comments  />
+
+  }
+
+
   return (
     <Card className={classes.root}>
     <CardHeader
@@ -73,18 +115,17 @@ const PostsCards =(props) => {
     </CardContent>
     <CardActions disableSpacing>
       
-          <IconButton aria-label="add to favorites">
-          <IconHeartCount
-            icone={iconeCurtida}
-            onClick={onClickCurtida}
-            valorContador={props.voteSum}
-          />
-      </IconButton>
+          {/* <IconButton aria-label="add to favorites"> */}
+          {props.voteSum}
+          <HeartContainer onClick={onClickCurtida}>
+          {iconLike}
+          </HeartContainer>
+      {/* </IconButton> */}
       <ContainerComments>
       {props.commentCount}
          <CommentIcon />
       </ContainerComments>
-      {/* {/* <IconButton
+      <IconButton
         className={clsx(classes.expand, {
           [classes.expandOpen]: expanded,
         })}
@@ -92,13 +133,15 @@ const PostsCards =(props) => {
         aria-expanded={expanded}
         aria-label="show more"
       >
-        <ExpandMoreIcon />
-      </IconButton> */}
+        <ExpandMoreIcon  onClick={()=>openComments(props.id)}/>
+      </IconButton> 
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
-        {/* <Typography paragraph>Comentários:</Typography> */}
-          </CardContent>
+      {CommentsList()}
+        <br/>
+        <CreateCommentsPosts id={props.id}/>
+       </CardContent>
     </Collapse>
   </Card>
   );
