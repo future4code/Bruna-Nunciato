@@ -9,10 +9,16 @@ export const ContainerPost = styled.div`
   justify-content: center;
   align-items: center;
   background-color:#d694b4;
-`
+ ` 
+export const Welcome = styled.img`
+    margin-top: 1rem;
+    width:30%;
+  `
 export const ContainerComments = styled.div`
     display:flex;
     justify-content: space-between;
+    margin-top:3rem;
+    margin-left: 4rem;
 `
 export const IconsContainer = styled.div`
     
@@ -25,6 +31,22 @@ export const CardPostContainer = styled.div`
 
 .CardPost{
   width:50rem;
-  /* max-width:80%; */
 }
+
+`
+export const ContainerTotalVotes=styled.div`
+padding-top:3rem;
+display: flex;
+flex-direction: row;
+`
+export const TargetContainer=styled.div`
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+`
+export const ContainerVotes2 = styled.div`
+margin-top: 3rem;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+bottom:0 ;
 `
