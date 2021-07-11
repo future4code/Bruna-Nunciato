@@ -2,7 +2,6 @@ import axios from 'axios'
 import {BASE_URL} from '../constants/urls'
 
 export const postVote = (url, vote)=>{
-console.log(`url e vote${url} e ${vote}`)
     axios.post(url, {
       direction: Number(vote)
       }, {
@@ -11,17 +10,15 @@ console.log(`url e vote${url} e ${vote}`)
       }
     })
     .then((res)=>{
-        console.log(`resgistrou`,res.data)
-        alert(`voto registrado`)
+       alert(`voto registrado`)
     })
     .catch((erro)=>{
-        console.log(erro.response.data)
+        alert(erro.response.data)
     })
 }
 
 
 export const changeVote = (url, vote)=>{
-  console.log(`url e vote${url} e ${vote}`)
   axios.put(url, {
     direction: Number(vote)
     }, {
@@ -30,28 +27,25 @@ export const changeVote = (url, vote)=>{
     }
   })
   .then((res)=>{
-      console.log(`resgistrou`,res.data)
-      alert(`voto registrado`)
+     alert(`voto registrado`)
   })
   .catch((erro)=>{
-     console.log(erro.response.data)
+     alert(erro.response.data)
   })
 }
 
 
 export const deleteVote = (url)=>{
-  console.log(`url e vote${url}`)
   axios.delete(url, {
     headers: {
       Authorization: localStorage.getItem("token")
     }
   })
   .then((res)=>{
-      console.log(`resgistrou`,res.data)
       alert(`voto apagado`)
   })
   .catch((erro)=>{
-      console.log(erro.response.data)
+      alert(erro.response.data)
   })
 }
 

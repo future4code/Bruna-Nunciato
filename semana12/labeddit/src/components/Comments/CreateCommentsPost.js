@@ -17,7 +17,6 @@ const CreateCommentsPosts = (props) => {
 
   return (
     <form onSubmit={onSubmitComment}>
-      {console.log(`props`,props.id)}
       <CreateCommentsContainer>
         <InputsContainer>
           <TextField

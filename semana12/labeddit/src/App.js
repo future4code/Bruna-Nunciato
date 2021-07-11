@@ -4,7 +4,8 @@ import theme from './constants/theme'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { BrowserRouter } from 'react-router-dom'
 import Header from "./components/Header/Header"
-import Menu from '../src/components/Menu/Menu'
+import GlobalState from './globalstate/GlobalState'
+
 
 const App = () => {
   const token = localStorage.getItem("token")
@@ -12,11 +13,13 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-     <BrowserRouter>
+        <BrowserRouter>    
+        <GlobalState>
           <Header rightButtonText={rightButtonText} setRightButtonText={setRightButtonText}  /> 
           {/* <Menu/> */}
           <Router setRightButtonText={setRightButtonText} />
-      </BrowserRouter> 
+       </GlobalState>
+       </BrowserRouter> 
     </ThemeProvider>
   )
 }

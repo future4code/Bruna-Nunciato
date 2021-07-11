@@ -1,16 +1,16 @@
-import { BASE_URL } from "../../constants/urls";
-import useRequestData from "../../hooks/useRequestData";
 import { ContainerPost, Welcome } from "./styled";
-import React from "react";
+import React, {useContext} from "react";
 import PostsCards from "./PostsCards";
 import DoPost from "../../components/DoPost/DoPost";
 import Loading from "../../assets/loading.gif";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import Hello from "../../assets/hello.png";
+import Pagination from '../../components/Pagination'
+import {GlobalStateContext} from "../../globalstate/GlobalStateContext"
 
 export const PostPage = () => {
   useProtectedPage();
-  const posts = useRequestData([], `${BASE_URL}/posts`);
+  const {posts} = useContext(GlobalStateContext)
 
   const postList =
     posts &&
@@ -34,6 +34,8 @@ export const PostPage = () => {
       <Welcome src={Hello} alt="hello image" />
       <DoPost />
       {postList ? postList : <img src={Loading} alt="loading" />}
+      
+      <Pagination/>
     </ContainerPost>
   );
 };

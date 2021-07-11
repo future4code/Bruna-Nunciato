@@ -10,7 +10,6 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import logo from "../../assets/logo.png";
 import CommentIcon from "@material-ui/icons/Comment";
 import {
@@ -112,20 +111,15 @@ const PostsCards = (props) => {
               <img width="40px" src={logo} alt="logo" />
             </Avatar>
           }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          subheader={props.title}
-          title={UseDateTreatmentBr(props.createdAt)}
+           subheader={props.title}
+          // title={UseDateTreatmentBr(props.createdAt)}
         />
         <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.body}
-          </Typography>
-          <Typography variant="h6" color="textSecondary" component="p">
-            {props.username}
+          <Typography variant="h6" color="textSecondary" align='center' component="p">
+            {props.body} <br/>
+            </Typography>
+          <Typography variant="h5" color="textSecondary" component="p">
+          🗣️{props.username}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>

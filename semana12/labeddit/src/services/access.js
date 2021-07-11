@@ -6,15 +6,14 @@ export const signUp = (body, clear, history, setRightButtonText, setIsLoading)=>
 
     axios.post(`${BASE_URL}/users/signup`, body)
     .then((res)=>{
-        console.log(res)
-        localStorage.setItem("token", res.data.token)
+       localStorage.setItem("token", res.data.token)
         clear()
         setIsLoading(false)
         goToPosts(history)
         setRightButtonText("Logout")
     })
     .catch((erro)=>{
-        console.log(erro.response.data.message)
+        alert(erro.response.data)
     })
 }
 
@@ -22,7 +21,6 @@ export const login = (body, clear, history, setRightButtonText, setIsLoading)=>{
 
     axios.post(`${BASE_URL}/users/login`, body)
     .then((res)=>{
-        console.log(res)
         localStorage.setItem("token", res.data.token)
         clear()
         setIsLoading(false)
@@ -30,7 +28,6 @@ export const login = (body, clear, history, setRightButtonText, setIsLoading)=>{
         setRightButtonText("Logout")
     })
     .catch((erro)=>{
-        console.log(erro.response.message)
-        alert(erro.message)
+        alert(erro.response.data)
     })
 }

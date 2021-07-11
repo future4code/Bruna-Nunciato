@@ -14,6 +14,7 @@ const DoPost = () => {
   const onSubmitComment = (event) => {
     event.preventDefault()
     createPost(form, clear, setIsLoading)
+    console.log(form)
   }
 
   return (

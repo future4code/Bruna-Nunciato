@@ -2,8 +2,7 @@ import axios from 'axios'
 import {BASE_URL} from '../constants/urls'
 
 export const createPost = (form, clear, setIsLoading) => {
-    console.log(form)
-    setIsLoading(true)
+      setIsLoading(true)
       axios.post(`${BASE_URL}/posts/`, {
         title: form.title,  
         body: form.body

@@ -27,12 +27,9 @@ const Comments = (id)=>{
            return(
         <div key={comment.id}>
             <hr/>
-            <Typography paragraph variant="h6" color="textSecondary" >{comment.body}</Typography>
-            <Typography paragraph color="textSecondary">{comment.username}</Typography>
-            <Typography paragraph>{UseDateTreatmentBr(comment.createdAt)}</Typography>
-            <IconButton onClick={()=>delComment(comment.id)} aria-label="delete">
-              <DeleteIcon />
-             </IconButton>
+            <Typography paragraph variant="h6" align='center'  color="textSecondary" >{comment.body}</Typography>
+             <Typography align='center' paragraph>➡️{UseDateTreatmentBr(comment.createdAt)}</Typography>
+            <Typography paragraph color="textSecondary">🗣️{comment.username}</Typography>
             <CommentVotes userVote={comment.userVote}
             id={comment.id}
             voteSum={comment.voteSum}
