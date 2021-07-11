@@ -4,6 +4,7 @@ import axios from "axios";
 import AddMusic from "./components/AddMusic/AddMusic";
 import PandaLove from "./pandaLove.gif";
 import playMusic from "./playmusic.gif";
+import ReactPlayer from 'react-player'
 
 const BASE_URL =
   "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists";
@@ -24,7 +25,8 @@ export default class App extends React.Component {
     urlMusicSelect: "",
     clickAparecerPL: false,
     botaoVoltar: true,
-    linkParaPlayer: ""
+    linkParaPlayer: "",
+    urlParaReactPlayer: ""
   };
 
   //adicionar no input nome da playlist
@@ -128,18 +130,22 @@ export default class App extends React.Component {
       });
     this.setState({ idPlayListSelect: id });
   };
+// tocar pelo Player do React
+playMusic =(url) =>{
+this.setState({ urlParaReactPlayer: url})
+}
 
   //tocar musica
-  playMusic = (url) => {
-    this.setState({ urlMusicSelect: url });
+  // playMusic = (url) => {
+  //   this.setState({ urlMusicSelect: url });
 
-  const linkPlayer = url.slice(32)
-  const link = "https://www.youtube.com/embed/"
-  const linkpronto = link+linkPlayer
-  console.log(`linkpronto`,linkpronto)
-  this.setState({linkParaPlayer: linkpronto})
+  // const linkPlayer = url.slice(32)
+  // const link = "https://www.youtube.com/embed/"
+  // const linkpronto = link+linkPlayer
+  // console.log(`linkpronto`,linkpronto)
+  // this.setState({linkParaPlayer: linkpronto})
 
-  };
+  // };
 
   onclickVoltar = () => {
     this.setState({ botaoVoltar: true });
@@ -195,7 +201,11 @@ export default class App extends React.Component {
             </button>
             <button
               key="ms{music.id}"
-              onClick={() => this.playMusic(music.url)}
+              onClick={() =>
+                 
+                this.playMusic(music.url)
+
+              }
             >
               Play ===
             </button>
@@ -242,7 +252,17 @@ export default class App extends React.Component {
         {musicList}
                     
        <div className="Player">
-        {this.state.linkParaPlayer && (
+
+          {this.state.urlParaReactPlayer && (
+            <ReactPlayer  
+            width="260"
+            height="165"
+            url={this.state.urlParaReactPlayer}
+            controls/>
+          )}
+
+
+        {/* {this.state.linkParaPlayer && (
           <iframe
             width="260"
             height="165"
@@ -252,7 +272,7 @@ export default class App extends React.Component {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           />
-        )}
+        )} */}
         </div>
         </div>
       </div>

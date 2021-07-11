@@ -13,7 +13,8 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 import axios from "axios";
 
 export default function HomeAdmPage() {
-  const history = useHistory();
+    useProtectedPage();
+    const history = useHistory();
   const tripsList = useRequestApi(UrlTrips, []);
 
 
@@ -25,7 +26,7 @@ export default function HomeAdmPage() {
     history.push("/adm/viagens/novaviagem");
   };
 
-  useProtectedPage();
+
 
   const deleteTrip = (id) => {
     const headers = {

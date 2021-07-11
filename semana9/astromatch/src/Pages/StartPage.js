@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CardMatch from "../components/CardMatch/CardMatch";
-import { MatchContainer } from "./styles.js";
 import { URL } from "../assets/Api/Api";
 import Footer from "../components/Footer/Footer";
+import { CardLoading } from "../components/styles";
 
 export default function StartPage() {
   const [profile, setProfile] = useState({});
@@ -15,8 +15,7 @@ export default function StartPage() {
       );
     } else {
       axios.get(`${URL}/person`).then((res) => {
-        console.log(`profile`, res.data);
-        setProfile(res.data.profile);
+           setProfile(res.data.profile);
       });
     }
   };
@@ -25,7 +24,7 @@ export default function StartPage() {
   }, []);
   return (
     <>
-      <MatchContainer>
+      
         {profile ? (
           <CardMatch
             photo={profile.photo}
@@ -34,10 +33,11 @@ export default function StartPage() {
             bio={profile.bio}
           />
         ) : (
-          <p>
+          <CardLoading>
+            <p>
             <img
               width="100%"
-              height="250px"
+              height="70%"
               width="100%"
               src="https://media1.tenor.com/images/becaac936d0c6ed8d0524347a484d600/tenor.gif"
             />{" "}
@@ -48,8 +48,9 @@ export default function StartPage() {
             ... que tal limpar os matches<br/> da sua lista 
             e dar uma nova chance <br></br>para os pretendentes?
           </p>
+       </CardLoading>
         )}
-      </MatchContainer>
+   
       <Footer profile={profile} getProfile={getProfile} />
     </>
   );

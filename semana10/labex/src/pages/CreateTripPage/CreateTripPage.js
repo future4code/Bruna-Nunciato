@@ -16,6 +16,8 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 
 
 const CreateTripPage = () => {
+
+    useProtectedPage();
    const { form, onChange, cleanFields } = useForm({
     name: "",
     planet: "",
@@ -23,7 +25,7 @@ const CreateTripPage = () => {
     description: "",
     durationInDays: "",
   });
-  useProtectedPage();
+
 
   const onClickCreate = (event) => {
     event.preventDefault();

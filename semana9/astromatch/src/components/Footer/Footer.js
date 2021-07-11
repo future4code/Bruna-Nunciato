@@ -23,10 +23,10 @@ export default function Footer(prop) {
 
   return (
     <BotaoContainer>
-      <FcCancel size="40" cursor="pointer" onClick={() => getLike(false)}>
+      <FcCancel size="60" cursor="pointer" onClick={() => getLike(false)}>
         {" "}
       </FcCancel>
-      <FcLike size="40" cursor="pointer" onClick={() => getLike(true)}></FcLike>
+      <FcLike size="60" cursor="pointer" onClick={() => getLike(true)}></FcLike>
     </BotaoContainer>
   );
 }

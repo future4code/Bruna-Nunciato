@@ -2,7 +2,7 @@ import React from "react";
 import { FcFullTrash } from "react-icons/fc";
 import { URL, header } from "../../assets/Api/Api";
 import axios from "axios";
-import { ResetContainer, Playback } from "./styles";
+import { ResetContainer, Playback, FooterMatchList, CardList } from "./styles";
 
 export function ResetButton() {
   const reset = () => {
@@ -17,9 +17,15 @@ export function ResetButton() {
   };
 
   return (
+
+    <FooterMatchList>
+      
     <ResetContainer onClick={reset}>
       <Playback>Zerar Matches </Playback>
       <FcFullTrash size="40"></FcFullTrash>
     </ResetContainer>
+    
+    </FooterMatchList>
+    
   );
 }

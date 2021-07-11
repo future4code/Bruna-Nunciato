@@ -1,12 +1,12 @@
 import React from "react";
-import { Card, Photo, Age, Text } from "../styles";
+import { Card, Photo, Age, Text, PhotoProfile } from "../styles";
 
 export default function CardMatch(prop) {
   return (
     <Card>
-      <Photo>
-        <img width="100%" height="300px" src={prop.photo} alt="foto" />
-      </Photo>
+      <Photo src={prop.photo} alt="foto">
+        <PhotoProfile  />
+    
       <Age>
         {" "}
         <b>{prop.name},</b> &nbsp;{prop.age}
@@ -15,7 +15,8 @@ export default function CardMatch(prop) {
       <Text>
         <br></br>
         <p>{prop.bio}</p>
-      </Text>
+      </Text>  
+      </Photo>
     </Card>
   );
 }
