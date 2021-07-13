@@ -1,0 +1,19 @@
+{
+  "name": "Aula42",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "ex1": "tsc && node build/ex1.js",
+    "ex2": "tsc && node build/ex2_5.js",
+    "ex3": "tsc && node build/ex3.js",
+    "ex4": "tsc && node build/ex4.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
