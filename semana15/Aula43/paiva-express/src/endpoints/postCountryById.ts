@@ -6,7 +6,7 @@ export const postCountryById = (
    req: Request,
    res: Response
 ): void => {
-    console.log( req.query)
+    console.log( req.body)
    const result: country | undefined = countries.find(
       country => country.id.toString() === req.params.id
    )
