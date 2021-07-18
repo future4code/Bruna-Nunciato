@@ -9,40 +9,51 @@ export const postUser = (
     let errorCode = 400
     try{
         console.log("chegando aqui")
-    const { nome, cpf, dataDeNascimento } = req.body
-    const newUser:User = {
-        nome, 
-        cpf, 
-        dataDeNascimento,
-        saldo: 0,
-        extrato: [],
+    const { nome, cpf, dataDeNascimentoAsString } = req.body
+    const [day, month, year] = dataDeNascimentoAsString.split("/")
+    const dataDeNascimento: Date = new Date(`${year}-${month}-${day}`)
+
+    const idadeEmSegundos: number = Date.now() - dataDeNascimento.getTime()
+    const idadeEmAnos: number =idadeEmSegundos / 1000/ 60/ 60/ 24/ 365
+
+    if (idadeEmAnos<18){
+        res.statusCode= 406
+        throw new Error("idade deve ser maior que 18 anos")
     }
-    const dataAtual = new Date(dataDeNascimento).getTime() / (1000 * 60 *60 * 24 * 30 * 12)
-    const anoAtual = new Date().getTime() / (1000 * 60 *60 * 24 * 30 * 12)
-        console.log(`teste`,newUser)
-    if ( nome && cpf && dataDeNascimento){
-        const existentUser = users.find(u => u.cpf === cpf)
-        if(existentUser){
-            throw new Error("This account already exist")
-        }
-        if(anoAtual - dataAtual < 18){
-            throw new Error("You must be over 18 to create an account")
-        }
-        users.push(newUser)
-    res.status(201).send("Sucess")
+  
+    // // const dataAtual = new Date(dataDeNascimento).getTime() / (1000 * 60 *60 * 24 * 30 * 12)
+    // // const anoAtual = new Date().getTime() / (1000 * 60 *60 * 24 * 30 * 12)
+    // //     console.log(`teste`,newUser)
+    // if ( nome && cpf && dataDeNascimento){
+    //     const existentUser = users.find(u => u.cpf === cpf)
+    //     if(existentUser){
+    //         throw new Error("This account already exist")
+    //     }
+    //     if(anoAtual - dataAtual < 18){
+    //         throw new Error("You must be over 18 to create an account")
+    //     }
+        users.push({
+            nome, 
+            cpf,
+            dataDeNascimento,
+            saldo: 0,
+            extrato: []
+        })
+    res.status(201).send("Conta criado com sucesso!")
 }
 
-    if ( !nome || !cpf || !dataDeNascimento){
-        errorCode = 422
-        throw new Error("Please check the fields")
-    }
-}
+//     if ( !nome || !cpf || !dataDeNascimento){
+//         errorCode = 422
+//         throw new Error("Please check the fields")
+//     }
+// }
    
      catch(error){
+         console.log(error)
         if (error instanceof Error){
-        res.status(errorCode).send({message: error.message
+        res.send({message: error.message
         })
-        console.log("errrrrooooooo")
+        
     }
 
     }

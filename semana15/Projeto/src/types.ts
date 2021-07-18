@@ -1,7 +1,7 @@
 export type User = {
     nome: string,
     cpf: string,
-    dataDeNascimento: string,
+    dataDeNascimento?: Date,
     saldo?: number,
     extrato?: Extrato[]
     } 

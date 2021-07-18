@@ -4,7 +4,7 @@ export let users: User[] = [
     {
         nome: "Bruna",
         cpf: "123.123.123-90",
-        dataDeNascimento: "08/10/1986",
+        // dataDeNascimento: ,
         saldo: 4000,
         extrato:[
             {

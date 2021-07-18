@@ -6,7 +6,7 @@ import {getSaldo} from '../src/endpoints/getSaldo'
 
 app.get('/users', getAllUsers)
 app.get('/saldo', getSaldo)
-app.post('/user', postUser)
+app.post('/user/new', postUser)
 app.get("/ping", (req: Request, res: Response) => {
   res.status(200).send("pong!")
 })

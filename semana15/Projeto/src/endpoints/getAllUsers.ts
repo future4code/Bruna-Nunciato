@@ -5,11 +5,16 @@ export const getAllUsers = (
     req: Request,
     res: Response
  ): void => {
-    let errorCode = 400
-    try{
+     try{
+        if(!users.length){
+            res.statusCode = 404
+            throw new Error ("Nenhuma conta encontrada")
+        }
          res.status(200).send(users)
  
      }catch(error){
-         res.status(errorCode).send({message: "something is wrong"})
+        if (error instanceof Error){
+         res.status(400).send(error.message)
      }
+    }
     }
