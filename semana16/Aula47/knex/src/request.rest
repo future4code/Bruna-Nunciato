@@ -1,0 +1,48 @@
+GET http://localhost:3003
+
+
+
+###
+
+
+GET http://localhost:3003/users/001
+Content-Type: application/json
+
+
+###
+
+
+GET http://localhost:3003/users/Mateus
+Content-Type: application/json
+
+
+
+
+###
+
+GET http://localhost:3003/actor/003
+Content-Type: application/json
+
+
+
+###
+GET  http://localhost:3003/actor?gender=male
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/actor
+Content-Type: application/json
+
+{
+    "id":"009",
+  "name": "ÍNdio ",
+  "salary": 9000000,
+  "birth_date": "1995-12-05",
+  "gender": "male"
+}
+
+###
+
+DELETE http://localhost:3003/actor/003
+Content-Type: application/json
