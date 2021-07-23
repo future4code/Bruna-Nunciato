@@ -28,17 +28,19 @@ app.post("/user", async (req: Request, res: Response) => {
 
 
 
-  const getUserById = async (id: string): Promise<any> => {
-    const result = await connection.raw(
-    `SELECT * FROM Users WHERE id = ${id}`
-     );
-    return result[0][0];
-  };
+  // const getUserById = async (id: string): Promise<any> => {
+  //   const result = await connection.raw(
+  //   `SELECT * FROM Users WHERE id = ${id}`
+  //    );
+  //   return result[0][0];
+  // };
   
   app.get("/user/:id", async (req: Request, res: Response) => {
     try {
       const id = req.params.id;
-      const user = await getUserById(id);
+      const user = await connection.raw(
+        `SELECT * FROM Users WHERE id = ${id}`
+         );
       res.status(200).send(user);
     } catch (err:any) {
       res.status(500).send({
@@ -52,14 +54,14 @@ app.post("/user", async (req: Request, res: Response) => {
 
   app.put("/user/edit/:id", async (req, res) => {
     try {
-       await connection("Actor")
+       await connection("Users")
         .update({
           name: req.body.name,
          nickname: req.body.nickname,
          })
         .where({ id: req.params.id });
-  
-      res.status(200).send("dados atualizados");
+
+      res.status(200).send("updated data");
     } catch (error:any) {
       res.status(400).send(error.sqlMessage || error.message);
     }
@@ -71,8 +73,9 @@ app.post("/task", async (
 )=>{
     let errorCode = 400
     try{
+      console.log(req.body.dateAsString)
     const { title, description, status, dateAsString, creatorUserId } = req.body
-    const [day, month, year] = dateAsString.split("/")
+    const [day, month, year] = dateAsString.split("-")
     const limitDate: Date = new Date(`${year}/${month}/${day}`)
     const newTask ={
         id: Date.now().toString(),
@@ -83,7 +86,7 @@ app.post("/task", async (
         creatorUserId 
       };
   
-    if ( !title && !description && !status && !limitDate && !creatorUserId  ){
+    if ( !title && !description && !status && !dateAsString && !creatorUserId  ){
         errorCode = 422;
         throw new Error("Please check the fields!");
       }
@@ -93,5 +96,23 @@ app.post("/task", async (
        res.status(201).send("Sucess!");
     } catch (error:any) {
       res.status(400).send(error.sqlMessage || error.message);
+    }
+  });
+
+
+
+
+
+  app.get("/task/:id", async (req: Request, res: Response) => {
+    try {
+      const id = req.params.id;
+      const task = await connection.raw(
+        `SELECT * FROM Task WHERE id = ${id}`
+         );
+      res.status(200).send(task);
+    } catch (err:any) {
+      res.status(500).send({
+        message: err.message,
+      });
     }
   });
