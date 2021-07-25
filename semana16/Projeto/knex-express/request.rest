@@ -34,7 +34,7 @@ Content-Type: application/json
 {
 	"title": "Criar banco dos alunos",
 	"description": "Devemos criar o banco dos alunos para o módulo do backend",
-	"limitDate": "04/05/2020",
+	"limitDate": "04/05/2022",
 	"status": "done",
 	"creatorUserId": "001"
 }
