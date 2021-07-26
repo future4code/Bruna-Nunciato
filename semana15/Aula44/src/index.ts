@@ -7,7 +7,7 @@ import {postUser} from '../src/endpoints/postUser'
 
 
 app.get('/users', getAllUsers)
-app.get('/users/:type', getUsersByType)
+app.get('/user/:type', getUsersByType)
 app.get('/user', getUserByName)
 app.post('/user', postUser)
 app.get("/ping", (req: Request, res: Response) => {

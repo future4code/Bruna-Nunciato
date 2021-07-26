@@ -95,7 +95,3 @@ SELECT name from Actor WHERE (name not like "A%" ) AND salary > 350000;
 SELECT name from Actor WHERE name like "%g%";
 SELECT name from Actor WHERE (name LIKE "%g%" OR name LIKE "%G%" OR name LIKE "%a%" OR name LIKE "%A%") AND salary between 350000 AND 900000;
 
-
-
-
-    

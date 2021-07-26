@@ -160,10 +160,6 @@ const searchActor = async (name: string): Promise<any> => {
 
             
             
-            
-            
-            
-            
             const avgSalary = async (gender: string): Promise<any> => {
                 const result = await connection("Actor")
                   .avg("salary as average")
