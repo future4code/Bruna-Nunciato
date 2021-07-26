@@ -12,7 +12,7 @@ export default async function selectUsersWithAll(
     const result = await connection("aula48_exercicio")
         .select("id", "name", "email", "type")
         .where("name", "LIKE", `%${name}%`)
-        .andWhere("type", "=", `${type}`)
+        .andWhere("type", "LIKE", `${type}`)
         .orderBy(sort, order)
         .limit(size)
         .offset(size * (page - 1))

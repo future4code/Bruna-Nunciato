@@ -5,8 +5,8 @@ import selectUsersByAsc from "../querys/selectUsersByAsc"
 export const getUsersByAsc = async(req: Request,res: Response): Promise<void> =>{
    try {
 
-      const sort = req.query.sort === "name" ? "name" : "type" ? "type" : "email"
-      const order = req.query.order = "DESC" ? "DESC" : "ASC" 
+      const sort = req.query.sort === "name" ? "name" : "id" ? "id" : "type" ? "type" : "email"
+      const order = req.query.order === "DESC" ? "DESC" : "ASC" 
 
       const users = await selectUsersByAsc(sort, order)
 
