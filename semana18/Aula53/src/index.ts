@@ -32,6 +32,9 @@ class User {
           return this.name
       }
       
+      public introduceYourself(): string {
+        return `Olá, sou ${this.name}. Bom dia!`;
+      }
 
   }
 
@@ -73,3 +76,13 @@ const novoCliente = new Customer("1", "clientinho@gmail.com", "Cliente Sobrenome
   console.log(novoCliente.getName())
   console.log(novoCliente.getEmail())
   console.log(novoCliente.getCreditCard())
+
+  //Exercicio 4
+
+  novoCliente.introduceYourself()
+
+// Exercicio 5
+
+console.log(novoCliente.introduceYourself())
+
+// 

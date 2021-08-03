@@ -6,3 +6,6 @@ b. Apenas uma vez
 b. Classe User foi impressa duas vezes, pois, foi reutilizado na classe Customer, além da propria classe
 
 3) a. Não é possivel obter a informação do password , pois ela é privada somente para a classe User.
+
+4) (no código em Index)
+5) (no código em Index)
