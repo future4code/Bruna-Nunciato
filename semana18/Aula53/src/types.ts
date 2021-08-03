@@ -13,3 +13,9 @@
 //    password: string
 //    recipes?: recipe[]
 // }
+
+export type Client = {
+   name: string
+   registrationNumber: number
+   consumedEnergy: number
+}
