@@ -1,6 +1,6 @@
 //1) a. constructor , denomina o que será recebido pela classe dos objetos
 // b. Duas vezes
-// c. declarando uma função publica chamando a propriedade. No caso explicitando que a propriedade é publica
+// c. declarando uma função publica chamando a propriedade. No caso explicitando que a propriedade é publica através do método
 
 class UserAccount {
     private cpf: string;
