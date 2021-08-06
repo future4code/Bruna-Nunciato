@@ -1,3 +1,4 @@
+import { Product } from "../classes/Product";
 import { productModel } from "../types";
 import { BaseDatabase } from "./BaseDatabase";
 
@@ -14,8 +15,7 @@ export default class ProductDatabase extends BaseDatabase {
         size: number,
         offset: number
     ) =>{
-        //com atributos estaticos, morre o this. Usamos
-        //o nome da classe toda
+
         const result = await BaseDatabase.connection("labECommerce_product")
          .where("name", "LIKE", `%${name}%`)
          .orderBy(sort, order)
@@ -27,4 +27,21 @@ export default class ProductDatabase extends BaseDatabase {
       return productModel;
     }
 
-}
+    public AddProduct = async ( product: Product ) => {
+        await BaseDatabase.connection("labECommerce_product")
+        .insert ( product )
+    }
+      public getAllProducts = async (order?: string): Promise<Product[]> => {
+          const result = await BaseDatabase.connection("labECommerce_product")
+          .select("*")
+          .orderBy("id",`${order}`)
+          return result
+       }
+       public getProductById = async (id:number): Promise<Product[]> =>{
+           const result = await BaseDatabase.connection("labECommerce_product")
+           .select("*")
+           .where ("id", "=", `${id}`)
+           return result
+       }
+    }
+

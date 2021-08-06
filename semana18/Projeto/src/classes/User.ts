@@ -1,16 +1,16 @@
 import { user } from '../types'
 
 export class User{
-    public id: string;
+    public id: number;
     public name: string;
     public email: string;
     public age: number;
 
 
     constructor(
-        id: string, name: string, email: string, age: number)
+        id: number, name: string, email: string, age: number)
         {
-        console.log("Chamando o construtor da classe UserAccount")
+        
         this.id = id,
         this.name = name,
         this.email = email,
@@ -22,7 +22,9 @@ export class User{
     public getAge(): number {
         return this.age;
       }
-       
+      public getId(): number {
+        return this.id;
+      }
     
 }
 

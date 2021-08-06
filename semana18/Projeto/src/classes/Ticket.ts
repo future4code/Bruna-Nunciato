@@ -1,3 +1,4 @@
+import { Product } from "./Product";
 
 interface ticket_destination {
     leaving: string;
@@ -11,7 +12,7 @@ class Ticket extends Product implements ticket_destination{
     public going: string = ""
   
     constructor(
-        id: string,
+        id: number,
         name: string,
         description: string,
         price: number

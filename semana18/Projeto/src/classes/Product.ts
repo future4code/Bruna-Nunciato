@@ -1,19 +1,19 @@
-class Product {
-    public id: string;
+export class Product {
+    public id: number;
     public name: string;
     private description: string;
     private price: number;
   
     constructor(
-        id: string,
+        id: number,
         name: string,
         description: string,
         price: number,
     ) {
-       console.log("Chamando o construtor da classe Product")
+      
        this.id = id
        this.name = name;
-       this.description= description;
+       this.description = description;
        this.price = price;
     }
     public getDescription(): string {

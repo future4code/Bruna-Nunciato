@@ -1,2 +1,41 @@
 
-GET  http://localhost:3003/user
+POST  http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+   "name":  "Magali",
+   "email": "maga@gmail.com",
+   "age": "22" 
+}
+
+
+###
+
+GET   http://localhost:3003/users
+
+###
+
+
+GET   http://localhost:3003/products
+
+
+###
+
+
+GET   http://localhost:3003/product?name=capacete
+
+
+
+
+
+###
+
+
+POST  http://localhost:3003/product/create
+Content-Type: application/json
+
+{
+   "name":  "Capacete Espacial",
+   "description": "novo com guarantia",
+   "price": "220.00" 
+}

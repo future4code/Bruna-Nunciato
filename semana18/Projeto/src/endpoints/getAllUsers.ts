@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { user } from "../types"
+import { user, userModel } from "../types"
 import  UserDatabase  from "../data/UserDatabase"
 
 export async function getAllUsers(
@@ -8,22 +8,11 @@ export async function getAllUsers(
 ): Promise<void> {
    try {
 
-      const name = (req.query.name || "%") as string
-      const sort = req.query.sort === "title" ? "title" : "created_at"
-      const order = req.query.order === "DESC" ? "DESC" : "ASC"
-      const page = Number(req.query.page) || 1
-      const size = Number(req.query.size) || 10
-
-   
-      const offset:number = size * (page - 1)
-      
-      const user = new UserDatabase();
-      //const recipes = await new RecipeDatabase().getRecipes(..parametros)
-      const recipes = await user.getUser(name, sort, order, size, offset);
-
-      res.status(200).send(recipes)
+      const users = await new UserDatabase().getAllUsers();
+      const UsersList= users.map(userModel)
+      res.status(200).send(UsersList)
 
    } catch (error) {
-      res.status(500).send("Internal server error")
+      res.status(500).send("Erro servidor interno")
    }
 }

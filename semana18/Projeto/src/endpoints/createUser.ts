@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { User } from "../classes/User";
 import { connection } from "../data/connection";
+import UserDatabase from "../data/UserDatabase";
 import { user} from "../types";
 
 export default async function createUser(
@@ -15,12 +16,11 @@ export default async function createUser(
          res.statusCode = 422
          throw " 'name', 'email' e 'age' são obrigatórios"
       }
-      const id: string = Date.now() + Math.random().toString()
-  
+      const id: number = Math.round(((new Date()).getTime() & 0xffff))
 
-    const newUser: user = new  User(id,name, email,age)
-
-      await connection('labECommerce_user').insert(newUser)
+      const newUser: User = new  User(id,name, email,age)
+    
+      await new UserDatabase().AddUser(newUser)
 
       res.status(201).send("Novo usuário inserido")
 
