@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import { generateId } from "../services/generateId";
 import {User} from "../data/User";
-import { generateToken } from "../services/generateToken";
+import { Authentication } from "../services/Authentication";
+import HashManager from "../services/HashManager";
 
 
 const signup = async (req: Request, res: Response) => {
@@ -17,16 +18,21 @@ const signup = async (req: Request, res: Response) => {
    
       const userData = {
         email: req.body.email,
-        password: req.body.password,
-      };
-
-      const id   =   generateId();
-
-    
-       await new User().createUser(id, userData.email, userData.password);
-  
-    const token = generateToken({
+        password: req.body.password
+           };
+   let role  = req.body.role
+      
+      const id  =   generateId();
+      const hm: HashManager = new HashManager()
+      const cryptedPassword = await hm.hash(userData.password)
+      
+ 
+      const sending = new User()
+      await sending.createUser(id , userData.email, role, cryptedPassword )
+     
+    const token = new Authentication().generateToken({
         id,
+        role
       });
   
       res.status(200).send({

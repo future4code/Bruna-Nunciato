@@ -4,12 +4,13 @@ const userTableName = "aula55_user";
 
 export class User {
 
-createUser = async (id: string, email: string, password: string) => {
-    await connection
+createUser = async (id: string, email: string, role:string, password: string): Promise<void> => {
+  await connection
       .insert({
         id,
         email,
-        password,
+        role,
+        password
       })
       .into(userTableName);
   }
