@@ -17,7 +17,7 @@ const getRecipeById = async (req: Request, res: Response) => {
         
         const recipeSearch = new RecipeData()
         const getRecipe = await recipeSearch.getRecipeById(id)
-        console.log(getRecipe )
+        console.log(getRecipe)
         if (!getRecipe ){
             throw new Error("nenhuma receita encontrado com esse id")
         }
