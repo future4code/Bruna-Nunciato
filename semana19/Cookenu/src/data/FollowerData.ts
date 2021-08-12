@@ -1,11 +1,9 @@
-import { format } from 'path';
 import connection from '../connection'
-import { user } from '../types';
 
 const followerTable = "cookenu_follower";
 const userTable = "cookenu_user";
 
-export class UserData {
+export class FollowerData {
 
     following = async (id_user:string, id_following:string): Promise<void> => {
         await connection
@@ -27,6 +25,12 @@ export class UserData {
       return result
     };
 
+    alreadyFollowing = async (id_user: string, id_following: string): Promise<any> => {
+    const result = await connection(followerTable)
+    .select("*")
+    .where(id_user, id_following)
+    return result
+    }
   
     unfollow = async (id_user:string, id_following:string) : Promise<void> =>{
         await connection
