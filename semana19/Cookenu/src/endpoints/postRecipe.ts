@@ -18,9 +18,8 @@ const postRecipe = async (req: Request, res: Response) => {
      if (authenticationData){
 
      const id  =   generateId();
-     const createdAt = moment( new Date()).format("yyyy/mm/dd")
-     console.log(createdAt)
-  
+     const createdAt = moment( new Date()).format("YYYY/MM/DD")
+     
      const recipe = new RecipeData()
      const newRecipe = recipe.createRecipe(id, authenticationData.id, author, title, description,createdAt)
      console.log( id, authenticationData.id, author, title, description,createdAt)

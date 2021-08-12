@@ -18,9 +18,10 @@ createRecipe = async (id: string, id_user: string, author: string, title: string
         createdAt
       })
       .into(recipeTable);
+      console.log(id,id_user,author,title,)
   }
 
-getUserByTitle = async(title: string): Promise<any> => {
+getRecipeByTitle = async(title: string): Promise<any> => {
      const result = await connection
       .select("*")
       .from(recipeTable)
@@ -29,7 +30,7 @@ getUserByTitle = async(title: string): Promise<any> => {
     return result[0];
    }
    
-getUserById= async (id: string): Promise<user> => {
+getRecipeById= async (id: string): Promise<user> => {
       const result = await connection
       .select("*")
       .from(recipeTable)
@@ -51,7 +52,7 @@ getUserById= async (id: string): Promise<user> => {
     .select("recipeTable.id","recipeTable.author","userTable.name", "recipeTable.title","recipeTable.decription")
     .where("userTable.id", "=", id_user)
     .join("recipeTable","id_user","=", "userTable.id")
-
+ console.log(`deentro da função`, id_user)
     return result
   }
 }

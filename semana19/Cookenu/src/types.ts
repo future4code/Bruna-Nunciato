@@ -2,8 +2,7 @@ export type user = {
    id: string
    name: string
    email: string
- 
-}
+ }
 
 export interface AuthenticationData {
    id: string

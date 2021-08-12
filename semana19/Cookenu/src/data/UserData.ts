@@ -5,10 +5,11 @@ const userTable = "cookenu_user"
 
 export class UserData {
 
-createUser = async (id: string, email: string, password: string): Promise<void> => {
+createUser = async (id: string,name:string, email: string, password: string): Promise<void> => {
   await connection
       .insert({
         id,
+        name,
         email,
         password
       })
