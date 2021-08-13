@@ -26,10 +26,10 @@ const feedRecipes = async (req: Request, res: Response) => {
   
          const user = new FollowerData()
          const following = await user.checkFollowing(id_user);
-         console.log(`pegar os ids dos following`,following[0].id_following)
+         console.log(`pegar os ids dos following`,following)
          
         const recipe = new RecipeData()
-        const getAll = await recipe.getAll(following[0].id_following)
+        const getAll = await recipe.getFeed(following[0].id_following)
         const feedList = getAll.map(toModelRecipe)
         console.log(feedList)
 

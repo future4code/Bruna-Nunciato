@@ -8,6 +8,7 @@ import getRecipeById from "./endpoints/getRecipeById"
 import tofollow from "./endpoints/toFollow"
 import following from "./endpoints/following"
 import feedRecipes from "./endpoints/feedRecipes"
+import unfollow from "./endpoints/unfollow"
 
 app.post("/user/signup", signup) 
 app.post("/user/login", login)
@@ -18,3 +19,4 @@ app.get("/recipe/:id", getRecipeById)
 app.post("/user/follow", tofollow)
 app.get("/recipe", feedRecipes)
 app.get("/following", following)
+app.delete("/user/unfollow", unfollow)

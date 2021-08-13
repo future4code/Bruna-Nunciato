@@ -1,5 +1,5 @@
 import connection from '../connection'
-import { recipe, user } from '../types'
+import { Feed, recipe, user } from '../types'
 
 const recipeTable = "cookenu_recipe"
 // const joinTable = "cookenu_follower"
@@ -21,12 +21,12 @@ createRecipe = async (id: string, id_user: string, author: string, title: string
       console.log(id,id_user,author,title,)
   }
 
-  getAll = async(id_following:string): Promise<recipe[]> => {
+  getFeed = async(id_following:string): Promise<Feed[]> => {
       const result = await connection(userTable)
-      .select("cookenu_recipe.id","cookenu_recipe.id_user","cookenu_user.name", "cookenu_recipe.author", "cookenu_recipe.title","cookenu_recipe.description","cookenu_recipe.createdAt")
+      .select("cookenu_recipe.id", "cookenu_recipe.author", "cookenu_recipe.title","cookenu_recipe.description","cookenu_recipe.createdAt","cookenu_recipe.id_user","cookenu_user.name")
       .where("cookenu_recipe.id_user", "=", id_following)
       .join("cookenu_recipe","id_user","=", "cookenu_user.id")
-      console.log(`pegaaa`,result)
+    
       return result
     }
 
@@ -47,15 +47,7 @@ getRecipeById= async (id: string): Promise<user> => {
 
       return result[0];
   }
-//feed personalizado
-// feedRecipes = async (id_user:string): Promise<any> => {
-//       const result = await connection(joinTable)
-//       .select("recipeTable.id","recipeTable.author", "recipeTable.title","recipeTable.decription")
-//       .where("joinTable.id_user", "=", id_user)
-//       .join("recipeTable","id_user","=", "joinTable.id_following")
 
-//       return result
-  // }
   feedRecipes = async (id_user:string): Promise<any> => {
     const result = await connection(userTable)
     .select("recipeTable.id","recipeTable.author","userTable.name", "recipeTable.title","recipeTable.decription")

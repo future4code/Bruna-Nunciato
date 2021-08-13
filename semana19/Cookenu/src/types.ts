@@ -18,22 +18,22 @@ export type recipe = {
 
 export type Feed = {
    id: string  
-   id_user: string 
-   name: string
    author: string
    title: string
    description: string
    createdAt: string
+   id_user: string 
+   name: string
 }
 
     export const toModelRecipe = (input: any): Feed => {
       return {
          id: input.id,
-         id_user: input.id_user,
-         name: input.name,
          author: input.author,
          title: input.title,
          description: input.description,
-         createdAt: input.createdAt
+         createdAt: input.createdAt,
+         id_user: input.id_user,
+         name: input.name
       }
    }

@@ -14,7 +14,6 @@ const following = async (req: Request, res: Response) => {
   
       const user = new FollowerData()
       const following = await user.checkFollowing(id_user);
-        console.log(`retorno`,following)
       res.status(200).send(following);
     } catch (err:any) {
       res.status(400).send(err.sqlMessage || err.message)
