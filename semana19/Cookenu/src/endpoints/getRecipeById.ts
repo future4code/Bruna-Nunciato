@@ -21,7 +21,8 @@ const getRecipeById = async (req: Request, res: Response) => {
         if (!getRecipe ){
             throw new Error("nenhuma receita encontrado com esse id")
         }
-        const foundUser = getRecipe 
+        const found = getRecipe
+
         res.status(200).send(getRecipe)
 
     } catch (err:any) {

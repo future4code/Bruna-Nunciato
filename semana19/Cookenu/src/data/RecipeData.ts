@@ -1,5 +1,5 @@
 import connection from '../connection'
-import { user } from '../types'
+import { recipe, user } from '../types'
 
 const recipeTable = "cookenu_recipe"
 // const joinTable = "cookenu_follower"
@@ -20,6 +20,15 @@ createRecipe = async (id: string, id_user: string, author: string, title: string
       .into(recipeTable);
       console.log(id,id_user,author,title,)
   }
+
+  getAll = async(id_following:string): Promise<recipe[]> => {
+      const result = await connection(userTable)
+      .select("cookenu_recipe.id","cookenu_recipe.id_user","cookenu_user.name", "cookenu_recipe.author", "cookenu_recipe.title","cookenu_recipe.description","cookenu_recipe.createdAt")
+      .where("cookenu_recipe.id_user", "=", id_following)
+      .join("cookenu_recipe","id_user","=", "cookenu_user.id")
+      console.log(`pegaaa`,result)
+      return result
+    }
 
 getRecipeByTitle = async(title: string): Promise<any> => {
      const result = await connection
