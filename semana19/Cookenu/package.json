@@ -5,7 +5,8 @@
     "scripts": {
         "start": "tsc && node --inspect ./build/index.js",
         "dev-start": "ts-node-dev ./src/index.ts",
-        "test": "ts-node-dev ./src/services/authenticator.ts"
+        "test": "ts-node-dev ./src/services/authenticator.ts",
+        "migrations": "tsnd ./src/data/migrations.ts"
     },
     "author": "Labenu",
     "license": "ISC",
