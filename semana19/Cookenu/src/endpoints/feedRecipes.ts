@@ -1,9 +1,7 @@
 import { Request, Response } from "express";
 import { FollowerData } from "../data/FollowerData";
 import { RecipeData } from "../data/RecipeData";
-import { UserData } from "../data/UserData";
 import { Authentication } from "../services/Authentication";
-import { toModelRecipe } from "../types";
 
 const feedRecipes = async (req: Request, res: Response) => {
     try {
@@ -11,33 +9,29 @@ const feedRecipes = async (req: Request, res: Response) => {
         const token = req.headers.authorization as string;
 
         const authenticationData = new Authentication().getData(token);
-        console.log(`sim`,authenticationData)
-        //se este token retornar o id da pessoa que segue o id do params pode liberar o perfil .. 
-        //buscar na tabela join se o user do token tem o seguidor que ele procura o id
+  
         if (!token){
             res.statusCode = 422
-            throw "'token' é obrigatório"
+            throw new Error("'token' é obrigatório")
         }
         if(authenticationData){
-           
-   //pegar id do user_following do retorno da função que tem join
-   
-   const id_user = authenticationData.id
-  
+         const id_user = authenticationData.id
          const user = new FollowerData()
          const following = await user.checkFollowing(id_user);
-         console.log(`pegar os ids dos following`,following)
-         
-        const recipe = new RecipeData()
-        const getAll = await recipe.getFeed(following[0].id_following)
-        const feedList = getAll.map(toModelRecipe)
-        console.log(feedList)
+   
+         let recipesFeed:any[] = []
 
-        if (!getAll){
+         for (let getFollowing of following){
+         const recipe = new RecipeData()
+         const getAll = await recipe.getFeed(getFollowing.id_following)
+         recipesFeed.push(getAll)
+    }
+         
+        if (!recipesFeed){
             throw new Error("nenhuma receita cadastrada")
         }
-  
-        res.status(200).send(getAll)
+        
+        res.status(200).send(recipesFeed)
     }
 
     } catch (err:any) {

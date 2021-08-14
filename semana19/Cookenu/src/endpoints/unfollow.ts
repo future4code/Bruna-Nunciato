@@ -27,16 +27,6 @@ const unfollow = async (req: Request, res: Response) => {
         res.statusCode = 422
         throw "usuário não encontrado, id inválido!"
       }
-    // const userSearch = new FollowerData()
-    // const checkUser = await userSearch.alreadyFollowing(authenticationData.id,id_following)
-    // console.log(checkUser)
-    // if (checkUser){
-    //     res.statusCode = 422
-    //     throw "Você já segue esta pessoa"
-    // }
-    //   if (authenticationData.role !== "normal") {
-    //     throw new Error("Only a normal user can access this funcionality");
-    //   }
   
       const user = await new FollowerData().unfollow(authenticationData.id,id_following);
       

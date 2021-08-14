@@ -16,18 +16,23 @@ const signup = async (req: Request, res: Response) => {
         throw new Error("Invalid password");
       }
    
-      const { name, email, password} = req.body
+      const userData = {
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+           };
+      let role  = req.body.role
       
       const id  =   generateId();
       const hm: HashManager = new HashManager()
-      const cryptedPassword = await hm.hash(password)
-      
- 
+      const cryptedPassword = await hm.hash(userData.password)
+       
       const sending = new UserData()
-      await sending.createUser(id , name, email, cryptedPassword )
+      await sending.createUser(id , userData.name , userData.email, cryptedPassword )
      
     const token = new Authentication().generateToken({
-        id
+        id,
+        role
       });
   
       res.status(200).send({message:"Cadastro efetuado com sucesso",

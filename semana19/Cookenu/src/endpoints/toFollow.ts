@@ -11,7 +11,7 @@ const toFollow = async (req: Request, res: Response) => {
 
       if (!id_following) {
         res.statusCode = 422
-        throw "'id' de quem você deseja seguir é obrigatório"
+        throw new Error("'id' de quem você deseja seguir é obrigatório")
     }
      
       const authenticationData = new Authentication().getData(token);
@@ -19,24 +19,19 @@ const toFollow = async (req: Request, res: Response) => {
   
       if (id_following === authenticationData.id) {
         res.statusCode = 422
-        throw "Você não pode seguir você mesmo!"
+        throw new Error("Você não pode seguir você mesmo!")
     }
    const result = await new UserData().getUserById(id_following);
-      console.log(result, `id invalido`)
       if(!result){
         res.statusCode = 422
         throw "usuário não encontrado, id inválido!"
       }
-    // const userSearch = new FollowerData()
-    // const checkUser = await userSearch.alreadyFollowing(authenticationData.id,id_following)
-    // console.log(checkUser)
-    // if (checkUser){
-    //     res.statusCode = 422
-    //     throw "Você já segue esta pessoa"
-    // }
-    //   if (authenticationData.role !== "normal") {
-    //     throw new Error("Only a normal user can access this funcionality");
-    //   }
+    const userSearch = new FollowerData()
+    const checkUser = await userSearch.alreadyFollowing(authenticationData.id,id_following)
+    if (checkUser.id_following){
+        res.statusCode = 422
+        throw new Error("Você já segue esta pessoa")
+    }
   
       const user = await new FollowerData().following(authenticationData.id,id_following);
       

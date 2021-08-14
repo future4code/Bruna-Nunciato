@@ -33,6 +33,13 @@ createUser = async (id: string,name:string, email: string, password: string): Pr
 
       return result[0];
   }
+  checkRole = async ( id:string): Promise<any> => {
+    const result = await connection
+    .select("role")
+    .from(userTable)
+    .where({id})
+    return result
+  }
 
 }
 

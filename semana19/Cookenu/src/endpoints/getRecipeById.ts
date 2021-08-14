@@ -8,16 +8,14 @@ const getRecipeById = async (req: Request, res: Response) => {
         const token = req.headers.authorization as string;
 
         const authenticationData = new Authentication().getData(token);
-        console.log(`sim`,authenticationData)
 
         if (!id||!token){
             res.statusCode = 422
-            throw "'id' e 'token'são obrigatórios"
+            throw new Error("'id' e 'token'são obrigatórios")
         }
         
         const recipeSearch = new RecipeData()
         const getRecipe = await recipeSearch.getRecipeById(id)
-        console.log(getRecipe)
         if (!getRecipe ){
             throw new Error("nenhuma receita encontrado com esse id")
         }

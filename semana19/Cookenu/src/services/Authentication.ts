@@ -9,6 +9,7 @@ export class Authentication {
     const token = jwt.sign(
       {
         id: input.id,
+        role: input.role
       },
       "palavra" as string,
       {
@@ -21,7 +22,8 @@ export class Authentication {
    getData = (token: string): AuthenticationData => {
     const payload = jwt.verify(token, "palavra" as string) as any;
     const result = {
-      id: payload.id
+      id: payload.id,
+      role: payload.role
     };
     return result;
   }

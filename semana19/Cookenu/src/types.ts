@@ -5,6 +5,7 @@ export type user = {
  }
 
 export interface AuthenticationData {
+   role: any
    id: string
 }
 

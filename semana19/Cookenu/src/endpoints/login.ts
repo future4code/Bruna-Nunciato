@@ -3,7 +3,6 @@ import {UserData} from "../data/UserData";
 import { Authentication } from "../services/Authentication";
 import HashManager from "../services/HashManager";
 
-
 const login = async (req: Request, res: Response) => {
     try {
 
@@ -11,20 +10,25 @@ const login = async (req: Request, res: Response) => {
         throw new Error("Invalid email");
       }
   
-      const { email, password} = req.body
+      const userData = {
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+           };
+      let role  = req.body.role
       
-      const user = await new UserData().getUserByEmail(email);
-      
-      
+      const user = await new UserData().getUserByEmail(userData.email);
+            
       const hm = new HashManager()
-      const compare =  await hm.compare(password, user.password)
+      const compare =  await hm.compare(userData.password, user.password)
 
       if (!compare) {
         throw new Error("Invalid password");
       }
         
       const token = new Authentication().generateToken({
-        id: user.id
+        id: user.id,
+        role
       });
   
       res.status(200).send({
@@ -32,7 +36,7 @@ const login = async (req: Request, res: Response) => {
       });
     } catch (err:any) {
       res.status(400).send({
-        message: err.message,
+        message: err.message || err.sqlMessage
       });
     }
   }

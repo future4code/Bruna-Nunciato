@@ -6,13 +6,13 @@ import {Authentication} from "../services/Authentication";
 const profile = async (req: Request, res: Response) => {
     try {
       const token = req.headers.authorization as string;
-
      
       const authenticationData = new Authentication().getData(token);
-
-    //   if (authenticationData.role !== "normal") {
-    //     throw new Error("Only a normal user can access this funcionality");
-    //   }
+      
+      if(!token){
+      res.statusCode = 422
+      throw new Error("'token' é obrigatório")
+      }
   
       const user = await new UserData().getUserById(authenticationData.id);
   

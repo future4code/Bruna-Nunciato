@@ -11,24 +11,18 @@ export class FollowerData {
         .into(followerTable)
     };
     showFollowing = async (id_user: string, id_following: string): Promise<any> => {
-    //    const result = await connection
-    //     .select("*")
-    //     .from(followerTable)
-    //     .where(id_user, id_following)
-
-
-        const result = await connection(followerTable)
+    const result = await connection(followerTable)
     .select("userTable.id", "userTable.name")
     .where("followerTable.id_user", "=", id_user)
     .join("userTable", "id", "=", "followerTable.id_following" )
-
+    
       return result
     };
 
     alreadyFollowing = async (id_user: string, id_following: string): Promise<any> => {
     const result = await connection(followerTable)
-    .select("*")
-    .where({id_following})
+    .select("id_following")
+    .where({id_user, id_following})
     console.log(result)
     return result
     }
@@ -39,7 +33,6 @@ export class FollowerData {
         .from(followerTable)
         .where({id_user,id_following})
     }
-
 
     checkFollowing = async (id_user: string): Promise<any> => {
            const result = await connection(followerTable)
