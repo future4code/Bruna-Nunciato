@@ -7,7 +7,6 @@ import { FollowerData } from "../data/FollowerData";
 const following = async (req: Request, res: Response) => {
     try {
       const token = req.headers.authorization as string;
-
       const authenticationData = new Authentication().getData(token);
       if (!token){
         res.statusCode = 422
