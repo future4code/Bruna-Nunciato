@@ -16,7 +16,7 @@ export async function getAllRecipes(
         res.statusCode = 422
         throw "'token'é  obrigatório"
     }
-
+ 
     if(authenticationData){
       const title = (req.query.title || "%") as string
       const sort = req.query.sort === "title" ? "title" : "createdAt"
