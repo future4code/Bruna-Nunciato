@@ -16,8 +16,12 @@ const login = async (req: Request, res: Response) => {
         password: req.body.password
            };
       let role  = req.body.role
-      
+ 
       const user = await new UserData().getUserByEmail(userData.email);
+      if(!user){
+        res.statusCode = 422
+        throw new Error(`E-mail não cadastrado`)
+      }
             
       const hm = new HashManager()
       const compare =  await hm.compare(userData.password, user.password)
