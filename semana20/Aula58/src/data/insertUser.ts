@@ -7,9 +7,8 @@ export const insertUser = async(
    await connection.insert({
       id: user.id,
       name: user.name,
-      nickname: user.nickname,
       email: user.email,
       password: user.password,
       role: user.role
-   }).into('to_do_list_users')
+   }).into('aula58_user')
 }
