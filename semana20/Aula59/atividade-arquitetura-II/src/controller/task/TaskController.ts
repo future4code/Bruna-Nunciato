@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { TaskBusiness } from "../../business/task/taskBusiness";
-import { TaskBaseDatabase } from "../../data/task/TaskDataBase";
-import { taskDataDTO } from "../../model/task";
+import { TaskDatabase } from "../../data/task/TaskDataBase";
+import { taskAndUserDTO, taskDataDTO } from "../../model/task";
 
 export class TaskController {
 
@@ -11,13 +11,13 @@ export class TaskController {
      ) => {
         try {
      
-           const { title, description, deadline, authorId } = req.body
-                
+           const { title, description, deadline, authorId} = req.body
+                    
            const taskData: taskDataDTO = { title, description, deadline, authorId } 
            const taskBusiness = new TaskBusiness
            await taskBusiness.createTaskBusiness( taskData)
      
-           res.status(201).end()
+           res.status(201).send({message:"ok"}).end()
      
         } catch (error:any) {
      
@@ -34,9 +34,9 @@ getTaskById = async (
 
       const { id } = req.params
 
-      const taskBaseDatabase = new TaskBaseDatabase()
+          const taskBusines = new TaskBusiness()
 
-      const task = await taskBaseDatabase.getTaskByIdBusiness(id)
+      const task= await taskBusines.getTaskByIdBusiness(id)
 
       res.status(200).send(task)
 

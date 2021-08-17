@@ -8,24 +8,28 @@ export class UserDatabase extends BaseDatabase{
     async create({
       id,
       name,
+      nickname,
       email,
-      password
+      password, 
+      role
     }: user) {
       await this.getConnection().insert({
         id,
         name,
+        nickname,
         email,
-        password
+        password,
+        role
       }).into(UserDatabase.TABLE_USERS)
     }
   
-    async selectByEmail({ email }: any) {
+    async selectByEmail( email : string) {
       const result = await this.getConnection()
-        .select()
+        .select("*")
         .from(UserDatabase.TABLE_USERS)
-        .where({ email })
+        .where({ email} )
+       return result[0]
   
-      return result[0]
     }
 
 }

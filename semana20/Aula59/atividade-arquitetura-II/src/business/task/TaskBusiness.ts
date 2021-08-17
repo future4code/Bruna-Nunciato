@@ -1,6 +1,6 @@
-import { TaskBaseDatabase } from "../../data/task/TaskDataBase"
+import { TaskDatabase } from "../../data/task/TaskDataBase"
 import { generateId } from "../../services/idGenerator"
-import { taskDataDTO } from "../../model/task"
+import { taskAndUserDTO, taskDataDTO, taskOpenDTO } from "../../model/task"
 
 export class TaskBusiness {
 
@@ -19,33 +19,41 @@ export class TaskBusiness {
      
         const id: string = generateId()
      
-        const taskBaseDatabase = new TaskBaseDatabase()
+        const taskBaseDatabase = new TaskDatabase()   
         await taskBaseDatabase.insertTask({
            id,
            ...taskData
         })
      }
+  
 
      getTaskByIdBusiness = async (
         id: string
-     ) => {
-         const taskBaseDatabase = new TaskBaseDatabase()
-        const result = await taskBaseDatabase.selectTaskById(id)
-     
+     ): Promise<taskOpenDTO>=> {
+         const taskDatabase = new TaskDatabase()
+        const result = await taskDatabase.selectTaskById(id)
+   
         if (!result) {
            throw new Error("Tarefa não encontrada")
         }
+
+ 
+
+        // const taskWithUserInfo = {
+        //     id: result.id,
+        //     title: result.title,
+        //     description: result.description,
+        //     deadline: result.deadline,
+        //     status: result.status,
+        //     authorId: result.authorId,
+        //     name: result.name,
+        //     nickname: result.nickname,
+        //     email: result.email
+        // }
+
+
      
-        const taskWithUserInfo = {
-           id: result.id,
-           title: result.title,
-           description: result.description,
-           deadline: result.deadline,
-           status: result.status,
-           authorId: result.author_id,
-           authorNickname: result.nickname
-        }
      
-        return taskWithUserInfo
+        return result
      }
 }

@@ -36,8 +36,9 @@ export class UserController {
         try {
            const { email, password } = req.body
      
+           const inputLogin = { email, password }
            const userBusiness = new UserBusiness()
-           const token: string = await userBusiness.loginBusiness(email, password)
+           const token: string = await userBusiness.loginBusiness(inputLogin)
      
            res.send({
               message: "Usuário logado!",

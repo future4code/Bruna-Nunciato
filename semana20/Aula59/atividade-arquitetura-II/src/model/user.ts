@@ -16,5 +16,9 @@ export type userDataDTO = {
    role: USER_ROLES
 }
 
+export type inputLoginDTO = {
+  email: string,
+  password: string
+}
 
 export type user = userDataDTO & { id: string }

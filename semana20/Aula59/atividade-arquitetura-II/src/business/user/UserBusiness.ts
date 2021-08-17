@@ -2,7 +2,7 @@ import { UserDatabase } from "../../data/user/userDatabase";
 import { generateToken } from "../../services/authenticator";
 import { compare, hash } from "../../services/hashManager";
 import { generateId } from "../../services/idGenerator";
-import { user,userDataDTO } from "../../model/user";
+import { inputLoginDTO, user,userDataDTO } from "../../model/user";
 
 export class UserBusiness {
 
@@ -21,10 +21,9 @@ export class UserBusiness {
      
         const cypherPassword = await hash(userData.password);
      
-        const newUser = {
+        const newUser = { id: generateId(),
            ...userData,
-           password: cypherPassword,
-           id: generateId()
+           password: cypherPassword          
         }
      
         const userDatabase = new UserDatabase
@@ -40,23 +39,21 @@ export class UserBusiness {
      }
 
      loginBusiness = async (
-        email: string,
-        password: string
+       inputLogin: inputLoginDTO
      ) => {
-        if (!email || !password) {
+        if (!inputLogin.email || !inputLogin.password) {
            throw new Error("'email' e 'senha' são obrigatórios")
         }
      
         
-        const userDatabase = new UserDatabase
-        
-        const user: user = await userDatabase.selectByEmail(email)
+        const userDatabase = new UserDatabase()
+        const user: user = await userDatabase.selectByEmail(inputLogin.email)
      
         if (!user) {
            throw new Error("Usuário não encontrado ou senha incorreta")
         }
      
-            const passwordIsCorrect: boolean = await compare(password, user.password)
+            const passwordIsCorrect: boolean = await compare(inputLogin.password, user.password)
      
         if (!passwordIsCorrect) {
            throw new Error("Usuário não encontrado ou senha incorreta")
