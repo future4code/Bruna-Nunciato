@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { TaskBusiness } from "../../business/task/taskBusiness";
 import { TaskBaseDatabase } from "../../data/task/TaskDataBase";
+import { taskDataDTO } from "../../model/task";
 
 export class TaskController {
 
@@ -12,10 +13,9 @@ export class TaskController {
      
            const { title, description, deadline, authorId } = req.body
                 
+           const taskData: taskDataDTO = { title, description, deadline, authorId } 
            const taskBusiness = new TaskBusiness
-           await taskBusiness.createTaskBusiness({
-              title, description, deadline, authorId
-           })
+           await taskBusiness.createTaskBusiness( taskData)
      
            res.status(201).end()
      

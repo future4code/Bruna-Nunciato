@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../../business/user/userBusiness";
+import { userDataDTO } from "../../model/user";
 
 export class UserController {
 
@@ -10,10 +11,11 @@ export class UserController {
         try {
            const { name, nickname, email, password, role } = req.body
      
+           const userData: userDataDTO ={name, nickname, email, password, role}
            const userBusiness = new UserBusiness()
-           const token: string = await userBusiness.signupBusiness({
-              name, nickname, email, password, role
-           })
+           const token: string = await userBusiness.signupBusiness(
+              userData
+           )
      
            res
               .status(201)

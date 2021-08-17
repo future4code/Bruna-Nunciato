@@ -1,8 +1,8 @@
-export type taskData = {
+export type taskDataDTO = {
    title: string,
    description: string,
    deadline: string,
    authorId: string
 }
 
-export type task = taskData & { id: string }
+export type task = taskDataDTO & { id: string }

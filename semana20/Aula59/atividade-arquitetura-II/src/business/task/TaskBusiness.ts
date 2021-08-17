@@ -1,11 +1,11 @@
 import { TaskBaseDatabase } from "../../data/task/TaskDataBase"
 import { generateId } from "../../services/idGenerator"
-import { taskData } from "../../model/task"
+import { taskDataDTO } from "../../model/task"
 
 export class TaskBusiness {
 
     createTaskBusiness = async (
-        taskData: taskData
+        taskData: taskDataDTO
      ) => {
      
         if (

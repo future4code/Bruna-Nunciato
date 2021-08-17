@@ -8,7 +8,7 @@ export type authenticationData = {
    role: USER_ROLES
 }
 
-export type userData = {
+export type userDataDTO = {
    name: string,
    nickname: string,
    email: string,
@@ -16,12 +16,5 @@ export type userData = {
    role: USER_ROLES
 }
 
-export type signupInputDTO = {
-	name: string,
-  nickname: string,
-  email: string,
-  password: string,
-	role: USER_ROLES
-}
 
-export type user = userData & { id: string }
+export type user = userDataDTO & { id: string }
