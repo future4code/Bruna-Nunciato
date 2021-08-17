@@ -1,0 +1,1 @@
+Anunciado do exercício estava confuso, mas entendi as aulas e a razão de tipagem e modelagem.

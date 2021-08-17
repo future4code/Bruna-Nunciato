@@ -2,7 +2,7 @@ import { UserDatabase } from "../../data/user/userDatabase";
 import { generateToken } from "../../services/authenticator";
 import { compare, hash } from "../../services/hashManager";
 import { generateId } from "../../services/idGenerator";
-import { userData, user } from "../../model/user";
+import { userData, user,signupInputDTO } from "../../model/user";
 
 export class UserBusiness {
 

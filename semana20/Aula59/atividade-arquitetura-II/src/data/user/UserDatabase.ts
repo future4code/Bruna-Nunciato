@@ -1,30 +1,31 @@
+import { user } from "../../model/user";
 import { BaseDatabase } from "../BaseDatabase";
 
 export class UserDatabase extends BaseDatabase{
 
-    private static TABLE_NAME = "LABEFLIX_USER"
+    private static TABLE_USERS = "to_do_list_users"
   
     async create({
       id,
       name,
       email,
       password
-    }: any) {
+    }: user) {
       await this.getConnection().insert({
         id,
         name,
         email,
         password
-      }).into(UserDatabase.TABLE_NAME)
+      }).into(UserDatabase.TABLE_USERS)
     }
   
     async selectByEmail({ email }: any) {
       const result = await this.getConnection()
         .select()
-        .from(UserDatabase.TABLE_NAME)
+        .from(UserDatabase.TABLE_USERS)
         .where({ email })
   
       return result[0]
     }
-    
+
 }

@@ -6,13 +6,13 @@ export class TaskBaseDatabase extends BaseDatabase {
        throw new Error("Method not implemented.");
     }
 
-
-    private static TABLE_NAME = "LABEFLIX_USER"
+    private static TABLE_TASK = 'to_do_list_tasks'
+    private static TABLE_USERS = "to_do_list_users"
 
     insertTask = async (
         task: task
      ) => {
-        await this.getConnection()('to_do_list_tasks')
+        await this.getConnection()('TABLE_TASK')
            .insert({
               id: task.id,
               title: task.title,
