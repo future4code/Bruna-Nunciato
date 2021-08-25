@@ -46,13 +46,14 @@ export class UserBusiness {
             role,
          });
          return { accessToken };
-      } catch (error:any) {
+      } catch (error) {
+         if (error instanceof Error) {
          if (error.message.includes("key 'email'")) {
             throw new CustomError(409, "Email already in use")
          }
 
-         throw new CustomError(error.statusCode, error.message)
-      }
+         throw new CustomError(400, error.message)
+      }}
 
    }
 
@@ -84,9 +85,10 @@ export class UserBusiness {
          });
 
          return { accessToken };
-      } catch (error:any) {
-         throw new CustomError(error.statusCode, error.message)
-      }
+      } catch (error) {
+         if (error instanceof Error) {
+         throw new CustomError(400, error.message)
+      }}
    }
 
    public async getProfileById( id:string) {
@@ -103,10 +105,11 @@ export class UserBusiness {
             role: user.getRole(),
           }
 
-      } catch(error:any){
-         throw new CustomError(error.statusCode, error.message)
+      } catch(error){
+         if (error instanceof Error) {
+         throw new CustomError(400, error.message)
       }
-   }
+   }}
 }
 
 export default new UserBusiness

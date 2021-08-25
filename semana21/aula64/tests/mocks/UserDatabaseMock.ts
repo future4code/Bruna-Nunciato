@@ -3,7 +3,7 @@ import { userMockAdmin, userMockNormal } from "./UserMock";
 
 export class UserDatabaseMock {
     public async createUser(user: User): Promise<void> {
-
+    
     }
 
     public async getUserByEmail(email: string): Promise<User | undefined> {

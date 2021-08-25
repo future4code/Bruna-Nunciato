@@ -3,7 +3,7 @@ import { User } from "../model/User";
 
 export class UserDatabase extends BaseDataBase {
 
-   protected tableName: string = "INSIRA AQUI O NOME DA SUA TABELA DE USUÁRIOS";
+   protected tableName: string = "cookenu_user";
 
    private toModel(dbModel?: any): User | undefined {
       return (
@@ -30,9 +30,10 @@ export class UserDatabase extends BaseDataBase {
             '${user.getRole()}'
             )`
          );
-      } catch (error:any) {
-         throw new Error(error.sqlMessage || error.message)
-      }
+      } catch (error) {
+         if (error instanceof Error) {
+         throw new Error( error.message)
+      }}
    }
 
    public async getUserByEmail(email: string): Promise<User | undefined> {
@@ -41,10 +42,11 @@ export class UserDatabase extends BaseDataBase {
             SELECT * from ${this.tableName} WHERE email = '${email}'
          `);
          return this.toModel(result[0][0]);
-      } catch (error:any) {
-         throw new Error(error.sqlMessage || error.message)
+      } catch (error) {
+         if (error instanceof Error) {
+         throw new Error( error.message)
       }
-   }
+   }}
 
    public async getUserById(id: string): Promise<User | undefined> {
       try {
@@ -52,12 +54,13 @@ export class UserDatabase extends BaseDataBase {
             SELECT * from ${this.tableName} WHERE id = '${id}'
          `);
          return this.toModel(result[0][0]);
-      } catch (error:any) {
-         throw new Error(error.sqlMessage || error.message)
-      }
+      } catch (error) {
+         if (error instanceof Error) {
+         throw new Error( error.message)
+      }}
    }
 
-   public async getAllUsers(): Promise<User[]> {
+   public async getAllUsers(): Promise<User[] | undefined>  {
       try {
          const result = await BaseDataBase.connection.raw(`
             SELECT * from ${this.tableName}
@@ -65,10 +68,11 @@ export class UserDatabase extends BaseDataBase {
          return result[0].map((res: any) => {
             return this.toModel(res);
          });
-      } catch (error:any) {
-         throw new Error(error.sqlMessage || error.message)
+      } catch (error) {
+         if (error instanceof Error) {
+         throw new Error(error.message)
       }
-   }
+   }}
 }
 
 export default new UserDatabase()
