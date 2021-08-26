@@ -47,14 +47,11 @@ export class UserBusiness {
          });
          return { accessToken };
       } catch (error) {
-         if (error instanceof Error) {
          if (error.message.includes("key 'email'")) {
             throw new CustomError(409, "Email already in use")
          }
-
-         throw new CustomError(400, error.message)
-      }}
-
+         throw new CustomError(error.statusCode, error.message)
+        }
    }
 
    public async login(email: string, password: string) {
@@ -86,9 +83,8 @@ export class UserBusiness {
 
          return { accessToken };
       } catch (error) {
-         if (error instanceof Error) {
          throw new CustomError(400, error.message)
-      }}
+      }
    }
 
    public async getProfileById( id:string) {
@@ -106,10 +102,8 @@ export class UserBusiness {
           }
 
       } catch(error){
-         if (error instanceof Error) {
          throw new CustomError(400, error.message)
-      }
-   }}
+      }}
 }
 
 export default new UserBusiness

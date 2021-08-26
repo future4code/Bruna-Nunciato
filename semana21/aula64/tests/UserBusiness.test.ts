@@ -16,7 +16,7 @@ const userBusinessMock = new UserBusiness(
 describe("Testando o signup", ()=>{
 
     test("Deve retornar erro quando nome está vazio", async ()=>{
-        expect.assertions(1);
+        expect.assertions(2);
         try {
 
             await userBusinessMock.signup(
@@ -27,14 +27,13 @@ describe("Testando o signup", ()=>{
             );
       
         } catch (error) {
-            if (error instanceof Error) {
             expect(error.message).toEqual("Missing input");
-        }
+            expect(error.statusCode).toBe(422);   
     }
     });
 
     it("Deve retornar erro quando o email não tem arroba", async ()=>{
-        expect.assertions(1);
+        expect.assertions(2);
 
         try {
             await userBusinessMock.signup(
@@ -46,15 +45,15 @@ describe("Testando o signup", ()=>{
 
             
         } catch (error) {
-            if (error instanceof Error) {
             expect(error.message).toEqual("Invalid email");
-        }
+            expect(error.statusCode).toBe(422);
+        
     }
 
     });
 
     test("Deve retornar erro ao receber senha com 5 caracteres ou menos", async ()=>{
-        expect.assertions(1);
+        expect.assertions(2);
         try {
             await userBusinessMock.signup(
                 "João",
@@ -64,14 +63,14 @@ describe("Testando o signup", ()=>{
             );
             
         } catch (error) {
-            if (error instanceof Error) {
+            expect(error.statusCode).toBe(422);
             expect(error.message).toEqual("Invalid password")
-        }
+        
     }
     });
 
     test("Deve retornar erro ao não receber user role normal ou admin", async ()=>{
-        expect.assertions(1);
+        expect.assertions(2);
         try {
 
             await userBusinessMock.signup(
@@ -82,9 +81,8 @@ describe("Testando o signup", ()=>{
             );
             
         } catch (error) {
-            if (error instanceof Error) {
+            expect(error.statusCode).toBe(422);
             expect(error.message).toEqual("Invalid user role");        
-        }
     }
     });
 
@@ -112,9 +110,7 @@ describe("Testando o login", ()=>{
             await userBusinessMock.login("joao@email.com", "12345678");
             
         } catch (error) {
-            if (error instanceof Error) {
             expect(error.message).toEqual("Invalid credentials");
-            }
         }
     });
 
@@ -126,9 +122,7 @@ describe("Testando o login", ()=>{
             await userBusinessMock.login("astrodev@gmail.com", "12345678");
             
         } catch (error) {
-            if (error instanceof Error) {
             expect(error.message).toEqual("Invalid credentials");
-            }
         }
     });
 
@@ -144,15 +138,14 @@ describe("Testando o login", ()=>{
 describe("testando getProfileById", () =>{
 
     test("Deve retornar erro no id ", async () =>{
-        expect.assertions(1);
+        expect.assertions(2);
         try{
             await userBusinessMock.getProfileById("123566")
 
         }catch(error){
-            if(error instanceof Error){
+                expect(error.statusCode).toBe(400);
                 expect(error.message).toEqual("User not found")
             }
-        }
     })
 
     test("Deve encontrar usuario mocado e nao dar erro ", async () =>{

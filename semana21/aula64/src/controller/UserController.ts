@@ -26,10 +26,9 @@ export class UserController {
          );
          res.status(200).send(result);
       } catch (error) {
-         if (error instanceof Error) {
-         const { message } = error
-         res.status(400).send({ message });
-      }}
+         const { statusCode, message } = error
+         res.status(statusCode || 400).send({ message });
+      }
    }
 
    public async login(req: Request, res: Response) {
@@ -43,11 +42,9 @@ export class UserController {
          const result = await userBusiness.login(email, password);
          res.status(200).send(result);
       } catch (error) {
-         if (error instanceof Error) {
-         const { message } = error
-         res.status(400).send({ message });
-      }
-   }}
+         const { statusCode, message } = error
+         res.status(statusCode || 400).send({ message });
+      }}
 
    public async getProfileById(req: Request, res: Response) {
       try {
@@ -60,11 +57,9 @@ export class UserController {
             const result = await userBusiness.getProfileById(id)
             res.status(200).send(result)
          } catch(error){
-            if (error instanceof Error) {
-            const { message } = error
-            res.status(400).send({ message })
-         }
-      }}
+            const { statusCode, message } = error
+            res.status(statusCode || 400).send({ message });
+         }}
    }
 
 export default new UserController()

@@ -31,9 +31,8 @@ export class UserDatabase extends BaseDataBase {
             )`
          );
       } catch (error) {
-         if (error instanceof Error) {
-         throw new Error( error.message)
-      }}
+         throw new Error(error.sqlMessage || error.message)
+      }
    }
 
    public async getUserByEmail(email: string): Promise<User | undefined> {
@@ -43,10 +42,9 @@ export class UserDatabase extends BaseDataBase {
          `);
          return this.toModel(result[0][0]);
       } catch (error) {
-         if (error instanceof Error) {
-         throw new Error( error.message)
+         throw new Error(error.sqlMessage || error.message)
       }
-   }}
+   }
 
    public async getUserById(id: string): Promise<User | undefined> {
       try {
@@ -55,9 +53,8 @@ export class UserDatabase extends BaseDataBase {
          `);
          return this.toModel(result[0][0]);
       } catch (error) {
-         if (error instanceof Error) {
-         throw new Error( error.message)
-      }}
+         throw new Error(error.sqlMessage || error.message)
+      }
    }
 
    public async getAllUsers(): Promise<User[] | undefined>  {
@@ -69,10 +66,9 @@ export class UserDatabase extends BaseDataBase {
             return this.toModel(res);
          });
       } catch (error) {
-         if (error instanceof Error) {
-         throw new Error(error.message)
+         throw new Error(error.sqlMessage || error.message)
       }
-   }}
+   }
 }
 
 export default new UserDatabase()
