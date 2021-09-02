@@ -1,3 +1,7 @@
+import { performPurchase, User } from  '../src/'
+
+
+describe("tests user balance about his purchase", () =>{
 test("Testing balance greater than value", () => {
 	const user: User = {
 		name: "Astrodev",
@@ -35,4 +39,5 @@ test("Testing balance greater than value", () => {
 	const result = performPurchase(user, 50)
 	
 	expect(result).not.toBeDefined()
+})
 })
