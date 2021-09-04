@@ -6,18 +6,19 @@ import { GlobalStateContext } from "./GlobalStateContext";
 export const GlobalState = (props) => {
   const [games, setGames] = useState([]);
   const [selected, setSelected] = useState("");
-  const [concursos, setConcursos] = useState([]);
+  const [concursos, setConcursos] = useState([{loteriaId: 0, concursoId: "2359"}]);
   const [resultado, setResultado] = useState([]);
   const [luck, setLuck] = useState([]);
-  const [name, setName] = useState("");
+  const [name, setName] = useState({loteriaId: 0 , nome:"mega-sena"});
 
   useEffect(() => {
     getLotto();
     getConcurso();
+    // sortGame()
   }, []);
 
   useEffect(() => {
-    ConcursoEGame();
+    sortGame();
   }, [selected]);
 
   const getLotto = () => {
@@ -42,7 +43,7 @@ export const GlobalState = (props) => {
       });
   };
 
-  const ConcursoEGame = async () => {
+  const sortGame = async () => {
     console.log(`LUCK NUMBER`, luck.concursoId);
     await axios
       .get(`${BASE_URL}/concursos/${luck.concursoId}`)
