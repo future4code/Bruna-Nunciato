@@ -21,6 +21,7 @@ import quina from "../../img/quina.svg";
 import timemania from "../../img/timemania.svg";
 import lotofacil from "../../img/lotofacil.svg";
 import diadesorte from "../../img/diadesorte.svg";
+import { MediaMatcher } from 'react-media-match';
 
 const HomePage = () => {
   const {
@@ -89,7 +90,11 @@ const HomePage = () => {
 
   return (
     <MainDiv>
-      <LeftSection color={getColor()}>
+      <MediaMatcher
+  mobile={'render for mobile'}
+  // tablet={"tablet"} // mobile will be rendered for a "skipped" tablet - "pick value to the left"
+  desktop={    
+  <LeftSection color={getColor()}>
         <Header>
           <SelectLotto onChange={getSelected}>{dropDown}</SelectLotto>
         </Header>
@@ -104,11 +109,14 @@ const HomePage = () => {
           </b>
         </InfoContainer>
       </LeftSection>
+    }
+/>
+  
       <RightSection>
         <AllBalls>{numbers}</AllBalls>
         <Text>
           Este sorteio é meramente ilustrativo e não possui nenhuma ligação com
-          a CAIXA
+          a CAIXA.
         </Text>
       </RightSection>
     </MainDiv>

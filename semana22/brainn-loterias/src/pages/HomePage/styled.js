@@ -40,6 +40,7 @@ export const MiddleContainer = styled.div`
 grid-column: 2/3;
 grid-row: 2/3;
 margin-top:5rem;
+margin-left:1rem;
 font-size:1.5rem;
 display:flex;
 flex-direction: row;
@@ -79,11 +80,8 @@ align-items: center;
 justify-content:center;
 text-align: center;
 padding-left:2rem;
-display: grid;
-grid-template-columns: repeat(7, 1fr);
-grid-template-rows: repeat(4, 1fr);
-grid-column-gap: 7px;
-grid-row-gap: 0px;
+display: flex;
+flex-wrap:wrap;
 `
 export const BallsContainer = styled.div`
 display:flex;

@@ -8,13 +8,12 @@ export const GlobalState = (props) => {
   const [selected, setSelected] = useState("");
   const [concursos, setConcursos] = useState([]);
   const [resultado, setResultado] = useState([]);
-  const [luck, setLuck] = useState({loteriaId: 0, concursoId: "2359"});
-  const [name, setName] = useState({loteriaId: 0 , nome:"mega-sena"});
+  const [luck, setLuck] = useState({ loteriaId: 0, concursoId: "2359" });
+  const [name, setName] = useState({ loteriaId: 0, nome: "mega-sena" });
 
   useEffect(() => {
     getLotto();
     getConcurso();
-    // sortGame()
   }, []);
 
   useEffect(() => {
