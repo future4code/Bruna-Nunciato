@@ -4,11 +4,11 @@ import { GlobalState } from "./global/GlobalState";
 
 const App = () =>{
   return(
-    <div className="AppContainer">
+    <>
       <GlobalState>
         <Router/>
       </GlobalState>
-    </div>
+    </>
   )
 }
 

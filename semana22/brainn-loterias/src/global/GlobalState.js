@@ -6,9 +6,9 @@ import { GlobalStateContext } from "./GlobalStateContext";
 export const GlobalState = (props) => {
   const [games, setGames] = useState([]);
   const [selected, setSelected] = useState("");
-  const [concursos, setConcursos] = useState([{loteriaId: 0, concursoId: "2359"}]);
+  const [concursos, setConcursos] = useState([]);
   const [resultado, setResultado] = useState([]);
-  const [luck, setLuck] = useState([]);
+  const [luck, setLuck] = useState({loteriaId: 0, concursoId: "2359"});
   const [name, setName] = useState({loteriaId: 0 , nome:"mega-sena"});
 
   useEffect(() => {
