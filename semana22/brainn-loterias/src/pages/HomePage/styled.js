@@ -9,6 +9,10 @@ background: #efefef;
 display: grid;
 grid-template-columns: 27.3% 72.7%;
 grid-template-rows: 100%;
+@media screen  and (max-device-width : 667px){
+    display: flex;
+    flex-direction: column;
+}
 `
 export const LeftSection=  styled.div`
 grid-column: 1/2;
@@ -22,19 +26,35 @@ font-family: 'Montserrat', sans-serif;
 display: grid;
 grid-template-columns: 5% 80% 15%;
 grid-template-rows: 1fr 1fr 1fr;
+@media screen  and (max-device-width : 667px){
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+   
+}
 `
 
 export const Header = styled.div`
 margin: 20% 5%;
 grid-column: 2/3;
 grid-row: 1/2;
+@media screen  and (max-device-width : 667px){
+    display:flex;
+    justify-content:center;
+    margin-top: 15%;
+    grid: none;
+
+}
 `
+
 export const SelectLotto = styled.select `
 border-radius: 10px;
 width: 215,91px;
 height: 45,2px;
 padding: 0.5rem;
 width:12rem;
+
 `
 export const MiddleContainer = styled.div`
 grid-column: 2/3;
@@ -44,10 +64,20 @@ margin-left:1rem;
 font-size:1.5rem;
 display:flex;
 flex-direction: row;
+@media screen  and (max-device-width : 667px){
+    flex-direction: column;
+    justify-content:center;
+    margin-top:-2rem;
+    margin-left:0;
+    align-items: center;
+}
 `
 export const GameName = styled.div`
 margin-left:2rem;
 margin-top: 0.6rem;
+@media screen  and (max-device-width : 667px){
+    margin:1rem;
+}
 `
 export const InfoContainer = styled.div`
 grid-column: 2/3;
@@ -57,6 +87,12 @@ margin-top:5rem;
 display: flex;
 flex-direction: column;
 font-size:1rem;
+@media screen  and (max-device-width : 667px){
+    margin:0;
+    flex-direction: row;
+    margin:2rem;
+}
+
 `
 export const RightSection = styled.div`
 grid-column:2/3;
@@ -67,11 +103,22 @@ height: 100%;
 display:grid;
 grid-template-columns: 10% 80% 10%;
 grid-template-rows: 1fr 1fr 1fr;
+@media screen  and (max-device-width : 667px){
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+}
 `
 export const Text =styled.div`
 grid-column: 1/4;
 grid-row: 3/4;
 text-align: center;
+@media screen  and (max-device-width : 667px){
+    display: flex;
+    flex-direction: column;
+    margin: auto 1rem;
+    bottom: 0;
+}
 `
 export const AllBalls = styled.div`
 grid-row: 2/3;
@@ -82,6 +129,9 @@ text-align: center;
 padding-left:2rem;
 display: flex;
 flex-wrap:wrap;
+@media screen  and (max-device-width : 667px){
+    margin-top:2rem;
+}
 `
 export const BallsContainer = styled.div`
 display:flex;
@@ -98,4 +148,8 @@ font-weight: bold;
 align-items: center;
 justify-content:center;
 text-align: center;
+@media screen  and (max-device-width : 667px){
+    width: 3.5rem;
+height:3.5rem;
+}
 `

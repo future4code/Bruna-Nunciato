@@ -21,6 +21,12 @@ import quina from "../../img/quina.svg";
 import timemania from "../../img/timemania.svg";
 import lotofacil from "../../img/lotofacil.svg";
 import diadesorte from "../../img/diadesorte.svg";
+import mmegasena from "../../img/mobile/mmegasena.svg";
+import mlotomania from "../../img/mobile/mlotomania.svg";
+import mquina from "../../img/mobile/mquina.svg";
+import mtimemania from "../../img/mobile/mtimemania.svg";
+import mlotofacil from "../../img/mobile/mlotofacil.svg";
+import mdiadesorte from "../../img/mobile/mdiadesorte.svg";
 import { MediaMatcher } from 'react-media-match';
 
 const HomePage = () => {
@@ -88,10 +94,41 @@ const HomePage = () => {
     }
   };
 
+  const mobileColor = () => {
+    switch (name.nome) {
+      case "mega-sena":
+        return mmegasena;
+      case "lotomania":
+        return mlotomania;
+      case "quina":
+        return mquina;
+      case "timemania":
+        return mtimemania;
+      case "dia de sorte":
+        return mdiadesorte;
+      case "lotofácil":
+        return mlotofacil;
+      default:
+        return mmegasena;
+    }
+  };
+
   return (
     <MainDiv>
       <MediaMatcher
-  mobile={'render for mobile'}
+  mobile={ <LeftSection color={mobileColor()}>
+        <Header>
+          <SelectLotto onChange={getSelected}>{dropDown}</SelectLotto>
+        </Header>
+        <MiddleContainer>
+          <Trevo />
+          <GameName>{name.nome.toUpperCase()}</GameName>
+        </MiddleContainer>
+        <InfoContainer>
+          <b>CONCURSO Nº {luck ? luck.concursoId : <p>Aguarde o resultado</p>} 
+          </b>
+        </InfoContainer>
+      </LeftSection>}
   // tablet={"tablet"} // mobile will be rendered for a "skipped" tablet - "pick value to the left"
   desktop={    
   <LeftSection color={getColor()}>
