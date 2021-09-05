@@ -1,14 +1,26 @@
 import * as React from "react";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import moment from 'moment'
-import { MainDiv, SelectLotto, BallsContainer, AllBalls, LeftSection, RightSection,Text } from "./styled";
-import {Trevo} from '../../img/Trevo'
-import megasena from '../../img/megasena.svg'
-import lotomania from '../../img/lotomania.svg'
-import quina from '../../img/quina.svg'
-import timemania from '../../img/timemania.svg'
-import lotofacil from '../../img/lotofacil.svg'
-import diadesorte from '../../img/diadesorte.svg'
+import moment from "moment";
+import {
+  MainDiv,
+  SelectLotto,
+  BallsContainer,
+  AllBalls,
+  LeftSection,
+  RightSection,
+  Text,
+  InfoContainer,
+  Header,
+  MiddleContainer,
+  GameName,
+} from "./styled";
+import { Trevo } from "../../img/Trevo";
+import megasena from "../../img/megasena.svg";
+import lotomania from "../../img/lotomania.svg";
+import quina from "../../img/quina.svg";
+import timemania from "../../img/timemania.svg";
+import lotofacil from "../../img/lotofacil.svg";
+import diadesorte from "../../img/diadesorte.svg";
 
 const HomePage = () => {
   const {
@@ -56,49 +68,51 @@ const HomePage = () => {
 
   const dia = moment(resultado.data).format("DD/MM/YYYY");
 
-  const getColor=()=>{
-  switch(name.nome){
-      case 'mega-sena':
+  const getColor = () => {
+    switch (name.nome) {
+      case "mega-sena":
         return megasena;
-      case 'lotomania':
+      case "lotomania":
         return lotomania;
-      case 'quina':
+      case "quina":
         return quina;
-      case 'timemania':
+      case "timemania":
         return timemania;
-      case 'dia de sorte':
+      case "dia de sorte":
         return diadesorte;
-      case 'lotofácil':
-        return lotofacil;        
+      case "lotofácil":
+        return lotofacil;
       default:
-        return megasena
-    }  
-  }
+        return megasena;
+    }
+  };
 
   return (
     <MainDiv>
-      {console.log(`nome color`,name.nome)}
-       <LeftSection color={getColor()}>
-        <SelectLotto onChange={getSelected}>{dropDown}</SelectLotto>
-        <Trevo/>
-        <h1>{name.nome.toUpperCase()}</h1>
-        <h3>
-          <br />
-          CONCURSO
-          <br />
-          {luck ? luck.concursoId : <p>Aguarde o resultado</p>} - {dia}
-        </h3>
+      <LeftSection color={getColor()}>
+        <Header>
+          <SelectLotto onChange={getSelected}>{dropDown}</SelectLotto>
+        </Header>
+        <MiddleContainer>
+          <Trevo />
+          <GameName>{name.nome.toUpperCase()}</GameName>
+        </MiddleContainer>
+        <InfoContainer>
+          <h5>CONCURSO</h5>
+          <b>
+            {luck ? luck.concursoId : <p>Aguarde o resultado</p>} - {dia}
+          </b>
+        </InfoContainer>
       </LeftSection>
       <RightSection>
         <AllBalls>{numbers}</AllBalls>
         <Text>
-          Este sorteio é meramente ilustativo e não possui nenhuma ligação com a
-          CAIXA
+          Este sorteio é meramente ilustrativo e não possui nenhuma ligação com
+          a CAIXA
         </Text>
       </RightSection>
     </MainDiv>
   );
 };
-
 
 export default HomePage;
