@@ -85,7 +85,7 @@ export const InfoContainer = styled.div`
 grid-column: 2/3;
 grid-row: 3/4;
 margin-left: 1rem;
-margin-top:5rem;
+margin-top:6rem;
 display: flex;
 flex-direction: column;
 font-size:1rem;
@@ -115,7 +115,7 @@ export const Text =styled.div`
 grid-column: 1/4;
 grid-row: 3/4;
 text-align: center;
-margin-top:5rem;
+margin-top:6rem;
 @media screen  and (max-device-width : 667px){
     display: flex;
     flex-direction: column;
@@ -143,7 +143,7 @@ border-radius: 100%;
 background: #FFFFFF;
 width: 5rem;
 height:5rem;
-margin: 0.3rem;
+margin: 0.6rem;
 padding: 0.2rem;
 align-items: center;
 font-size:1.5rem;
