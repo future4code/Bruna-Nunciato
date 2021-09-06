@@ -115,6 +115,7 @@ export const Text =styled.div`
 grid-column: 1/4;
 grid-row: 3/4;
 text-align: center;
+margin-top:5rem;
 @media screen  and (max-device-width : 667px){
     display: flex;
     flex-direction: column;
