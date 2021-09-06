@@ -140,8 +140,8 @@ const HomePage = () => {
           <GameName>{name.nome.toUpperCase()}</GameName>
         </MiddleContainer>
         <InfoContainer>
-          <h5>CONCURSO</h5>
-          <b>
+          CONCURSO
+          <br/><br/><b>
             {luck ? luck.concursoId : <p>Aguarde o resultado</p>} - {dia}
           </b>
         </InfoContainer>

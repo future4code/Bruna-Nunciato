@@ -75,6 +75,8 @@ flex-direction: row;
 export const GameName = styled.div`
 margin-left:2rem;
 margin-top: 0.6rem;
+font-size: .83em;
+font-weight: bold;
 @media screen  and (max-device-width : 667px){
     margin:1rem;
 }
