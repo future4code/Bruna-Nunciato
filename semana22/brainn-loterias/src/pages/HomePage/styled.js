@@ -134,6 +134,7 @@ display: flex;
 flex-wrap:wrap;
 @media screen  and (max-device-width : 667px){
     margin-top:2rem;
+    padding:1rem;
 }
 `
 export const BallsContainer = styled.div`

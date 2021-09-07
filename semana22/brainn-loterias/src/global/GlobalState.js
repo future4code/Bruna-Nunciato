@@ -66,7 +66,7 @@ export const GlobalState = (props) => {
     luck,
     setLuck,
     name,
-    setName,
+    setName
   };
 
   return (
