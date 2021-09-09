@@ -129,7 +129,7 @@ const HomePage = () => {
           </b>
         </InfoContainer>
       </LeftSection>}
-  // tablet={"tablet"} // mobile will be rendered for a "skipped" tablet - "pick value to the left"
+
   desktop={    
   <LeftSection color={getColor()}>
         <Header>
