@@ -41,16 +41,19 @@ export const GlobalState = (props) => {
     })
     .catch((erro) => {
       console.log(erro);
-      alert(erro);
+      alert(erro.error);
     });
   }
   }
+
   if(reset){
     axios
     .delete(`${BASE_URL}/user/table/delete`)
     .then((res)=>{
       console.log(res)
+      alert("Deleted Data", res)
       setReset(false)
+      getData()
     })
     .catch((erro) =>{
       console.log(erro.mesage)

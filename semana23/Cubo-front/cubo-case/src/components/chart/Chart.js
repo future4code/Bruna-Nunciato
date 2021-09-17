@@ -1,56 +1,33 @@
-import React, {useState} from "react";
+import React, { useContext } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { ContainerChart } from "./styled";
-import { dataList } from "../../mocks/dataMocks";
+import { GlobalStateContext } from "../../global/GlobalStateContext";
 
 const Chart = () => {
-    const [fullName, setFullName] = useState({})
+    const { dataList } = useContext(GlobalStateContext);
+
+    const dataName =dataList.map(data=>{ 
+      const names =[]
+     names.push(data.firstName +" "+ data.lastName)
+     return names[0]
+      })
+      
+      const dataParticipation = dataList.map(data=>{
+        return`${data.participation}`
+      })    
+
   const chartData = {
-    labels: ["Brasil", "Estados Unidos", "Belgica", "Holanda"],
+    labels: dataName,
     datasets: [
       {
-        label: "Population",
-        data: [121, 323, 434, 541],
-        backgroundColor: ["blue", "orange", "blue", "yellow"],
+        data: dataParticipation,
+        backgroundColor: ["#15BA99",  "rgb(233, 74, 52)", "#9C56B8","rgb(44, 151, 222)", "rgb(189, 195, 199)","yellow", "pink"],
       },
     ],
   };
-//    const fullNames = [];
-//    console.log(dataList)
-//      for (let names of dataList.firstName) {fullNames.push(names);
-//     dataList.forEach((name) => {
-//       fullNames.push(name.lastName);
-//     })}
-
-//    dataList.map(data=>{
-//        setFullName(data.firstName)
-//    })
-
-
-  //   chartInfo =  dataList.map(data=>{
-  //       return (  <>
-  //      chartData: [labels: data.firstName ],
-  //       datasets:[
-  //           {
-  //               label: 'Population',
-  //               data:[ data.participation
-  //               ],
-  //               backgroundColor: [
-
-  //               ]}]
-  //       ) </>
-  //    })
-
-  //     // static defaultProps = {
-  //     displayTitle: true,
-  //     displayLegend: true,
-  //     legendPosition: 'right',
-  //     location: 'City'
-  // }
 
   return (
-    <ContainerChart> {console.log(`fim`, fullName)}
-      Chart
+    <ContainerChart>
       <Doughnut data={chartData} options={{ maintainAspectRatio: false }} />
     </ContainerChart>
   );

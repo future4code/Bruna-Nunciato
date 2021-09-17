@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import useForm from "../../hooks/useForm";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
+import { HeaderContainer, Group } from "./styled";
+import { Button, Form, Input } from 'reactstrap';
 
-export default function Header() {
+
+export default function Header(props) {
   const { form, onChange, cleanFields } = useForm({
     firstName: "",
     lastName: "",
@@ -22,9 +25,10 @@ export default function Header() {
   }
 
   return (
-    <div>
-      <form onSubmit={sendForm}>
-        <input
+    <HeaderContainer>
+      <Form  onSubmit={sendForm} inline>
+        <Group>
+        <Input className="input-space"
           name={"firstName"}
           value={form.firstName}
           onChange={onChange}
@@ -33,7 +37,7 @@ export default function Header() {
           pattern={"^.{3,}"}
           title={"type your first name"}
         />
-        <input
+        <Input className="input-space"
           name={"lastName"}
           value={form.lastName}
           onChange={onChange}
@@ -42,17 +46,20 @@ export default function Header() {
           pattern={"^.{2,}"}
           title={"type your last name"}
         />
-        <input
+        <Input className="input-space"
           name={"participation"}
           value={form.participation}
           onChange={onChange}
           placeholder="Participation"
           required
           type={"number"}
-        />
-        <button>SEND</button>
-      </form>
-      <button onClick={reStart}>Clean Fileds</button>
-    </div>
+        />  
+        
+        <button className="btn btn-primary-outline">
+        SEND</button>
+     </Group>
+      </Form>
+      <Button className="buttonX" onClick={reStart} color="danger">CLEAN DATA</Button>
+    </HeaderContainer>
   );
 }

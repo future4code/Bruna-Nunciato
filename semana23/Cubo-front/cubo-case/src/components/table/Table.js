@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
+import { Table } from 'reactstrap';
+import { MainContainer } from "./styled";
 // import { dataList } from '../../mocks/dataMocks'
 
-const Table = () => {
+export default function TableComponent (props) {
   const { dataList } = useContext(GlobalStateContext);
 
   const tableData = () => {
@@ -17,24 +19,25 @@ const Table = () => {
   };
 
   return (
-    <div>
-      {dataList[0] ? (
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Fisrt Name</th>
-              <th>Last Name</th>
-              <th>Participation</th>
-            </tr>
-          </thead>
-          <tbody>{tableData()}</tbody>
-        </table>
-      ) : (
-        <p>Complete the data </p>
-      )}
-    </div>
+    <MainContainer>
+{dataList[0] ? (
+<Table bordered size='sm'>
+      <thead>
+       <tr>
+          <th></th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Participation</th>
+        </tr>
+      </thead>
+      <tbody> {tableData()}
+       </tbody>
+    </Table>): (<p>
+       Complete the field to get the data
+    </p>        
+       )
+    }
+    </MainContainer>
   );
 };
 
-export default Table;
